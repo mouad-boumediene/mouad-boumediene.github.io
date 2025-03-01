@@ -33,7 +33,6 @@
     ul {
       list-style-type: none;
     }
-    /* Just to illustrate bullet points when we want them: */
     .bullets li {
       list-style-type: disc;
       margin-left: 1.2rem;
@@ -46,11 +45,9 @@
       display: flex;
       min-height: 100vh;
     }
-
-    /* SIDEBAR */
     .sidebar {
-      flex: 0 0 220px;         /* fixed width */
-      background: #262334;     /* dark sidebar like your example */
+      flex: 0 0 220px;
+      background: #262334;
       color: #fff;
       padding: 2rem 1rem;
       display: flex;
@@ -69,14 +66,10 @@
     .sidebar nav a:hover {
       color: #9a64ce;
     }
-
-    /* MAIN CONTENT WRAPPER */
     .main-content {
       flex: 1;
       padding: 2rem;
     }
-
-    /* TOP RIGHT LANGUAGE SWITCH (En/Ja) */
     .lang-switch {
       text-align: right;
       margin-bottom: 1rem;
@@ -112,8 +105,6 @@
       margin-top: 0.25rem;
       color: #555;
     }
-
-    /* ORANGE BUTTON (CV) */
     .btn-cv {
       display: inline-block;
       background-color: #ff6d35;
@@ -143,7 +134,7 @@
       margin-bottom: 0.75rem;
     }
 
-    /* EXAMPLE STYLES FOR "NEWS" */
+    /* NEWS HIGHLIGHTS EXAMPLE (We can repurpose or hide) */
     .news-highlights {
       display: flex;
       align-items: flex-start;
@@ -155,9 +146,6 @@
     }
     .news-highlights .info {
       flex: 1;
-    }
-    .news-list {
-      margin-top: 1rem;
     }
 
     /* RESEARCH IMAGES ROW */
@@ -219,7 +207,7 @@
       padding-bottom: 2rem;
     }
 
-    /* RESPONSIVE ADJUSTMENTS */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .profile-header {
         flex-direction: column;
@@ -260,7 +248,7 @@
   <div class="layout">
     <!-- LEFT SIDEBAR -->
     <div class="sidebar">
-      <h1>Kei18</h1>
+      <h1>Mouad B</h1>
       <nav>
         <a href="#news">News</a>
         <a href="#research">Research</a>
@@ -279,83 +267,51 @@
     <div class="main-content">
       <!-- Language switch placeholder (top-right corner) -->
       <div class="lang-switch">
-        <a href="#">En</a> / <a href="#">Ja</a>
+        <a href="#">En</a> / <a href="#">Fr</a>
       </div>
 
       <!-- PROFILE HEADER -->
       <div class="profile-header">
-        <!-- Example circular image in /images/ -->
         <img src="images/personal image.jpg" alt="Profile image">
         <div>
-          <h2>Keisuke Okumura <span style="font-weight:400;">| 奥村 圭祐</span></h2>
+          <h2>
+            Mouad&nbsp;Boumediene
+            <span style="font-weight:400;">| Postdoctoral Researcher</span>
+          </h2>
           <p class="subtext">
-            Hi there! I study <em>intelligent collective behavior design for swarm agents</em>...
-            <br>
-            (Replace with your actual short bio.)
+            I focus my efforts on developing multi-robot coordination approaches using Deep Reinforcement Learning,
+            with an interest in advanced pathfinding and Industry 4.0 applications.
           </p>
-          <!-- Example CV button (orange) -->
-          <a href="CV.pdf" target="_blank" class="btn-cv">Curriculum Vitae [PDF]</a>
+          <a href="CV_mouad.pdf" target="_blank" class="btn-cv">Curriculum Vitae [PDF]</a>
         </div>
       </div>
 
       <!-- NEWS SECTION -->
       <section id="news">
         <h3 class="section-title">News</h3>
-
-        <h4>Highlights</h4>
-        <!-- Example "Invited talk" highlight with an image/gif -->
-        <div class="news-highlights">
-          <img src="images/traffic aware.gif" alt="Highlight gif">
-          <div class="info">
-            <p><strong>Invited Talk: Pathfinding for 10k agents</strong><br>
-              1st Nov 2023, Wednesday Seminars, Dept. of Computer Science, University of Cambridge
-            </p>
-          </div>
-        </div>
-
-        <!-- Example bullet sections -->
-        <h4>Recruitment, Advertisement</h4>
-        <ul class="bullets">
-          <li>I wrote a book chapter on multi-agent path finding in Japanese.</li>
-          <li>Organising the 6th international workshop on Multi-Agent Path Finding (WoMAPF) at AAAI-25.</li>
-          <li>Recruiting a research assistant at AIST, Tokyo. Contact me if you are interested.</li>
-        </ul>
-
-        <h4>Upcoming Events</h4>
-        <ul class="bullets">
-          <li>Feb. 2025 — Plan to attend AAAI-25, Philadelphia, USA. Two co-authored presentations at WoMAPF.</li>
-        </ul>
-
-        <h4>Research Activities</h4>
-        <ul class="bullets">
-          <li>Oct. 2024 — Visited several robotics labs in Zurich, Switzerland. Cool research discussions!</li>
-          <li>Oct. 2024 — Organised a workshop on multi-agent/multi-robot planning in Tokyo on 5 October. 
-            Thank you for attending!</li>
-          <li>Aug. 2024 — A preprint paper “Pathfinding with Lazy Successor Generation” is out on arXiv.</li>
-          <li>May. 2024 — Visited Monash University in Melbourne, … etc.</li>
-        </ul>
+        <p>No current news at the moment. Check back soon!</p>
       </section>
 
       <!-- RESEARCH SECTION -->
       <section id="research">
-        <h3 class="section-title">Research Questions</h3>
+        <h3 class="section-title">Research</h3>
         <p>
-          Intelligent Collective Behavior Design for Swarm Agents.
-          <br>
-          (Here you can describe your main research interest, i.e. “Systems with multiple physical moving agents… etc.”)
+          My recent research includes developing HM-DRL—a Deep Reinforcement Learning approach for distributed
+          multi-robot pathfinding—and exploring relocation strategies to reduce bottlenecks in large robot fleets.
+          I’ve also worked on 4D trajectory planning for multiple UAVs.
         </p>
         <div class="research-images">
           <figure>
-            <img src="images/den520d_scallability_experiment.gif" alt="multi-agent path finding">
-            <figcaption>multi-agent path finding</figcaption>
+            <img src="images/den520d_scallability_experiment.gif" alt="Traffic Aware MAPF">
+            <figcaption>Traffic-aware MAPF</figcaption>
           </figure>
           <figure>
-            <img src="images/hm-drl experiment.gif" alt="deadlock-free execution">
-            <figcaption>deadlock-free execution</figcaption>
+            <img src="images/hm-drl experiment.gif" alt="HM-DRL approach">
+            <figcaption>HM-DRL approach</figcaption>
           </figure>
           <figure>
-            <img src="images/4d trajectory planning.gif" alt="active environment">
-            <figcaption>active environment</figcaption>
+            <img src="images/4d trajectory planning.gif" alt="4D trajectory planning">
+            <figcaption>4D trajectory planning</figcaption>
           </figure>
         </div>
       </section>
@@ -364,11 +320,35 @@
       <section id="career">
         <h3 class="section-title">Career</h3>
         <ul class="bullets">
-          <li><strong>University of Cambridge</strong>: Visiting Postdoc Scholar (May. 2023 - present)</li>
-          <li><strong>National Institute of Advanced Industrial Science and Technology (AIST)</strong>: 
-            Researcher (Apr. 2023 - present)</li>
-          <li><strong>Japan Society for the Promotion of Science (JSPS)</strong>: Research Fellowship (Apr. 2020 - Mar. 2023)</li>
-          <li>... etc.</li>
+          <li>
+            <strong>2023 – 2024: Postdoctoral Researcher</strong>,
+            MMMI - University of Southern Denmark, Odense, Denmark
+            <br>
+            - Contributed to the “Swarm Robotics for Industry 4.0” project, under grant 0136-00251B<br>
+            - Developed HM-DRL, a Deep Reinforcement Learning approach for distributed MAPF (now under final revision)<br>
+            - Developed Relocation-MAPF to enhance efficiency and success rate for robot fleets
+          </li>
+          <li>
+            <strong>Feb 2023: Robotics Researcher (PhD Internship)</strong>,
+            Syddansk Universitet - University of Southern Denmark
+            <br>
+            - Studied DRL for swarms of AMRs in Industry 4.0 environments<br>
+            - Contributed to the “Swarm Robotics for Industry 4.0” project (grant 0136-00251B)
+          </li>
+          <li>
+            <strong>2021 – 2022: Robotics Engineer (Freelance)</strong>,
+            AiGro (Netherlands, remote)
+            <br>
+            - Built a 2D simulator for pathfinding/localization algorithms in agricultural robots<br>
+            - Implemented a sensor fusion approach using a Kalman filter for real data (IMU + GPS)
+          </li>
+          <li>
+            <strong>2019 – 2022: Temporary Lecturer</strong>,
+            University of 20 août 1955, Skikda, Algeria
+            <br>
+            - Taught advanced signal processing and digital regulation (labs + tutorials)<br>
+            - Supervised Master’s students’ final-year projects
+          </li>
         </ul>
       </section>
 
@@ -376,80 +356,156 @@
       <section id="education">
         <h3 class="section-title">Education</h3>
         <ul class="bullets">
-          <li><strong>Doctor of Engineering in Artificial Intelligence</strong>: Tokyo Institute of Technology 
-            (Apr. 2020 - Mar. 2023)</li>
-          <li><strong>Master of Engineering in AI</strong>: (Apr. 2018 - Mar. 2020)</li>
-          <li><strong>Bachelor of Engineering</strong>: (Apr. 2014 - Mar. 2018)</li>
+          <li>
+            <strong>Ph.D in Automation (2019 – 2023)</strong>,
+            University of Skikda, Algeria
+            <br>
+            Thesis title: Contributions to the command of mobile robots
+          </li>
+          <li>
+            <strong>Master’s in Instrumentation (2017 – 2019)</strong>,
+            University of Skikda, Algeria
+          </li>
+          <li>
+            <strong>Bachelor in Electronics Engineering (2014 – 2017)</strong>,
+            University of Skikda, Algeria
+          </li>
         </ul>
       </section>
 
       <!-- PUBLICATION SECTION -->
       <section id="publication">
         <h3 class="section-title">Publication</h3>
-        <p><em>Journal Papers / Conference Proceedings / Preprint</em></p>
+        <p><em>Selected Works</em></p>
 
-        <!-- Example publication item #1 -->
+        <!-- Current Work -->
         <div class="publication-item">
-          <img src="images/pathfinding.png" alt="pathfinding example">
+          <img src="images/pathfinding.png" alt="Traffic Aware MAPF">
           <div class="publication-detail">
-            <h4>21. Pathfinding with Lazy Successor Generation</h4>
-            <p class="authors">Keisuke Okumura</p>
-            <p>arXiv preprint. Aug. 2024. pp.1-14.</p>
+            <h4>Traffic Aware Multi-Agent Pathfinding</h4>
+            <p class="authors">M. Boumediene, A. L. Christensen</p>
+            <p>Status: Under proofreading, 2024.</p>
           </div>
         </div>
 
-        <!-- Example publication item #2 -->
         <div class="publication-item">
-          <img src="images/large_scale.png" alt="Large scale pathfinding">
+          <img src="images/large_scale.png" alt="HM-DRL Approach">
           <div class="publication-detail">
-            <h4>20. Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding</h4>
-            <p class="authors">Keisuke Okumura</p>
-            <p>Proceedings of AAMAS. May. 2024. pp. 1501-1509. Acceptance Rate: 25.9%</p>
+            <h4>HM-DRL: Enhancing MAPF with a Heatmap-based Heuristic</h4>
+            <p class="authors">M. Boumediene, A. Maoudj, and A. L. Christensen</p>
+            <p>Status: Under peer review by Springer’s Applied Intelligence, 2024.</p>
           </div>
         </div>
 
-        <!-- Add more publications as needed -->
+        <!-- Journal Articles -->
+        <div class="publication-item">
+          <img src="images/pathfinding.png" alt="FDA* Algorithm">
+          <div class="publication-detail">
+            <h4>FDA*: A Focused Single-Query Grid Based Path Planning Algorithm</h4>
+            <p class="authors">M. Boumediene, L. Mehennaoui, and A. Lachouri</p>
+            <p>Journal of Automation, Mobile Robotics and Intelligent Systems, May 2022</p>
+          </div>
+        </div>
+
+        <!-- Conference Proceedings -->
+        <div class="publication-item">
+          <img src="images/4d trajectory planning.gif" alt="Gen4Trajectory Algorithm">
+          <div class="publication-detail">
+            <h4>Gen4jectory Algorithm — 4D Trajectory Planning</h4>
+            <p class="authors">I. Panov, M. Boumediene, H. S. Midtiby, and K. Jensen</p>
+            <p>15th International Micro Air Vehicle Conf., Bristol, UK, Sep. 2024</p>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <img src="images/pathfinding.png" alt="Unicycle Mobile Robot Control">
+          <div class="publication-detail">
+            <h4>Unicycle Mobile Robot Control using Neural Model Predictive Controller</h4>
+            <p class="authors">C. Bellel, L. Mehennaoui, F. Bouchareb, and M. Boumediene</p>
+            <p>ICTAEE’23, Skikda, Algeria, May 2023</p>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <img src="images/pathfinding.png" alt="Self-balancing Robot">
+          <div class="publication-detail">
+            <h4>Design, Simulation and Control of a Self-balancing Robot</h4>
+            <p class="authors">M. Boumediene, S. Laouar, D. L. Mehennaoui, and P. S. Ouchtati</p>
+            <p>ICTAEE, May 2023</p>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <img src="images/pathfinding.png" alt="Self-balancing Robot Assembly">
+          <div class="publication-detail">
+            <h4>Design, Construction, and Control of a Self-balancing Robot</h4>
+            <p class="authors">M. Boumediene, N. Zeghida, B. Manaa, and D. L. Mehennaoui</p>
+            <p>ICTAEE, May 2023</p>
+          </div>
+        </div>
       </section>
 
-      <!-- CREATION / AWARD / OTHERS (placeholders) -->
+      <!-- CREATION / AWARD / OTHERS -->
       <section id="creation">
         <h3 class="section-title">Creation</h3>
-        <p>(Show your creative works or side projects here...)</p>
+        <p>(No side projects listed yet.)</p>
       </section>
 
       <section id="award">
         <h3 class="section-title">Award</h3>
         <ul class="bullets">
-          <li>(List any awards or recognitions...)</li>
+          <li>No awards to list at this time.</li>
         </ul>
       </section>
 
       <section id="others">
-        <h3 class="section-title">Others</h3>
-        <p>(Any other interesting info, etc.)</p>
+        <h3 class="section-title">Others (References)</h3>
+        <ul class="bullets">
+          <li>
+            <strong>Prof. Anders Lyhne Christensen</strong> — Full Professor, MMMI, SDU
+            <br>Email: <a href="mailto:andc@mmmi.sdu.dk">andc@mmmi.sdu.dk</a>, Phone: +45 65 50 73 24
+          </li>
+          <li>
+            <strong>Dr. Abderraouf Maoudj</strong> — IRC-IMR, KFUPM, KSA
+            <br>Email: <a href="mailto:abderraouf.maoudj@kfupm.edu.sa">abderraouf.maoudj@kfupm.edu.sa</a>, Phone: +966 5 66 92 75 19
+          </li>
+          <li>
+            <strong>Jev Kuznetsov</strong> — CEO at ROX Automation, Netherlands
+            <br>Email: <a href="mailto:jev.kuznetsov@gmail.com">jev.kuznetsov@gmail.com</a>, Phone: +31 624 51 76 84
+          </li>
+          <li>
+            <strong>Dr. Lamine Mehennaoui</strong> — Senior Lecturer, Univ. of 20 Aout 1955, Skikda
+            <br>Email: <a href="mailto:me_lamine@yahoo.fr">me_lamine@yahoo.fr</a>, Phone: +213 6 99 61 16 51
+          </li>
+        </ul>
       </section>
 
       <!-- CONTACT SECTION -->
       <section id="contact">
         <h3 class="section-title">Contact</h3>
         <p>
-          Research collaborations are welcome! Please feel free to send me an email:
+          <strong>Email:</strong> <a href="mailto:mouadboumediene@yahoo.fr">mouadboumediene@yahoo.fr</a><br>
+          <strong>Phone:</strong> +213 7 93 74 18 90<br>
+          <strong>Website:</strong> <a href="https://mouadboumediene.com" target="_blank">mouadboumediene.com</a><br>
+          <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mouad-boumediene" target="_blank">/in/mouad-boumediene</a><br>
+          <strong>YouTube:</strong> <a href="https://www.youtube.com/@hobby_coding" target="_blank">@hobby_coding</a><br>
+          <strong>ORCID:</strong> 0000-0003-4714-5656<br>
           <br>
-          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          Based in Zerdezas, 21047 Skikda, Algeria.
         </p>
       </section>
 
       <!-- NOTE SECTION -->
       <section id="note">
         <h3 class="section-title">Note</h3>
-        <p>(Miscellaneous notes or disclaimers...)</p>
+        <p>(No additional notes at this time.)</p>
       </section>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2025 Kei18 | Built with HTML & CSS
+    &copy; 2025 Mouad B | Built with HTML &amp; CSS
   </footer>
 
 </body>
