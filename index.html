@@ -2,98 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Personal Page</title>
+  <title>Mouad Boumediene | Robotics Researcher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Example Google Font, from your original index.html references -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+  <!-- Same font from the original index.html -->
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap" rel="stylesheet">
 
   <style>
-    /* ---------------------
-       GLOBAL RESET & BASE
-    ---------------------- */
+    /* RESET / BASE */
     *, *::before, *::after {
       box-sizing: border-box;
-      margin: 0; 
+      margin: 0;
       padding: 0;
     }
     body {
       font-family: 'Inter', sans-serif;
-      color: #1d1e20; /* from the big index.html (dark text) */
-      background-color: #F2F3F6; /* light gray background from t.html */
+      background-color: #F2F3F6; /* matches your original background color */
+      color: #1d1e20;           /* dark text */
       line-height: 1.6;
     }
     img {
       max-width: 100%;
-      display: block;
       height: auto;
+      display: block;
     }
     a {
-      color: #673de6; /* "primary" color from the big index.html */
+      color: #673de6; /* The “primary” color from your original site */
       text-decoration: none;
-      transition: 0.2s;
+      transition: color 0.2s ease;
     }
     a:hover {
-      color: #5025d1; /* darker primary color */
+      color: #5025d1; /* Slightly darker variant of the primary color */
     }
 
-    /* -----------------------
-       LAYOUT CONTAINERS
-    ------------------------ */
+    /* LAYOUT WRAPPERS */
     header, main, footer {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 1rem;
     }
+    /* HEADER + NAV */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: #262334;  /* a deeper tone from your original nav */
-      color: #fff;
-      border-radius: 8px;
       margin-top: 1rem;
+      background-color: #262334; /* dark header background */
+      border-radius: 8px;
+      color: #fff;
+    }
+    header h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
     }
     nav a {
       margin-left: 1rem;
       font-weight: 500;
+      color: #fff;
     }
     nav a:hover {
-      color: #9a64ce; /* lighter highlight from your original nav color */
+      color: #9a64ce; /* highlight color from your site */
     }
 
+    /* MAIN CONTENT */
     main {
-      margin-top: 2rem;
+      margin-top: 1rem;
       background-color: #fff;
       border-radius: 8px;
       padding: 2rem;
     }
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
     section h2 {
-      margin-bottom: 1rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      font-size: 1.25rem;
+      margin-bottom: 1rem;
       color: #1d1e20;
     }
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      padding: 1rem 0;
-      font-size: 0.9rem;
-      color: #727586;
+    p {
+      margin-bottom: 1rem;
     }
 
-    /* -----------
-       BUTTON
-    ------------ */
+    /* BUTTON */
     .button {
       display: inline-block;
       background-color: #673de6;
       color: #fff;
-      padding: 0.65rem 1rem;
+      padding: 0.6rem 1rem;
       border-radius: 4px;
       font-weight: 600;
       text-decoration: none;
@@ -102,95 +99,210 @@
       background-color: #5025d1;
     }
 
-    /* ------------
-       REUSABLE CLASSES
-    ------------- */
-    .content-block {
-      margin-bottom: 1rem;
+    /* SKILLS GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
+    .skill-box {
+      background-color: #F2F3F6;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+    }
+    .skill-box img {
+      margin-bottom: 0.5rem;
+      max-height: 60px;
+    }
+
+    /* PROJECTS */
     .project-card {
       background-color: #F2F3F6;
       border-radius: 8px;
+      margin-bottom: 2rem;
       padding: 1rem;
-      margin-bottom: 1rem;
     }
     .project-card h3 {
       margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* PUBLICATIONS */
+    .publication {
+      margin-bottom: 1rem;
+      padding-left: 1.2rem; /* indentation for the reference-like look */
+    }
+    .publication h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #000;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      color: #727586;
     }
   </style>
 </head>
 <body>
+
   <!-- HEADER -->
   <header>
-    <div>
-      <h1 style="margin: 0; font-size: 1.5rem;">Your Name</h1>
-    </div>
+    <h1>Mouad Boumediene</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <!-- MAIN CONTENT -->
   <main>
-    <!-- About Section -->
+
+    <!-- ABOUT SECTION -->
     <section id="about">
       <h2>About Me</h2>
-      <div class="content-block">
-        <p>
-          Write a short introduction: who you are, your background, or any quick personal details you want visitors to know.
-        </p>
-      </div>
+      <p>
+        Join me, a dedicated postdoctoral researcher at SDU, in exploring the future
+        of robotics by developing innovative methods to coordinate teams of robots
+        in shared environments. My interests include decentralized multi-robot
+        planning, advanced concurrency, and large-scale simulation experiments.
+      </p>
+      <p>
+        Beyond my core projects, I actively publish robotics coding tutorials on
+        my YouTube channel, firmly believing in the power of knowledge sharing
+        through small-scale projects. It's my way of giving back to the tech
+        community and gathering broader feedback on my work.
+      </p>
     </section>
 
-    <!-- Skills Section -->
+    <!-- SKILLS SECTION -->
     <section id="skills">
       <h2>Skills</h2>
-      <div class="content-block">
-        <p>List or describe your key skills. For instance:</p>
-        <ul>
-          <li>Python, JavaScript, or any languages you use</li>
-          <li>Web Development (HTML, CSS, React, etc.)</li>
-          <li>Robotics frameworks, hardware knowledge, etc.</li>
-        </ul>
+      <p>Here are some of the frameworks, tools, and technologies I frequently use:</p>
+      <div class="skills-grid">
+        <!-- ROS/Gazebo Skill -->
+        <div class="skill-box">
+          <img src="18133-mv0lv3Jn7Bi5y1vX.png" alt="ROS/Gazebo Logo" />
+          <p><strong>ROS / Gazebo</strong></p>
+        </div>
+        <!-- Docker Skill -->
+        <div class="skill-box">
+          <img src="docker_-container_engine-_logo_-cropped-AwvPzQbRZNso71vr.png" alt="Docker Logo" />
+          <p><strong>Docker</strong></p>
+        </div>
+        <!-- CAD / Onshape Skill -->
+        <div class="skill-box">
+          <img src="box-onshape-favicon-512-401x-YBgykVQWvJTlbBp9.webp" alt="Onshape Logo" />
+          <p><strong>CAD / Onshape</strong></p>
+        </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- PROJECTS SECTION -->
     <section id="projects">
       <h2>Projects</h2>
-
-      <!-- Example Project Card #1 -->
+      <!-- Project 1: DRL Pathfinding for Multi-Robot -->
       <div class="project-card">
-        <h3>Project Title 1</h3>
-        <p>A quick description about what this project is, how you built it, and any interesting features.</p>
-        <a class="button" href="https://github.com/your-profile/project-1" target="_blank">View on GitHub</a>
+        <h3>DRL-Based Pathfinding for Multi-Robot Systems</h3>
+        <p>
+          This project implements a decentralized approach to multi-robot path 
+          planning using deep reinforcement learning. It focuses on dynamic 
+          obstacle avoidance and cooperative behavior within cluttered environments.
+        </p>
+        <!-- Insert the same GIF used in the original index.html for DRL -->
+        <img src="hm-drl-ezgif.com-video-to-gif-converter.gif" 
+             alt="DRL Multi-Robot Pathfinding GIF" />
       </div>
 
-      <!-- Example Project Card #2 -->
+      <!-- Project 2: Scalability Testing -->
       <div class="project-card">
-        <h3>Project Title 2</h3>
+        <h3>Scalability Testing &amp; Large-Scale Simulations</h3>
         <p>
-          Possibly highlight relevant images or a link to a live demo. 
-          Explain the technologies you used, the problem solved, or what you learned.
+          A series of experiments to measure how effectively multi-robot 
+          algorithms scale with an increasing number of agents. 
+          Focus on real-time performance monitoring and concurrency.
         </p>
-        <a class="button" href="https://github.com/your-profile/project-2" target="_blank">View on GitHub</a>
+        <!-- Insert the "scallability-ezgif.com-video-to-gif-converter" GIF -->
+        <img src="scallability-ezgif.com-video-to-gif-converter.gif"
+             alt="Scalability simulation GIF" />
+      </div>
+
+      <!-- Project 3: Multi-UAV 4D Trajectory Planning -->
+      <div class="project-card">
+        <h3>Multi-UAV 4D Trajectory Planning</h3>
+        <p>
+          Each agent reserves the airspace using 4D boxes for a safer flight. 
+          It employs a stochastic-based discretization approach to handle 
+          real-time changes in the environment.
+        </p>
+        <!-- Insert the "image004-AzGD6R1o1Jf2ZnJ3.gif" from your index.html -->
+        <img src="image004-AzGD6R1o1Jf2ZnJ3.gif" 
+             alt="Multi-UAV 4D Trajectory Planning GIF" />
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- PUBLICATIONS SECTION -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <!-- Journal Publication: FDA* -->
+      <div class="publication">
+        <h4>Journal Article</h4>
+        <p>
+          <strong>M. Boumediene</strong>, L. Mehennaoui, and A. Lachouri,<br>
+          <em>“FDA*: A Focused Single-Query Grid-Based Path Planning Algorithm”</em>,<br>
+          <span>Journal of Automation, Mobile Robotics and Intelligent Systems (JAMRIS),</span>
+          May 2022, pp. 37–43.
+        </p>
+      </div>
+
+      <!-- Conference Publication: Self-Balancing Robot -->
+      <div class="publication">
+        <h4>Conference Proceedings</h4>
+        <p>
+          <strong>M. Boumediene</strong>, N. Zeghida, B. Manaa, and D. L. Mehennaoui,<br>
+          “Design, Construction, and Control of a Self-Balancing Robot Including a New
+          Frame Assembly Approach and a Custom PCB,” in Proceedings of the International
+          Conference on Technological Advances in Electrical Engineering (ICTAEE),
+          Skikda, Algeria, May 2023, pp. 200–206.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>You can share an email address, or embed a form. For example:</p>
-      <a class="button" href="mailto:your.email@example.com">Email Me</a>
+      <p>
+        If you'd like to connect or discuss potential collaborations, you can reach
+        out via email or check my robotics tutorials on YouTube.
+      </p>
+      <!-- Example contact buttons -->
+      <p>
+        <a class="button" href="mailto:your.email@example.com">Email Me</a>
+        &nbsp;&nbsp;
+        <a class="button" href="https://www.youtube.com/" target="_blank">YouTube Channel</a>
+      </p>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2025 Your Name | Built with HTML, CSS, and a pinch of magic
+    &copy; 2025 Mouad Boumediene • All Rights Reserved
   </footer>
+
 </body>
 </html>
