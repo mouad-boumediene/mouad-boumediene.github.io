@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Your Personal Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Font (same as your original code) -->
+  <!-- Example Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap" rel="stylesheet">
 
@@ -19,52 +19,63 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      color: #1d1e20; /* from the big index.html (dark text) */
-      background-color: #F2F3F6; /* light gray background from t.html */
+      color: #1d1e20;
+      background-color: #F2F3F6;
       line-height: 1.6;
     }
     img {
       max-width: 100%;
-      display: block;
       height: auto;
+      display: block;
     }
     a {
-      color: #673de6; /* "primary" color from your original index.html */
+      color: #673de6; 
       text-decoration: none;
       transition: 0.2s;
     }
     a:hover {
-      color: #5025d1; /* darker primary color */
+      color: #5025d1; 
+    }
+    ul, li {
+      list-style: none;
     }
 
-    /* -----------------------
-       LAYOUT CONTAINERS
-    ------------------------ */
-    header, main, footer {
+    /* --------------
+       MAIN LAYOUT
+    -------------- */
+    /* Example: left sidebar + main content. Adjust widths/padding as you like. */
+    .container {
+      display: flex;
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 1rem;
     }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #262334;  /* deeper tone from your nav */
+    /* Sidebar */
+    aside {
+      width: 200px;
+      background-color: #262334;
       color: #fff;
+      padding: 1rem;
       border-radius: 8px;
-      margin-top: 1rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
     }
-    nav a {
-      margin-left: 1rem;
+    aside h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    aside nav a {
+      display: block;
+      margin-bottom: 0.5rem;
       font-weight: 500;
     }
-    nav a:hover {
+    aside nav a:hover {
       color: #9a64ce;
     }
-
+    /* Main content */
     main {
-      margin-top: 2rem;
+      flex: 1;
       background-color: #fff;
       border-radius: 8px;
       padding: 2rem;
@@ -78,13 +89,6 @@
       font-size: 1.25rem;
       color: #1d1e20;
     }
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      padding: 1rem 0;
-      font-size: 0.9rem;
-      color: #727586;
-    }
 
     /* -----------
        BUTTON
@@ -97,6 +101,7 @@
       border-radius: 4px;
       font-weight: 600;
       text-decoration: none;
+      margin-top: 0.5rem;
     }
     .button:hover {
       background-color: #5025d1;
@@ -108,148 +113,225 @@
     .content-block {
       margin-bottom: 1rem;
     }
-    /* Example class for a round profile image, if desired */
-    .profile-pic {
-      max-width: 150px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
+    /* For a row of images or projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1rem;
-      align-items: center;
-      margin-top: 1rem;
-    }
-    .skills-grid img {
-      width: 60px;
-      height: auto;
     }
     .project-card {
       background-color: #F2F3F6;
       border-radius: 8px;
       padding: 1rem;
-      margin-bottom: 1rem;
     }
     .project-card h3 {
       margin-bottom: 0.5rem;
+      font-size: 1.15rem;
     }
-    .project-img {
-      max-width: 400px;
-      margin-bottom: 0.75rem;
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      color: #727586;
+      font-size: 0.9rem;
+      margin-top: 2rem;
     }
+
+    /* Example image styles for a “circular” personal photo */
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
   </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div>
-      <h1 style="margin: 0; font-size: 1.5rem;">Your Name</h1>
-    </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <!-- About Section -->
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="content-block">
-        <!-- If you have a personal image, reference it from images folder -->
-        <img src="images/personal image.jpg" alt="Personal Photo" class="profile-pic">
+  <!-- CONTAINER: SIDEBAR + MAIN -->
+  <div class="container">
+    <!-- SIDEBAR -->
+    <aside>
+      <h1>Your Name</h1>
+      <nav>
+        <a href="#news">News</a>
+        <a href="#research">Research</a>
+        <a href="#career">Career</a>
+        <a href="#education">Education</a>
+        <a href="#publication">Publication</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
 
-        <p>
-          Write a short introduction: who you are, your background, or any quick personal details
-          you want visitors to know. (Replace this text with your own.)
-        </p>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="content-block">
-        <p>List or describe your key skills. For instance:</p>
-        <ul>
-          <li>Python, JavaScript, or any languages you use</li>
-          <li>Web Development (HTML, CSS, React, etc.)</li>
-          <li>Robotics frameworks, hardware knowledge, etc.</li>
-        </ul>
-        <!-- Example of a grid of logos (update file names as needed) -->
-        <div class="skills-grid">
-          <img src="images/python logo.png" alt="Python Logo">
-          <img src="images/docker logo.png" alt="Docker Logo">
-          <img src="images/gazebo logo.png" alt="Gazebo Logo">
-          <img src="images/ros2 logo.webp" alt="ROS2 Logo">
-          <img src="images/onshape logo.webp" alt="Onshape Logo">
-          <img src="images/git logo.png" alt="Git Logo">
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- About (Profile) Section -->
+      <section id="about">
+        <div class="content-block">
+          <!-- Example: personal image from images folder -->
+          <img class="profile-img" src="images/personal image.jpg" alt="Your Profile Photo">
+          <p>
+            Hi there! I am a [brief introduction about yourself]. 
+            I do X, Y, Z, and I’m passionate about… 
+            (Replace this paragraph with your own summary from your original file.)
+          </p>
+          <!-- Example CV button -->
+          <a class="button" href="Your_CV.pdf" target="_blank">Curriculum Vitae [PDF]</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Projects</h2>
+      <!-- News Section -->
+      <section id="news">
+        <h2>News</h2>
+        <div class="content-block">
+          <h3>Highlights</h3>
+          <img src="images/traffic aware.gif" alt="News highlight gif" style="max-width: 300px;">
+          <p>Invited Talk: Pathfinding for 10k agents (Just an example highlight.)</p>
+        </div>
 
-      <!-- Project #1 -->
-      <div class="project-card">
-        <h3>Hierarchical Multiagent DRL Experiment</h3>
-        <!-- The GIF from your images folder -->
-        <img src="images/hm-drl experiment.gif" alt="H-M DRL Experiment" class="project-img">
-        <p>
-          A demonstration of hierarchical multiagent deep reinforcement learning. (Replace this with the original description.)
-        </p>
-        <a class="button" href="https://github.com/your-profile/hm-drl" target="_blank">View on GitHub</a>
-      </div>
+        <div class="content-block">
+          <h3>Recruitment, Advertisement</h3>
+          <ul>
+            <li>I wrote a book chapter on multi-agent path finding in Japanese…</li>
+            <li>Organising the 6th international workshop on Multi-Agent Path Finding…</li>
+            <li>Recruiting a research assistant…</li>
+            <!-- etc. -->
+          </ul>
+        </div>
+      </section>
 
-      <!-- Project #2 -->
-      <div class="project-card">
-        <h3>Traffic Aware Planning</h3>
-        <img src="images/traffic aware.gif" alt="Traffic Aware Planning" class="project-img">
-        <p>
-          A route planning project that accounts for traffic congestion in real time. (Replace with your original text.)
-        </p>
-        <a class="button" href="https://github.com/your-profile/traffic-planning" target="_blank">View on GitHub</a>
-      </div>
+      <!-- Research Section -->
+      <section id="research">
+        <h2>Research</h2>
+        <div class="content-block">
+          <p>
+            (Here is where you’d describe your main research questions, 
+            e.g. “Intelligent Collective Behavior Design for Swarm Agents.” 
+            Then show a row of images.)
+          </p>
+          <div class="project-grid">
+            <div>
+              <img src="images/den520d_scallability_experiment.gif" alt="Multi-agent path finding example">
+              <p style="text-align:center; font-size:0.9rem;">Multi-agent path finding</p>
+            </div>
+            <div>
+              <img src="images/hm-drl experiment.gif" alt="Deadlock-free execution example">
+              <p style="text-align:center; font-size:0.9rem;">Deadlock-free execution</p>
+            </div>
+            <div>
+              <img src="images/4d trajectory planning.gif" alt="Active environment example">
+              <p style="text-align:center; font-size:0.9rem;">Active environment</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <!-- Project #3 -->
-      <div class="project-card">
-        <h3>Den520D Scalability Experiment</h3>
-        <img src="images/den520d_scallability_experiment.gif" alt="Den520D Scalability Experiment" class="project-img">
-        <p>
-          Large-scale experiment demonstrating the performance of a multiagent planning approach. (Replace with original text.)
-        </p>
-        <a class="button" href="https://github.com/your-profile/den520d-scalability" target="_blank">View on GitHub</a>
-      </div>
+      <!-- Career Section -->
+      <section id="career">
+        <h2>Career</h2>
+        <ul>
+          <li>University of Cambridge: Visiting Postdoc Scholar (May 2023 - present)</li>
+          <li>National Institute of Advanced Industrial Science and Technology (AIST): Researcher</li>
+          <li>Japan Society for the Promotion of Science (JSPS): Fellowship…</li>
+          <!-- etc. -->
+        </ul>
+      </section>
 
-      <!-- Project #4 -->
-      <div class="project-card">
-        <h3>4D Trajectory Planning</h3>
-        <img src="images/4d trajectory planning.gif" alt="4D Trajectory Planning" class="project-img">
-        <p>
-          Advanced motion planning in four dimensions for autonomous systems. (Replace with original text.)
-        </p>
-        <a class="button" href="https://github.com/your-profile/4d-planning" target="_blank">View on GitHub</a>
-      </div>
+      <!-- Education Section -->
+      <section id="education">
+        <h2>Education</h2>
+        <ul>
+          <li>Doctor of Engineering in Artificial Intelligence: Tokyo Institute of Technology (Apr. 2020 - Mar. 2023)</li>
+          <li>Master of Engineering in AI: (Apr. 2018 - Mar. 2020)</li>
+          <li>Bachelor of Engineering: (Apr. 2014 - Mar. 2018)</li>
+          <!-- etc. -->
+        </ul>
+      </section>
 
-    </section>
+      <!-- Publication Section -->
+      <section id="publication">
+        <h2>Publication</h2>
+        <h3>Journal Papers / Conference Proceedings / Preprint</h3>
+        <div class="content-block">
+          <h4>21. Pathfinding with Lazy Successor Generation</h4>
+          <p>Keisuke Okumura, arXiv preprint. Aug. 2024.</p>
+          <img src="images/pathfinding.png" alt="Pathfinding figure">
+        </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>You can share an email address, or embed a form. For example:</p>
-      <a class="button" href="mailto:your.email@example.com">Email Me</a>
-    </section>
-  </main>
+        <div class="content-block">
+          <h4>20. Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding</h4>
+          <p>Keisuke Okumura, AAMAS 2024.</p>
+          <img src="images/large_scale.png" alt="Large-scale multi-agent figure">
+        </div>
+        <!-- etc. -->
+      </section>
+
+      <!-- Projects Section (if different from “Research”) -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <!-- Example Project #1 -->
+          <div class="project-card">
+            <h3>Hierarchical Multi-Agent DRL</h3>
+            <img src="images/hm-drl experiment.gif" alt="DRL experiment">
+            <p>
+              A quick description about this project, how it was built, interesting features, etc.
+              (Use the original text from your files.)
+            </p>
+            <a class="button" href="https://github.com/your-profile/hm-drl" target="_blank">View on GitHub</a>
+          </div>
+
+          <!-- Example Project #2 -->
+          <div class="project-card">
+            <h3>Traffic-Aware Path Planning</h3>
+            <img src="images/traffic aware.gif" alt="Traffic Aware Project">
+            <p>
+              Possibly highlight a link to a live demo, explain technologies used, etc.
+              (Use the original text from your files.)
+            </p>
+            <a class="button" href="https://github.com/your-profile/traffic-aware" target="_blank">View on GitHub</a>
+          </div>
+
+          <!-- Example Project #3 -->
+          <div class="project-card">
+            <h3>Scalability Experiment on den520d</h3>
+            <img src="images/den520d_scallability_experiment.gif" alt="Scalability experiment">
+            <p>
+              Show how you tested large-scale multi-agent scenarios, etc.
+              (Use the original text from your files.)
+            </p>
+            <a class="button" href="https://github.com/your-profile/scalability" target="_blank">View on GitHub</a>
+          </div>
+
+          <!-- Example Project #4 -->
+          <div class="project-card">
+            <h3>4D Trajectory Planning</h3>
+            <img src="images/4d trajectory planning.gif" alt="4D planning gif">
+            <p>
+              (Replace with real description from original file.)
+            </p>
+            <a class="button" href="https://github.com/your-profile/4d-planning" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out for collaboration or questions!</p>
+        <a class="button" href="mailto:your.email@example.com">Email Me</a>
+      </section>
+    </main>
+  </div>
 
   <!-- FOOTER -->
   <footer>
     &copy; 2025 Your Name | Built with HTML, CSS, and a pinch of magic
   </footer>
+
 </body>
 </html>
