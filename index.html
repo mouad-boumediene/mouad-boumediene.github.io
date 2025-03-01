@@ -2,228 +2,454 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mouad Boumediene</title>
+  <title>My Personal Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Font -->
+  <!-- Google Fonts Example -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <style>
-    /* ---------------------------------------------------------
-       GLOBAL RESET & BASE STYLES
-    ---------------------------------------------------------- */
+    /* --------------------------------
+       RESET / BASE STYLES
+    ----------------------------------- */
     *, *::before, *::after {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
     body {
       font-family: 'Inter', sans-serif;
-      color: #1d1e20; 
-      background-color: #F2F3F6; 
-      line-height: 1.6;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-      height: auto;
+      background-color: #f2f3f6;
+      color: #1d1e20;
+      line-height: 1.5;
     }
     a {
-      color: #673de6; 
+      color: #673de6;
       text-decoration: none;
-      transition: 0.2s;
+      transition: color 0.2s;
     }
     a:hover {
       color: #5025d1;
     }
+    ul {
+      list-style-type: none;
+    }
+    /* Just to illustrate bullet points when we want them: */
+    .bullets li {
+      list-style-type: disc;
+      margin-left: 1.2rem;
+    }
 
-    /* ---------------------------------------------------------
-       LAYOUT CONTAINERS
-    ---------------------------------------------------------- */
-    header, main, footer {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-    header {
+    /* --------------------------------
+       LAYOUT: SIDEBAR + MAIN CONTENT
+    ----------------------------------- */
+    .layout {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #262334;
-      color: #fff;
-      border-radius: 8px;
-      margin-top: 1rem;
+      min-height: 100vh;
     }
-    nav a {
-      margin-left: 1rem;
+
+    /* SIDEBAR */
+    .sidebar {
+      flex: 0 0 220px;         /* fixed width */
+      background: #262334;     /* dark sidebar like your example */
+      color: #fff;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .sidebar h1 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .sidebar nav a {
+      display: block;
+      padding: 0.5rem 0;
       font-weight: 500;
     }
-    nav a:hover {
+    .sidebar nav a:hover {
       color: #9a64ce;
     }
 
-    main {
-      margin-top: 2rem;
-      background-color: #fff;
-      border-radius: 8px;
+    /* MAIN CONTENT WRAPPER */
+    .main-content {
+      flex: 1;
       padding: 2rem;
     }
+
+    /* TOP RIGHT LANGUAGE SWITCH (En/Ja) */
+    .lang-switch {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .lang-switch a {
+      color: #888;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+      text-decoration: underline;
+    }
+
+    /* PROFILE HEADER */
+    .profile-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .profile-header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+    .profile-header h2 {
+      margin-bottom: 0.3rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .profile-header .subtext {
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+      color: #555;
+    }
+
+    /* ORANGE BUTTON (CV) */
+    .btn-cv {
+      display: inline-block;
+      background-color: #ff6d35;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+    .btn-cv:hover {
+      opacity: 0.9;
+    }
+
+    /* SECTIONS / HEADINGS */
     section {
       margin-bottom: 2rem;
     }
-    section h2 {
-      margin-bottom: 1rem;
+    section h3 {
+      font-size: 1.3rem;
       font-weight: 700;
-      font-size: 1.25rem;
-      color: #1d1e20;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
     }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    /* EXAMPLE STYLES FOR "NEWS" */
+    .news-highlights {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .news-highlights img {
+      max-width: 180px;
+      margin-right: 1rem;
+    }
+    .news-highlights .info {
+      flex: 1;
+    }
+    .news-list {
+      margin-top: 1rem;
+    }
+
+    /* RESEARCH IMAGES ROW */
+    .research-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .research-images figure {
+      flex: 0 0 calc(33% - 1rem);
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    }
+    .research-images figure img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+    .research-images figcaption {
+      padding: 0.25rem 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* PUBLICATION LISTING */
+    .publication-item {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+    .publication-item img {
+      max-width: 200px;
+      flex-shrink: 0;
+    }
+    .publication-detail {
+      flex: 1;
+      min-width: 250px;
+    }
+    .publication-detail h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+    .publication-detail .authors {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* FOOTER */
     footer {
       text-align: center;
       margin-top: 2rem;
-      padding: 1rem 0;
+      color: #777;
       font-size: 0.9rem;
-      color: #727586;
+      padding-bottom: 2rem;
     }
 
-    /* ---------------------------------------------------------
-       BUTTON
-    ---------------------------------------------------------- */
-    .button {
-      display: inline-block;
-      background-color: #673de6;
-      color: #fff;
-      padding: 0.65rem 1rem;
-      border-radius: 4px;
-      font-weight: 600;
-      text-decoration: none;
+    /* RESPONSIVE ADJUSTMENTS */
+    @media (max-width: 900px) {
+      .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-header img {
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+      }
+      .sidebar {
+        flex: 0 0 180px;
+      }
+      .research-images figure {
+        flex: 0 0 calc(50% - 0.5rem);
+      }
     }
-    .button:hover {
-      background-color: #5025d1;
-    }
-
-    /* ---------------------------------------------------------
-       REUSABLE CLASSES & STYLES
-    ---------------------------------------------------------- */
-    .content-block {
-      margin-bottom: 1rem;
-    }
-    .project-card {
-      background-color: #F2F3F6;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .personal-photo {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 1rem;
+    @media (max-width: 600px) {
+      .layout {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex: unset;
+        margin-bottom: 1rem;
+      }
+      .news-highlights {
+        flex-direction: column;
+      }
+      .research-images figure {
+        flex: 0 0 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div>
-      <h1 style="margin: 0; font-size: 1.5rem;">Mouad Boumediene</h1>
+  <div class="layout">
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+      <h1>Kei18</h1>
+      <nav>
+        <a href="#news">News</a>
+        <a href="#research">Research</a>
+        <a href="#career">Career</a>
+        <a href="#education">Education</a>
+        <a href="#publication">Publication</a>
+        <a href="#creation">Creation</a>
+        <a href="#award">Award</a>
+        <a href="#others">Others</a>
+        <a href="#contact">Contact</a>
+        <a href="#note">Note</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <!-- About Section -->
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="content-block">
-        <!-- Make sure this filename matches exactly "personal image.jpg" (or rename your file) -->
-        <img src="images/personal image.jpg" alt="Mouad's Photo" class="personal-photo">
-        <p>
-          I am a postdoctoral researcher specializing in multi-robot coordination using deep 
-          reinforcement learning. I hold a Ph.D. in Automation, focused on mobile robot pathfinding. 
-          Throughout my work, I have contributed to industry 4.0 robotics and multi-agent systems.
-        </p>
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-content">
+      <!-- Language switch placeholder (top-right corner) -->
+      <div class="lang-switch">
+        <a href="#">En</a> / <a href="#">Ja</a>
       </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="content-block">
-        <ul>
-          <li>Python, PyTorch, TensorFlow</li>
-          <li>ROS &amp; Gazebo, Matlab</li>
-          <li>Git, LaTeX</li>
-          <li>Academic research &amp; publication writing</li>
+      <!-- PROFILE HEADER -->
+      <div class="profile-header">
+        <!-- Example circular image in /images/ -->
+        <img src="images/personal image.jpg" alt="Profile image">
+        <div>
+          <h2>Keisuke Okumura <span style="font-weight:400;">| 奥村 圭祐</span></h2>
+          <p class="subtext">
+            Hi there! I study <em>intelligent collective behavior design for swarm agents</em>...
+            <br>
+            (Replace with your actual short bio.)
+          </p>
+          <!-- Example CV button (orange) -->
+          <a href="CV.pdf" target="_blank" class="btn-cv">Curriculum Vitae [PDF]</a>
+        </div>
+      </div>
+
+      <!-- NEWS SECTION -->
+      <section id="news">
+        <h3 class="section-title">News</h3>
+
+        <h4>Highlights</h4>
+        <!-- Example "Invited talk" highlight with an image/gif -->
+        <div class="news-highlights">
+          <img src="images/traffic aware.gif" alt="Highlight gif">
+          <div class="info">
+            <p><strong>Invited Talk: Pathfinding for 10k agents</strong><br>
+              1st Nov 2023, Wednesday Seminars, Dept. of Computer Science, University of Cambridge
+            </p>
+          </div>
+        </div>
+
+        <!-- Example bullet sections -->
+        <h4>Recruitment, Advertisement</h4>
+        <ul class="bullets">
+          <li>I wrote a book chapter on multi-agent path finding in Japanese.</li>
+          <li>Organising the 6th international workshop on Multi-Agent Path Finding (WoMAPF) at AAAI-25.</li>
+          <li>Recruiting a research assistant at AIST, Tokyo. Contact me if you are interested.</li>
         </ul>
-      </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Projects</h2>
+        <h4>Upcoming Events</h4>
+        <ul class="bullets">
+          <li>Feb. 2025 — Plan to attend AAAI-25, Philadelphia, USA. Two co-authored presentations at WoMAPF.</li>
+        </ul>
 
-      <!-- HM-DRL Project Card -->
-      <div class="project-card">
-        <h3>HM-DRL: Distributed Deep Reinforcement Learning for Multi-Robot Pathfinding</h3>
+        <h4>Research Activities</h4>
+        <ul class="bullets">
+          <li>Oct. 2024 — Visited several robotics labs in Zurich, Switzerland. Cool research discussions!</li>
+          <li>Oct. 2024 — Organised a workshop on multi-agent/multi-robot planning in Tokyo on 5 October. 
+            Thank you for attending!</li>
+          <li>Aug. 2024 — A preprint paper “Pathfinding with Lazy Successor Generation” is out on arXiv.</li>
+          <li>May. 2024 — Visited Monash University in Melbourne, … etc.</li>
+        </ul>
+      </section>
+
+      <!-- RESEARCH SECTION -->
+      <section id="research">
+        <h3 class="section-title">Research Questions</h3>
         <p>
-          A deep reinforcement learning approach for multi-agent pathfinding (MAPF), enhanced 
-          by a heatmap-based heuristic. Developed during my postdoctoral research.
+          Intelligent Collective Behavior Design for Swarm Agents.
+          <br>
+          (Here you can describe your main research interest, i.e. “Systems with multiple physical moving agents… etc.”)
         </p>
-        <!-- Match the exact gif name: "hm-drl experiment.gif" -->
-        <img src="images/hm-drl experiment.gif" alt="HM-DRL experiment" style="max-width: 600px;">
-        <p>Submitted to Springer’s Applied Intelligence (under peer review).</p>
-        <a class="button" href="#" target="_blank">View on GitHub</a>
-      </div>
+        <div class="research-images">
+          <figure>
+            <img src="images/den520d_scallability_experiment.gif" alt="multi-agent path finding">
+            <figcaption>multi-agent path finding</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hm-drl experiment.gif" alt="deadlock-free execution">
+            <figcaption>deadlock-free execution</figcaption>
+          </figure>
+          <figure>
+            <img src="images/4d trajectory planning.gif" alt="active environment">
+            <figcaption>active environment</figcaption>
+          </figure>
+        </div>
+      </section>
 
-      <!-- Traffic-Aware MAPF Project Card -->
-      <div class="project-card">
-        <h3>Traffic-Aware Multi-Agent Pathfinding</h3>
+      <!-- CAREER SECTION -->
+      <section id="career">
+        <h3 class="section-title">Career</h3>
+        <ul class="bullets">
+          <li><strong>University of Cambridge</strong>: Visiting Postdoc Scholar (May. 2023 - present)</li>
+          <li><strong>National Institute of Advanced Industrial Science and Technology (AIST)</strong>: 
+            Researcher (Apr. 2023 - present)</li>
+          <li><strong>Japan Society for the Promotion of Science (JSPS)</strong>: Research Fellowship (Apr. 2020 - Mar. 2023)</li>
+          <li>... etc.</li>
+        </ul>
+      </section>
+
+      <!-- EDUCATION SECTION -->
+      <section id="education">
+        <h3 class="section-title">Education</h3>
+        <ul class="bullets">
+          <li><strong>Doctor of Engineering in Artificial Intelligence</strong>: Tokyo Institute of Technology 
+            (Apr. 2020 - Mar. 2023)</li>
+          <li><strong>Master of Engineering in AI</strong>: (Apr. 2018 - Mar. 2020)</li>
+          <li><strong>Bachelor of Engineering</strong>: (Apr. 2014 - Mar. 2018)</li>
+        </ul>
+      </section>
+
+      <!-- PUBLICATION SECTION -->
+      <section id="publication">
+        <h3 class="section-title">Publication</h3>
+        <p><em>Journal Papers / Conference Proceedings / Preprint</em></p>
+
+        <!-- Example publication item #1 -->
+        <div class="publication-item">
+          <img src="images/pathfinding.png" alt="pathfinding example">
+          <div class="publication-detail">
+            <h4>21. Pathfinding with Lazy Successor Generation</h4>
+            <p class="authors">Keisuke Okumura</p>
+            <p>arXiv preprint. Aug. 2024. pp.1-14.</p>
+          </div>
+        </div>
+
+        <!-- Example publication item #2 -->
+        <div class="publication-item">
+          <img src="images/large_scale.png" alt="Large scale pathfinding">
+          <div class="publication-detail">
+            <h4>20. Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding</h4>
+            <p class="authors">Keisuke Okumura</p>
+            <p>Proceedings of AAMAS. May. 2024. pp. 1501-1509. Acceptance Rate: 25.9%</p>
+          </div>
+        </div>
+
+        <!-- Add more publications as needed -->
+      </section>
+
+      <!-- CREATION / AWARD / OTHERS (placeholders) -->
+      <section id="creation">
+        <h3 class="section-title">Creation</h3>
+        <p>(Show your creative works or side projects here...)</p>
+      </section>
+
+      <section id="award">
+        <h3 class="section-title">Award</h3>
+        <ul class="bullets">
+          <li>(List any awards or recognitions...)</li>
+        </ul>
+      </section>
+
+      <section id="others">
+        <h3 class="section-title">Others</h3>
+        <p>(Any other interesting info, etc.)</p>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact">
+        <h3 class="section-title">Contact</h3>
         <p>
-          An approach for multi-agent pathfinding that reduces congestion by relocating 
-          or routing robots away from bottlenecked areas. Currently under proofreading.
+          Research collaborations are welcome! Please feel free to send me an email:
+          <br>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
         </p>
-        <!-- Match the exact gif name: "traffic aware.gif" -->
-        <img src="images/traffic aware.gif" alt="Traffic Aware MAPF" style="max-width: 600px;">
-        <a class="button" href="#" target="_blank">View on GitHub</a>
-      </div>
+      </section>
 
-      <!-- 4D Trajectory Planning Project Card -->
-      <div class="project-card">
-        <h3>4D Trajectory Planning for UAVs</h3>
-        <p>
-          A method for minimizing flight time for multiple rotary-wing UAVs using 
-          dimension planning in 4D. Presented at IMAV 2024.
-        </p>
-        <!-- Match the exact gif name: "4d trajectory planning.gif" -->
-        <img src="images/4d trajectory planning.gif" alt="4D Trajectory Planning" style="max-width: 600px;">
-        <a class="button" href="#" target="_blank">View on GitHub</a>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Feel free to reach out via email:</p>
-      <a class="button" href="mailto:mouadboumediene@yahoo.fr">Email Me</a>
-    </section>
-  </main>
+      <!-- NOTE SECTION -->
+      <section id="note">
+        <h3 class="section-title">Note</h3>
+        <p>(Miscellaneous notes or disclaimers...)</p>
+      </section>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2025 Mouad Boumediene | Built with HTML, CSS, and a pinch of magic
+    &copy; 2025 Kei18 | Built with HTML & CSS
   </footer>
 
 </body>
