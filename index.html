@@ -2,335 +2,454 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Personal Page</title>
+  <title>My Personal Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Example Google Font -->
+  <!-- Google Fonts Example -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <style>
-    /* ---------------------
-       GLOBAL RESET & BASE
-    ---------------------- */
+    /* --------------------------------
+       RESET / BASE STYLES
+    ----------------------------------- */
     *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0; 
+      margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
     body {
       font-family: 'Inter', sans-serif;
+      background-color: #f2f3f6;
       color: #1d1e20;
-      background-color: #F2F3F6;
-      line-height: 1.6;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
+      line-height: 1.5;
     }
     a {
-      color: #673de6; 
+      color: #673de6;
       text-decoration: none;
-      transition: 0.2s;
+      transition: color 0.2s;
     }
     a:hover {
-      color: #5025d1; 
+      color: #5025d1;
     }
-    ul, li {
-      list-style: none;
+    ul {
+      list-style-type: none;
+    }
+    /* Just to illustrate bullet points when we want them: */
+    .bullets li {
+      list-style-type: disc;
+      margin-left: 1.2rem;
     }
 
-    /* --------------
-       MAIN LAYOUT
-    -------------- */
-    /* Example: left sidebar + main content. Adjust widths/padding as you like. */
-    .container {
+    /* --------------------------------
+       LAYOUT: SIDEBAR + MAIN CONTENT
+    ----------------------------------- */
+    .layout {
       display: flex;
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem;
+      min-height: 100vh;
     }
-    /* Sidebar */
-    aside {
-      width: 200px;
-      background-color: #262334;
+
+    /* SIDEBAR */
+    .sidebar {
+      flex: 0 0 220px;         /* fixed width */
+      background: #262334;     /* dark sidebar like your example */
       color: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-right: 1rem;
-      flex-shrink: 0;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
-    aside h1 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
+    .sidebar h1 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
     }
-    aside nav a {
+    .sidebar nav a {
       display: block;
-      margin-bottom: 0.5rem;
+      padding: 0.5rem 0;
       font-weight: 500;
     }
-    aside nav a:hover {
+    .sidebar nav a:hover {
       color: #9a64ce;
     }
-    /* Main content */
-    main {
+
+    /* MAIN CONTENT WRAPPER */
+    .main-content {
       flex: 1;
-      background-color: #fff;
-      border-radius: 8px;
       padding: 2rem;
     }
+
+    /* TOP RIGHT LANGUAGE SWITCH (En/Ja) */
+    .lang-switch {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .lang-switch a {
+      color: #888;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+      text-decoration: underline;
+    }
+
+    /* PROFILE HEADER */
+    .profile-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .profile-header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+    .profile-header h2 {
+      margin-bottom: 0.3rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .profile-header .subtext {
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+      color: #555;
+    }
+
+    /* ORANGE BUTTON (CV) */
+    .btn-cv {
+      display: inline-block;
+      background-color: #ff6d35;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+    .btn-cv:hover {
+      opacity: 0.9;
+    }
+
+    /* SECTIONS / HEADINGS */
     section {
       margin-bottom: 2rem;
     }
-    section h2 {
-      margin-bottom: 1rem;
+    section h3 {
+      font-size: 1.3rem;
       font-weight: 700;
-      font-size: 1.25rem;
-      color: #1d1e20;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
     }
 
-    /* -----------
-       BUTTON
-    ------------ */
-    .button {
-      display: inline-block;
-      background-color: #673de6;
-      color: #fff;
-      padding: 0.65rem 1rem;
-      border-radius: 4px;
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: 0.5rem;
-    }
-    .button:hover {
-      background-color: #5025d1;
-    }
-
-    /* ------------
-       REUSABLE CLASSES
-    ------------- */
-    .content-block {
+    /* EXAMPLE STYLES FOR "NEWS" */
+    .news-highlights {
+      display: flex;
+      align-items: flex-start;
       margin-bottom: 1rem;
     }
-    /* For a row of images or projects */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    .news-highlights img {
+      max-width: 180px;
+      margin-right: 1rem;
+    }
+    .news-highlights .info {
+      flex: 1;
+    }
+    .news-list {
+      margin-top: 1rem;
+    }
+
+    /* RESEARCH IMAGES ROW */
+    .research-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .research-images figure {
+      flex: 0 0 calc(33% - 1rem);
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    }
+    .research-images figure img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+    .research-images figcaption {
+      padding: 0.25rem 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* PUBLICATION LISTING */
+    .publication-item {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
       gap: 1rem;
     }
-    .project-card {
-      background-color: #F2F3F6;
-      border-radius: 8px;
-      padding: 1rem;
+    .publication-item img {
+      max-width: 200px;
+      flex-shrink: 0;
     }
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.15rem;
+    .publication-detail {
+      flex: 1;
+      min-width: 250px;
+    }
+    .publication-detail h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+    .publication-detail .authors {
+      font-size: 0.9rem;
+      color: #666;
     }
 
-    /* Footer */
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 1rem 0;
-      color: #727586;
-      font-size: 0.9rem;
       margin-top: 2rem;
+      color: #777;
+      font-size: 0.9rem;
+      padding-bottom: 2rem;
     }
 
-    /* Example image styles for a “circular” personal photo */
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
+    /* RESPONSIVE ADJUSTMENTS */
+    @media (max-width: 900px) {
+      .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-header img {
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+      }
+      .sidebar {
+        flex: 0 0 180px;
+      }
+      .research-images figure {
+        flex: 0 0 calc(50% - 0.5rem);
+      }
     }
-
+    @media (max-width: 600px) {
+      .layout {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex: unset;
+        margin-bottom: 1rem;
+      }
+      .news-highlights {
+        flex-direction: column;
+      }
+      .research-images figure {
+        flex: 0 0 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- CONTAINER: SIDEBAR + MAIN -->
-  <div class="container">
-    <!-- SIDEBAR -->
-    <aside>
-      <h1>Your Name</h1>
+  <div class="layout">
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+      <h1>Kei18</h1>
       <nav>
         <a href="#news">News</a>
         <a href="#research">Research</a>
         <a href="#career">Career</a>
         <a href="#education">Education</a>
         <a href="#publication">Publication</a>
-        <a href="#projects">Projects</a>
+        <a href="#creation">Creation</a>
+        <a href="#award">Award</a>
+        <a href="#others">Others</a>
         <a href="#contact">Contact</a>
+        <a href="#note">Note</a>
       </nav>
-    </aside>
+    </div>
 
-    <!-- MAIN CONTENT -->
-    <main>
-      <!-- About (Profile) Section -->
-      <section id="about">
-        <div class="content-block">
-          <!-- Example: personal image from images folder -->
-          <img class="profile-img" src="images/personal image.jpg" alt="Your Profile Photo">
-          <p>
-            Hi there! I am a [brief introduction about yourself]. 
-            I do X, Y, Z, and I’m passionate about… 
-            (Replace this paragraph with your own summary from your original file.)
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-content">
+      <!-- Language switch placeholder (top-right corner) -->
+      <div class="lang-switch">
+        <a href="#">En</a> / <a href="#">Ja</a>
+      </div>
+
+      <!-- PROFILE HEADER -->
+      <div class="profile-header">
+        <!-- Example circular image in /images/ -->
+        <img src="images/personal image.jpg" alt="Profile image">
+        <div>
+          <h2>Keisuke Okumura <span style="font-weight:400;">| 奥村 圭祐</span></h2>
+          <p class="subtext">
+            Hi there! I study <em>intelligent collective behavior design for swarm agents</em>...
+            <br>
+            (Replace with your actual short bio.)
           </p>
-          <!-- Example CV button -->
-          <a class="button" href="Your_CV.pdf" target="_blank">Curriculum Vitae [PDF]</a>
+          <!-- Example CV button (orange) -->
+          <a href="CV.pdf" target="_blank" class="btn-cv">Curriculum Vitae [PDF]</a>
         </div>
-      </section>
+      </div>
 
-      <!-- News Section -->
+      <!-- NEWS SECTION -->
       <section id="news">
-        <h2>News</h2>
-        <div class="content-block">
-          <h3>Highlights</h3>
-          <img src="images/traffic aware.gif" alt="News highlight gif" style="max-width: 300px;">
-          <p>Invited Talk: Pathfinding for 10k agents (Just an example highlight.)</p>
+        <h3 class="section-title">News</h3>
+
+        <h4>Highlights</h4>
+        <!-- Example "Invited talk" highlight with an image/gif -->
+        <div class="news-highlights">
+          <img src="images/traffic aware.gif" alt="Highlight gif">
+          <div class="info">
+            <p><strong>Invited Talk: Pathfinding for 10k agents</strong><br>
+              1st Nov 2023, Wednesday Seminars, Dept. of Computer Science, University of Cambridge
+            </p>
+          </div>
         </div>
 
-        <div class="content-block">
-          <h3>Recruitment, Advertisement</h3>
-          <ul>
-            <li>I wrote a book chapter on multi-agent path finding in Japanese…</li>
-            <li>Organising the 6th international workshop on Multi-Agent Path Finding…</li>
-            <li>Recruiting a research assistant…</li>
-            <!-- etc. -->
-          </ul>
-        </div>
+        <!-- Example bullet sections -->
+        <h4>Recruitment, Advertisement</h4>
+        <ul class="bullets">
+          <li>I wrote a book chapter on multi-agent path finding in Japanese.</li>
+          <li>Organising the 6th international workshop on Multi-Agent Path Finding (WoMAPF) at AAAI-25.</li>
+          <li>Recruiting a research assistant at AIST, Tokyo. Contact me if you are interested.</li>
+        </ul>
+
+        <h4>Upcoming Events</h4>
+        <ul class="bullets">
+          <li>Feb. 2025 — Plan to attend AAAI-25, Philadelphia, USA. Two co-authored presentations at WoMAPF.</li>
+        </ul>
+
+        <h4>Research Activities</h4>
+        <ul class="bullets">
+          <li>Oct. 2024 — Visited several robotics labs in Zurich, Switzerland. Cool research discussions!</li>
+          <li>Oct. 2024 — Organised a workshop on multi-agent/multi-robot planning in Tokyo on 5 October. 
+            Thank you for attending!</li>
+          <li>Aug. 2024 — A preprint paper “Pathfinding with Lazy Successor Generation” is out on arXiv.</li>
+          <li>May. 2024 — Visited Monash University in Melbourne, … etc.</li>
+        </ul>
       </section>
 
-      <!-- Research Section -->
+      <!-- RESEARCH SECTION -->
       <section id="research">
-        <h2>Research</h2>
-        <div class="content-block">
-          <p>
-            (Here is where you’d describe your main research questions, 
-            e.g. “Intelligent Collective Behavior Design for Swarm Agents.” 
-            Then show a row of images.)
-          </p>
-          <div class="project-grid">
-            <div>
-              <img src="images/den520d_scallability_experiment.gif" alt="Multi-agent path finding example">
-              <p style="text-align:center; font-size:0.9rem;">Multi-agent path finding</p>
-            </div>
-            <div>
-              <img src="images/hm-drl experiment.gif" alt="Deadlock-free execution example">
-              <p style="text-align:center; font-size:0.9rem;">Deadlock-free execution</p>
-            </div>
-            <div>
-              <img src="images/4d trajectory planning.gif" alt="Active environment example">
-              <p style="text-align:center; font-size:0.9rem;">Active environment</p>
-            </div>
-          </div>
+        <h3 class="section-title">Research Questions</h3>
+        <p>
+          Intelligent Collective Behavior Design for Swarm Agents.
+          <br>
+          (Here you can describe your main research interest, i.e. “Systems with multiple physical moving agents… etc.”)
+        </p>
+        <div class="research-images">
+          <figure>
+            <img src="images/den520d_scallability_experiment.gif" alt="multi-agent path finding">
+            <figcaption>multi-agent path finding</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hm-drl experiment.gif" alt="deadlock-free execution">
+            <figcaption>deadlock-free execution</figcaption>
+          </figure>
+          <figure>
+            <img src="images/4d trajectory planning.gif" alt="active environment">
+            <figcaption>active environment</figcaption>
+          </figure>
         </div>
       </section>
 
-      <!-- Career Section -->
+      <!-- CAREER SECTION -->
       <section id="career">
-        <h2>Career</h2>
-        <ul>
-          <li>University of Cambridge: Visiting Postdoc Scholar (May 2023 - present)</li>
-          <li>National Institute of Advanced Industrial Science and Technology (AIST): Researcher</li>
-          <li>Japan Society for the Promotion of Science (JSPS): Fellowship…</li>
-          <!-- etc. -->
+        <h3 class="section-title">Career</h3>
+        <ul class="bullets">
+          <li><strong>University of Cambridge</strong>: Visiting Postdoc Scholar (May. 2023 - present)</li>
+          <li><strong>National Institute of Advanced Industrial Science and Technology (AIST)</strong>: 
+            Researcher (Apr. 2023 - present)</li>
+          <li><strong>Japan Society for the Promotion of Science (JSPS)</strong>: Research Fellowship (Apr. 2020 - Mar. 2023)</li>
+          <li>... etc.</li>
         </ul>
       </section>
 
-      <!-- Education Section -->
+      <!-- EDUCATION SECTION -->
       <section id="education">
-        <h2>Education</h2>
-        <ul>
-          <li>Doctor of Engineering in Artificial Intelligence: Tokyo Institute of Technology (Apr. 2020 - Mar. 2023)</li>
-          <li>Master of Engineering in AI: (Apr. 2018 - Mar. 2020)</li>
-          <li>Bachelor of Engineering: (Apr. 2014 - Mar. 2018)</li>
-          <!-- etc. -->
+        <h3 class="section-title">Education</h3>
+        <ul class="bullets">
+          <li><strong>Doctor of Engineering in Artificial Intelligence</strong>: Tokyo Institute of Technology 
+            (Apr. 2020 - Mar. 2023)</li>
+          <li><strong>Master of Engineering in AI</strong>: (Apr. 2018 - Mar. 2020)</li>
+          <li><strong>Bachelor of Engineering</strong>: (Apr. 2014 - Mar. 2018)</li>
         </ul>
       </section>
 
-      <!-- Publication Section -->
+      <!-- PUBLICATION SECTION -->
       <section id="publication">
-        <h2>Publication</h2>
-        <h3>Journal Papers / Conference Proceedings / Preprint</h3>
-        <div class="content-block">
-          <h4>21. Pathfinding with Lazy Successor Generation</h4>
-          <p>Keisuke Okumura, arXiv preprint. Aug. 2024.</p>
-          <img src="images/pathfinding.png" alt="Pathfinding figure">
+        <h3 class="section-title">Publication</h3>
+        <p><em>Journal Papers / Conference Proceedings / Preprint</em></p>
+
+        <!-- Example publication item #1 -->
+        <div class="publication-item">
+          <img src="images/pathfinding.png" alt="pathfinding example">
+          <div class="publication-detail">
+            <h4>21. Pathfinding with Lazy Successor Generation</h4>
+            <p class="authors">Keisuke Okumura</p>
+            <p>arXiv preprint. Aug. 2024. pp.1-14.</p>
+          </div>
         </div>
 
-        <div class="content-block">
-          <h4>20. Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding</h4>
-          <p>Keisuke Okumura, AAMAS 2024.</p>
-          <img src="images/large_scale.png" alt="Large-scale multi-agent figure">
+        <!-- Example publication item #2 -->
+        <div class="publication-item">
+          <img src="images/large_scale.png" alt="Large scale pathfinding">
+          <div class="publication-detail">
+            <h4>20. Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding</h4>
+            <p class="authors">Keisuke Okumura</p>
+            <p>Proceedings of AAMAS. May. 2024. pp. 1501-1509. Acceptance Rate: 25.9%</p>
+          </div>
         </div>
-        <!-- etc. -->
+
+        <!-- Add more publications as needed -->
       </section>
 
-      <!-- Projects Section (if different from “Research”) -->
-      <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-          <!-- Example Project #1 -->
-          <div class="project-card">
-            <h3>Hierarchical Multi-Agent DRL</h3>
-            <img src="images/hm-drl experiment.gif" alt="DRL experiment">
-            <p>
-              A quick description about this project, how it was built, interesting features, etc.
-              (Use the original text from your files.)
-            </p>
-            <a class="button" href="https://github.com/your-profile/hm-drl" target="_blank">View on GitHub</a>
-          </div>
-
-          <!-- Example Project #2 -->
-          <div class="project-card">
-            <h3>Traffic-Aware Path Planning</h3>
-            <img src="images/traffic aware.gif" alt="Traffic Aware Project">
-            <p>
-              Possibly highlight a link to a live demo, explain technologies used, etc.
-              (Use the original text from your files.)
-            </p>
-            <a class="button" href="https://github.com/your-profile/traffic-aware" target="_blank">View on GitHub</a>
-          </div>
-
-          <!-- Example Project #3 -->
-          <div class="project-card">
-            <h3>Scalability Experiment on den520d</h3>
-            <img src="images/den520d_scallability_experiment.gif" alt="Scalability experiment">
-            <p>
-              Show how you tested large-scale multi-agent scenarios, etc.
-              (Use the original text from your files.)
-            </p>
-            <a class="button" href="https://github.com/your-profile/scalability" target="_blank">View on GitHub</a>
-          </div>
-
-          <!-- Example Project #4 -->
-          <div class="project-card">
-            <h3>4D Trajectory Planning</h3>
-            <img src="images/4d trajectory planning.gif" alt="4D planning gif">
-            <p>
-              (Replace with real description from original file.)
-            </p>
-            <a class="button" href="https://github.com/your-profile/4d-planning" target="_blank">View on GitHub</a>
-          </div>
-        </div>
+      <!-- CREATION / AWARD / OTHERS (placeholders) -->
+      <section id="creation">
+        <h3 class="section-title">Creation</h3>
+        <p>(Show your creative works or side projects here...)</p>
       </section>
 
-      <!-- Contact Section -->
+      <section id="award">
+        <h3 class="section-title">Award</h3>
+        <ul class="bullets">
+          <li>(List any awards or recognitions...)</li>
+        </ul>
+      </section>
+
+      <section id="others">
+        <h3 class="section-title">Others</h3>
+        <p>(Any other interesting info, etc.)</p>
+      </section>
+
+      <!-- CONTACT SECTION -->
       <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out for collaboration or questions!</p>
-        <a class="button" href="mailto:your.email@example.com">Email Me</a>
+        <h3 class="section-title">Contact</h3>
+        <p>
+          Research collaborations are welcome! Please feel free to send me an email:
+          <br>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </p>
       </section>
-    </main>
+
+      <!-- NOTE SECTION -->
+      <section id="note">
+        <h3 class="section-title">Note</h3>
+        <p>(Miscellaneous notes or disclaimers...)</p>
+      </section>
+    </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2025 Your Name | Built with HTML, CSS, and a pinch of magic
+    &copy; 2025 Kei18 | Built with HTML & CSS
   </footer>
 
 </body>
