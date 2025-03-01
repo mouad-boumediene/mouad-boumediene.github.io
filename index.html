@@ -2,455 +2,362 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Personal Website</title>
+  <title>Mouad Boumediene</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts Example -->
+  <!-- Example Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap" rel="stylesheet">
+
   <style>
-    /* --------------------------------
-       RESET / BASE STYLES
-    ----------------------------------- */
+    /* ---------------------
+       GLOBAL RESET & BASE
+    ---------------------- */
     *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f2f3f6;
       color: #1d1e20;
-      line-height: 1.5;
+      background-color: #F2F3F6; /* from t.html */
+      line-height: 1.6;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
     }
     a {
       color: #673de6;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: 0.2s;
     }
     a:hover {
       color: #5025d1;
     }
-    ul {
-      list-style-type: none;
-    }
-    /* Just to illustrate bullet points when we want them: */
-    .bullets li {
-      list-style-type: disc;
-      margin-left: 1.2rem;
-    }
 
-    /* --------------------------------
-       LAYOUT: SIDEBAR + MAIN CONTENT
-    ----------------------------------- */
-    .layout {
+    /* -----------------------
+       LAYOUT CONTAINERS
+    ------------------------ */
+    header, main, footer {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    header {
       display: flex;
-      min-height: 100vh;
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-      flex: 0 0 220px;         /* fixed width */
-      background: #262334;     /* dark sidebar like your example */
+      align-items: center;
+      justify-content: space-between;
+      background-color: #262334;
       color: #fff;
-      padding: 2rem 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      border-radius: 8px;
+      margin-top: 1rem;
     }
-    .sidebar h1 {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .sidebar nav a {
-      display: block;
-      padding: 0.5rem 0;
+    nav a {
+      margin-left: 1rem;
       font-weight: 500;
     }
-    .sidebar nav a:hover {
+    nav a:hover {
       color: #9a64ce;
     }
 
-    /* MAIN CONTENT WRAPPER */
-    .main-content {
-      flex: 1;
+    main {
+      margin-top: 2rem;
+      background-color: #fff;
+      border-radius: 8px;
       padding: 2rem;
     }
-
-    /* TOP RIGHT LANGUAGE SWITCH (En/Ja) */
-    .lang-switch {
-      text-align: right;
-      margin-bottom: 1rem;
-    }
-    .lang-switch a {
-      color: #888;
-      font-size: 0.9rem;
-      margin-left: 1rem;
-      text-decoration: underline;
-    }
-
-    /* PROFILE HEADER */
-    .profile-header {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
-    .profile-header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 1.5rem;
-      flex-shrink: 0;
-    }
-    .profile-header h2 {
-      margin-bottom: 0.3rem;
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-    .profile-header .subtext {
-      font-size: 0.95rem;
-      margin-top: 0.25rem;
-      color: #555;
-    }
-
-    /* ORANGE BUTTON (CV) */
-    .btn-cv {
-      display: inline-block;
-      background-color: #ff6d35;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      margin-top: 0.75rem;
-      font-weight: 600;
-    }
-    .btn-cv:hover {
-      opacity: 0.9;
-    }
-
-    /* SECTIONS / HEADINGS */
     section {
       margin-bottom: 2rem;
     }
-    section h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
+    section h2 {
       margin-bottom: 1rem;
-      margin-top: 1rem;
-    }
-    .section-title {
-      font-size: 1.4rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      color: #1d1e20;
     }
-
-    /* EXAMPLE STYLES FOR "NEWS" */
-    .news-highlights {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-    }
-    .news-highlights img {
-      max-width: 180px;
-      margin-right: 1rem;
-    }
-    .news-highlights .info {
-      flex: 1;
-    }
-    .news-list {
-      margin-top: 1rem;
-    }
-
-    /* RESEARCH IMAGES ROW */
-    .research-images {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    .research-images figure {
-      flex: 0 0 calc(33% - 1rem);
-      background: #fff;
-      border-radius: 4px;
-      overflow: hidden;
-      text-align: center;
-      box-shadow: 0 0 3px rgba(0,0,0,0.1);
-    }
-    .research-images figure img {
-      width: 100%;
-      display: block;
-      height: auto;
-    }
-    .research-images figcaption {
-      padding: 0.25rem 0;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    /* PUBLICATION LISTING */
-    .publication-item {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-      gap: 1rem;
-    }
-    .publication-item img {
-      max-width: 200px;
-      flex-shrink: 0;
-    }
-    .publication-detail {
-      flex: 1;
-      min-width: 250px;
-    }
-    .publication-detail h4 {
-      margin-bottom: 0.25rem;
-      font-size: 1.05rem;
-    }
-    .publication-detail .authors {
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    /* FOOTER */
     footer {
       text-align: center;
       margin-top: 2rem;
-      color: #777;
+      padding: 1rem 0;
       font-size: 0.9rem;
-      padding-bottom: 2rem;
+      color: #727586;
     }
 
-    /* RESPONSIVE ADJUSTMENTS */
-    @media (max-width: 900px) {
-      .profile-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .profile-header img {
-        margin-right: 0;
-        margin-bottom: 0.75rem;
-      }
-      .sidebar {
-        flex: 0 0 180px;
-      }
-      .research-images figure {
-        flex: 0 0 calc(50% - 0.5rem);
-      }
+    /* -----------
+       BUTTON
+    ------------ */
+    .button {
+      display: inline-block;
+      background-color: #673de6;
+      color: #fff;
+      padding: 0.65rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
     }
-    @media (max-width: 600px) {
-      .layout {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        flex: unset;
-        margin-bottom: 1rem;
-      }
-      .news-highlights {
-        flex-direction: column;
-      }
-      .research-images figure {
-        flex: 0 0 100%;
-      }
+    .button:hover {
+      background-color: #5025d1;
+    }
+
+    /* ------------
+       REUSABLE CLASSES
+    ------------- */
+    .content-block {
+      margin-bottom: 1rem;
+    }
+    .project-card {
+      background-color: #F2F3F6;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .inline-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .inline-list li {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+    .info-item {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Example: wrap images for a "skill" logos row */
+    .skills-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skills-logos img {
+      width: 70px;
+      height: auto;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
 
-  <div class="layout">
-    <!-- LEFT SIDEBAR -->
-    <div class="sidebar">
-      <h1>Kei18</h1>
-      <nav>
-        <a href="#news">News</a>
-        <a href="#research">Research</a>
-        <a href="#career">Career</a>
-        <a href="#education">Education</a>
-        <a href="#publication">Publication</a>
-        <a href="#creation">Creation</a>
-        <a href="#award">Award</a>
-        <a href="#others">Others</a>
-        <a href="#contact">Contact</a>
-        <a href="#note">Note</a>
-      </nav>
+  <!-- HEADER -->
+  <header>
+    <div>
+      <h1 style="margin: 0; font-size: 1.5rem;">Mouad Boumediene</h1>
     </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <!-- MAIN CONTENT AREA -->
-    <div class="main-content">
-      <!-- Language switch placeholder (top-right corner) -->
-      <div class="lang-switch">
-        <a href="#">En</a> / <a href="#">Ja</a>
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- ABOUT Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="content-block">
+        <!-- Example personal image -->
+        <img src="images/personal_image.jpg" alt="Mouad profile photo" style="max-width: 180px; border-radius: 8px;">
+        <p style="margin-top:1rem;">
+          Postdoctoral Researcher at the MMMI Department, University of Southern Denmark. 
+          I specialize in developing multi-robot coordination approaches using Deep Reinforcement 
+          Learning. I also have experience in robotics research, simulation, and pathfinding algorithms.
+        </p>
+      </div>
+      <div class="content-block">
+        <ul class="inline-list">
+          <li class="info-item"><strong>Email:</strong> <a href="mailto:mouadboumediene@yahoo.fr">mouadboumediene@yahoo.fr</a></li>
+          <li class="info-item"><strong>Phone:</strong> +213 7 93 74 18 90</li>
+          <li class="info-item"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mouad-boumediene">linkedin.com/in/mouad-boumediene</a></li>
+          <li class="info-item"><strong>Website:</strong> <a href="https://mouadboumediene.com/">mouadboumediene.com</a></li>
+          <li class="info-item"><strong>YouTube:</strong> <a href="https://www.youtube.com/@hobby_coding">@hobby_coding</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE Section -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="content-block">
+        <h3>2023 – 2024: Postdoctoral Researcher, University of Southern Denmark (Denmark)</h3>
+        <ul>
+          <li>Developing Multi-Robot coordination approaches using Deep Reinforcement Learning.</li>
+          <li>Contributing to "Swarm Robotics for Industry 4.0" (grant 0136-00251B).</li>
+          <li>Developed <strong>HM-DRL</strong> (a distributed MAPF approach with Deep RL).</li>
+          <li>Developed <strong>Relocation-MAPF</strong> to enhance robot fleet efficiency via relocation strategies.</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>Feb 2023: Robotics Researcher (Ph.D Internship), Syddansk Universitet (Denmark)</h3>
+        <ul>
+          <li>Studied applications of Deep Reinforcement Learning for AMR swarms in Industry 4.0.</li>
+          <li>Contributed to "Swarm Robotics for Industry 4.0" (grant 0136-00251B).</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>2021 – 2022: Robotics Engineer, Freelance (AiGro Netherlands, remote)</h3>
+        <ul>
+          <li>Designed simulations & developed localization algorithms for agricultural mobile robots.</li>
+          <li>Built and tested a 2D simulator for pathfinding and localization.</li>
+          <li>Implemented a sensor fusion approach (Kalman filter) using real IMU & GPS data.</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>2019 – 2022: Temporary Lecturer, University of 20 août 1955 (Skikda, Algeria)</h3>
+        <ul>
+          <li>Taught advanced signal processing and digital regulation (lab sessions & tutorials).</li>
+          <li>Supervised Master’s students final projects.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION Section -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="content-block">
+        <h3>2019 – 2023: Ph.D, University of Skikda (Algeria), in Automation</h3>
+        <p>Thesis: <em>Contributions to the command of mobile robots</em>. 
+           Researched mobile robot pathfinding, including grid-based and advanced DRL methods.</p>
+      </div>
+      <div class="content-block">
+        <h3>2017 – 2019: Master’s Degree, University of Skikda (Algeria), in Instrumentation</h3>
+        <p>Relevant Coursework: Sensors, Advanced Digital Electronics, Digital Regulation, Microprocessors, DSP, etc.</p>
+      </div>
+      <div class="content-block">
+        <h3>2014 – 2017: Bachelor’s Degree, University of Skikda (Algeria), in Electronics Engineering</h3>
+        <p>Relevant Coursework: Fundamental Electronics, Microprocessor Systems, Signal Processing, OOP, etc.</p>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS Section -->
+    <section id="publications">
+      <h2>Research Publications</h2>
+      <div class="content-block">
+        <h3>Current Work</h3>
+        <ul>
+          <li><strong>Traffic aware multi-agent pathfinding</strong>, under proofreading, 2024.</li>
+          <li><strong>HM-DRL:</strong> Enhancing MAPF with a heatmap-based heuristic for distributed DRL, 
+              under peer review at Springer’s Applied Intelligence, 2024.</li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>Journal Articles</h3>
+        <ul>
+          <li><strong>FDA*:</strong> A Focused Single-Query Grid Based Path Planning Algorithm. 
+              <em>Journal of Automation, Mobile Robotics and Intelligent Systems</em>, 2022. 
+              <a href="https://doi.org/10.14313/JAMRIS/3-2021/17" target="_blank">DOI Link</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <h3>Conference Proceedings</h3>
+        <ul>
+          <li><strong>Gen4jectory algorithm – 4-d trajectory planning</strong> for multiple rotary-wing UAVs. 
+              In 15th IMAV, Bristol, United Kingdom, 2024. 
+              <a href="http://www.imavs.org/papers/2024/29.pdf" target="_blank">Paper link</a>
+          </li>
+          <li>Unicycle mobile robot control using neural model predictive controller. 
+              In <em>Fourth International Conference on Technological Advances in Electrical Engineering</em>, 2023.
+          </li>
+          <li>Design, simulation and control of a self-balancing robot in a gazebo environment and ROS 2 framework. 
+              In <em>ICTAEE</em>, Skikda, Algeria, 2023.
+          </li>
+          <li>Design, construction, and control of a self-balancing robot including a new frame assembly approach 
+              and a custom PCB. In <em>ICTAEE</em>, Skikda, Algeria, 2023.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS Section -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="content-block">
+        <ul>
+          <li><strong>Languages:</strong> English, Arabic, French</li>
+          <li><strong>Coding:</strong> Python, PyTorch, TensorFlow, ROS & Gazebo, Matlab, GIT, LaTeX</li>
+          <li><strong>Misc.:</strong> Academic research, data analysis, publication writing, peer review</li>
+        </ul>
+      </div>
+      <!-- Example skill logos row (if you want to show them) -->
+      <div class="skills-logos">
+        <img src="images/python_logo.png" alt="Python logo">
+        <img src="images/docker_logo.png" alt="Docker logo">
+        <img src="images/ros2_logo.webp" alt="ROS2 logo">
+        <img src="images/gazebo_logo.png" alt="Gazebo logo">
+        <img src="images/git_logo.png" alt="Git logo">
+      </div>
+    </section>
+
+    <!-- PROJECTS Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- Example Project Card #1 -->
+      <div class="project-card">
+        <h3>HM-DRL Experiment</h3>
+        <p>
+          A heatmap-based heuristic to guide multi-agent pathfinding with distributed Deep Reinforcement Learning. 
+          Improves success rate and traffic flows in crowded grid-based environments.
+        </p>
+        <img src="images/hm-drl_experiment.gif" alt="HM-DRL Demo">
       </div>
 
-      <!-- PROFILE HEADER -->
-      <div class="profile-header">
-        <!-- Example circular image in /images/ -->
-        <img src="images/personal image.jpg" alt="Profile image">
-        <div>
-          <h2>Keisuke Okumura <span style="font-weight:400;">| 奥村 圭祐</span></h2>
-          <p class="subtext">
-            Hi there! I study <em>intelligent collective behavior design for swarm agents</em>...
-            <br>
-            (Replace with your actual short bio.)
-          </p>
-          <!-- Example CV button (orange) -->
-          <a href="CV.pdf" target="_blank" class="btn-cv">Curriculum Vitae [PDF]</a>
-        </div>
+      <!-- Example Project Card #2 -->
+      <div class="project-card">
+        <h3>Traffic Aware MAPF</h3>
+        <p>
+          A DRL-based multi-robot planning approach that adapts paths in real-time based on congestion levels 
+          and local "traffic jams," aiming to reduce overall travel time for the fleet.
+        </p>
+        <img src="images/traffic_aware.gif" alt="Traffic Aware MAPF Demo">
       </div>
 
-      <!-- NEWS SECTION -->
-      <section id="news">
-        <h3 class="section-title">News</h3>
-
-        <h4>Highlights</h4>
-        <!-- Example "Invited talk" highlight with an image/gif -->
-        <div class="news-highlights">
-          <img src="images/traffic aware.gif" alt="Highlight gif">
-          <div class="info">
-            <p><strong>Invited Talk: Pathfinding for 10k agents</strong><br>
-              1st Nov 2023, Wednesday Seminars, Dept. of Computer Science, University of Cambridge
-            </p>
-          </div>
-        </div>
-
-        <!-- Example bullet sections -->
-        <h4>Recruitment, Advertisement</h4>
-        <ul class="bullets">
-          <li>I wrote a book chapter on multi-agent path finding in Japanese.</li>
-          <li>Organising the 6th international workshop on Multi-Agent Path Finding (WoMAPF) at AAAI-25.</li>
-          <li>Recruiting a research assistant at AIST, Tokyo. Contact me if you are interested.</li>
-        </ul>
-
-        <h4>Upcoming Events</h4>
-        <ul class="bullets">
-          <li>Feb. 2025 — Plan to attend AAAI-25, Philadelphia, USA. Two co-authored presentations at WoMAPF.</li>
-        </ul>
-
-        <h4>Research Activities</h4>
-        <ul class="bullets">
-          <li>Oct. 2024 — Visited several robotics labs in Zurich, Switzerland. Cool research discussions!</li>
-          <li>Oct. 2024 — Organised a workshop on multi-agent/multi-robot planning in Tokyo on 5 October. 
-            Thank you for attending!</li>
-          <li>Aug. 2024 — A preprint paper “Pathfinding with Lazy Successor Generation” is out on arXiv.</li>
-          <li>May. 2024 — Visited Monash University in Melbourne, … etc.</li>
-        </ul>
-      </section>
-
-      <!-- RESEARCH SECTION -->
-      <section id="research">
-        <h3 class="section-title">Research Questions</h3>
+      <!-- Example Project Card #3 -->
+      <div class="project-card">
+        <h3>Scalability Experiment on den520d Map</h3>
         <p>
-          Intelligent Collective Behavior Design for Swarm Agents.
-          <br>
-          (Here you can describe your main research interest, i.e. “Systems with multiple physical moving agents… etc.”)
+          A large-scale MAPF experiment run on the den520d map (often used in pathfinding research). 
+          Tested how system scales with increasing number of agents, measuring success rate and average 
+          path length.
         </p>
-        <div class="research-images">
-          <figure>
-            <img src="images/den520d_scallability_experiment.gif" alt="multi-agent path finding">
-            <figcaption>multi-agent path finding</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hm-drl experiment.gif" alt="deadlock-free execution">
-            <figcaption>deadlock-free execution</figcaption>
-          </figure>
-          <figure>
-            <img src="images/4d trajectory planning.gif" alt="active environment">
-            <figcaption>active environment</figcaption>
-          </figure>
-        </div>
-      </section>
+        <img src="images/den520d_scallability_experiment.gif" alt="den520d Scalability Experiment">
+      </div>
 
-      <!-- CAREER SECTION -->
-      <section id="career">
-        <h3 class="section-title">Career</h3>
-        <ul class="bullets">
-          <li><strong>University of Cambridge</strong>: Visiting Postdoc Scholar (May. 2023 - present)</li>
-          <li><strong>National Institute of Advanced Industrial Science and Technology (AIST)</strong>: 
-            Researcher (Apr. 2023 - present)</li>
-          <li><strong>Japan Society for the Promotion of Science (JSPS)</strong>: Research Fellowship (Apr. 2020 - Mar. 2023)</li>
-          <li>... etc.</li>
-        </ul>
-      </section>
-
-      <!-- EDUCATION SECTION -->
-      <section id="education">
-        <h3 class="section-title">Education</h3>
-        <ul class="bullets">
-          <li><strong>Doctor of Engineering in Artificial Intelligence</strong>: Tokyo Institute of Technology 
-            (Apr. 2020 - Mar. 2023)</li>
-          <li><strong>Master of Engineering in AI</strong>: (Apr. 2018 - Mar. 2020)</li>
-          <li><strong>Bachelor of Engineering</strong>: (Apr. 2014 - Mar. 2018)</li>
-        </ul>
-      </section>
-
-      <!-- PUBLICATION SECTION -->
-      <section id="publication">
-        <h3 class="section-title">Publication</h3>
-        <p><em>Journal Papers / Conference Proceedings / Preprint</em></p>
-
-        <!-- Example publication item #1 -->
-        <div class="publication-item">
-          <img src="images/pathfinding.png" alt="pathfinding example">
-          <div class="publication-detail">
-            <h4>21. Pathfinding with Lazy Successor Generation</h4>
-            <p class="authors">Keisuke Okumura</p>
-            <p>arXiv preprint. Aug. 2024. pp.1-14.</p>
-          </div>
-        </div>
-
-        <!-- Example publication item #2 -->
-        <div class="publication-item">
-          <img src="images/large_scale.png" alt="Large scale pathfinding">
-          <div class="publication-detail">
-            <h4>20. Engineering LaCAM*: Towards Real-Time, Large-Scale, and Near-Optimal Multi-Agent Pathfinding</h4>
-            <p class="authors">Keisuke Okumura</p>
-            <p>Proceedings of AAMAS. May. 2024. pp. 1501-1509. Acceptance Rate: 25.9%</p>
-          </div>
-        </div>
-
-        <!-- Add more publications as needed -->
-      </section>
-
-      <!-- CREATION / AWARD / OTHERS (placeholders) -->
-      <section id="creation">
-        <h3 class="section-title">Creation</h3>
-        <p>(Show your creative works or side projects here...)</p>
-      </section>
-
-      <section id="award">
-        <h3 class="section-title">Award</h3>
-        <ul class="bullets">
-          <li>(List any awards or recognitions...)</li>
-        </ul>
-      </section>
-
-      <section id="others">
-        <h3 class="section-title">Others</h3>
-        <p>(Any other interesting info, etc.)</p>
-      </section>
-
-      <!-- CONTACT SECTION -->
-      <section id="contact">
-        <h3 class="section-title">Contact</h3>
+      <!-- Example Project Card #4 -->
+      <div class="project-card">
+        <h3>4D Trajectory Planning</h3>
         <p>
-          Research collaborations are welcome! Please feel free to send me an email:
-          <br>
-          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          Contributed to the Gen4jectory algorithm for multi-UAV flight with minimized flight times. 
+          Involves a 4D approach (x, y, z + time) ensuring collision-free flight paths.
         </p>
-      </section>
+        <img src="images/4d_trajectory_planning.gif" alt="4D Trajectory Planning Demo">
+      </div>
+    </section>
 
-      <!-- NOTE SECTION -->
-      <section id="note">
-        <h3 class="section-title">Note</h3>
-        <p>(Miscellaneous notes or disclaimers...)</p>
-      </section>
-    </div>
-  </div>
+    <!-- CONTACT Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you would like more information or to discuss potential collaborations, feel free to reach out:</p>
+      <a class="button" href="mailto:mouadboumediene@yahoo.fr">Email Me</a>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2025 Kei18 | Built with HTML & CSS
+    &copy; 2025 Mouad Boumediene &ndash; Built with HTML, CSS, and a pinch of magic
   </footer>
-
 </body>
 </html>
