@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <title>Mouad Boumediene</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Example Google Font -->
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap" rel="stylesheet">
 
   <style>
-    /* ---------------------
-       GLOBAL RESET & BASE
-    ---------------------- */
+    /* ---------------------------------------------------------
+       GLOBAL RESET & BASE STYLES
+    ---------------------------------------------------------- */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -19,8 +19,8 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      color: #1d1e20;
-      background-color: #F2F3F6; /* from t.html */
+      color: #1d1e20; 
+      background-color: #F2F3F6; 
       line-height: 1.6;
     }
     img {
@@ -29,7 +29,7 @@
       height: auto;
     }
     a {
-      color: #673de6;
+      color: #673de6; 
       text-decoration: none;
       transition: 0.2s;
     }
@@ -37,9 +37,9 @@
       color: #5025d1;
     }
 
-    /* -----------------------
+    /* ---------------------------------------------------------
        LAYOUT CONTAINERS
-    ------------------------ */
+    ---------------------------------------------------------- */
     header, main, footer {
       width: 90%;
       max-width: 1200px;
@@ -86,9 +86,9 @@
       color: #727586;
     }
 
-    /* -----------
+    /* ---------------------------------------------------------
        BUTTON
-    ------------ */
+    ---------------------------------------------------------- */
     .button {
       display: inline-block;
       background-color: #673de6;
@@ -102,9 +102,9 @@
       background-color: #5025d1;
     }
 
-    /* ------------
-       REUSABLE CLASSES
-    ------------- */
+    /* ---------------------------------------------------------
+       REUSABLE CLASSES & STYLES
+    ---------------------------------------------------------- */
     .content-block {
       margin-bottom: 1rem;
     }
@@ -117,29 +117,14 @@
     .project-card h3 {
       margin-bottom: 0.5rem;
     }
-    .inline-list {
-      list-style: none;
-      padding-left: 0;
-    }
-    .inline-list li {
-      display: inline-block;
-      margin-right: 1rem;
-    }
-    .info-item {
-      margin-bottom: 0.5rem;
-    }
 
-    /* Example: wrap images for a "skill" logos row */
-    .skills-logos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .skills-logos img {
-      width: 70px;
-      height: auto;
-      object-fit: contain;
+    /* Example styling for a personal photo in About section */
+    .personal-photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -152,9 +137,6 @@
     </div>
     <nav>
       <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#publications">Publications</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
@@ -163,201 +145,94 @@
 
   <!-- MAIN CONTENT -->
   <main>
-
-    <!-- ABOUT Section -->
+    <!-- About Section -->
     <section id="about">
       <h2>About Me</h2>
       <div class="content-block">
-        <!-- Example personal image -->
-        <img src="images/personal_image.jpg" alt="Mouad profile photo" style="max-width: 180px; border-radius: 8px;">
-        <p style="margin-top:1rem;">
-          Postdoctoral Researcher at the MMMI Department, University of Southern Denmark. 
-          I specialize in developing multi-robot coordination approaches using Deep Reinforcement 
-          Learning. I also have experience in robotics research, simulation, and pathfinding algorithms.
+        <!-- Example personal photo (optional) -->
+        <img src="images/personal_image.jpg" alt="Mouad's Photo" class="personal-photo">
+        <p>
+          I am a postdoctoral researcher specializing in multi-robot coordination using deep 
+          reinforcement learning. I hold a Ph.D. in Automation, focused on mobile robot pathfinding. 
+          Throughout my work, I have contributed to industry 4.0 robotics and multi-agent systems.
         </p>
       </div>
-      <div class="content-block">
-        <ul class="inline-list">
-          <li class="info-item"><strong>Email:</strong> <a href="mailto:mouadboumediene@yahoo.fr">mouadboumediene@yahoo.fr</a></li>
-          <li class="info-item"><strong>Phone:</strong> +213 7 93 74 18 90</li>
-          <li class="info-item"><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mouad-boumediene">linkedin.com/in/mouad-boumediene</a></li>
-          <li class="info-item"><strong>Website:</strong> <a href="https://mouadboumediene.com/">mouadboumediene.com</a></li>
-          <li class="info-item"><strong>YouTube:</strong> <a href="https://www.youtube.com/@hobby_coding">@hobby_coding</a></li>
-        </ul>
-      </div>
     </section>
 
-    <!-- EXPERIENCE Section -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="content-block">
-        <h3>2023 – 2024: Postdoctoral Researcher, University of Southern Denmark (Denmark)</h3>
-        <ul>
-          <li>Developing Multi-Robot coordination approaches using Deep Reinforcement Learning.</li>
-          <li>Contributing to "Swarm Robotics for Industry 4.0" (grant 0136-00251B).</li>
-          <li>Developed <strong>HM-DRL</strong> (a distributed MAPF approach with Deep RL).</li>
-          <li>Developed <strong>Relocation-MAPF</strong> to enhance robot fleet efficiency via relocation strategies.</li>
-        </ul>
-      </div>
-      <div class="content-block">
-        <h3>Feb 2023: Robotics Researcher (Ph.D Internship), Syddansk Universitet (Denmark)</h3>
-        <ul>
-          <li>Studied applications of Deep Reinforcement Learning for AMR swarms in Industry 4.0.</li>
-          <li>Contributed to "Swarm Robotics for Industry 4.0" (grant 0136-00251B).</li>
-        </ul>
-      </div>
-      <div class="content-block">
-        <h3>2021 – 2022: Robotics Engineer, Freelance (AiGro Netherlands, remote)</h3>
-        <ul>
-          <li>Designed simulations & developed localization algorithms for agricultural mobile robots.</li>
-          <li>Built and tested a 2D simulator for pathfinding and localization.</li>
-          <li>Implemented a sensor fusion approach (Kalman filter) using real IMU & GPS data.</li>
-        </ul>
-      </div>
-      <div class="content-block">
-        <h3>2019 – 2022: Temporary Lecturer, University of 20 août 1955 (Skikda, Algeria)</h3>
-        <ul>
-          <li>Taught advanced signal processing and digital regulation (lab sessions & tutorials).</li>
-          <li>Supervised Master’s students final projects.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- EDUCATION Section -->
-    <section id="education">
-      <h2>Education</h2>
-      <div class="content-block">
-        <h3>2019 – 2023: Ph.D, University of Skikda (Algeria), in Automation</h3>
-        <p>Thesis: <em>Contributions to the command of mobile robots</em>. 
-           Researched mobile robot pathfinding, including grid-based and advanced DRL methods.</p>
-      </div>
-      <div class="content-block">
-        <h3>2017 – 2019: Master’s Degree, University of Skikda (Algeria), in Instrumentation</h3>
-        <p>Relevant Coursework: Sensors, Advanced Digital Electronics, Digital Regulation, Microprocessors, DSP, etc.</p>
-      </div>
-      <div class="content-block">
-        <h3>2014 – 2017: Bachelor’s Degree, University of Skikda (Algeria), in Electronics Engineering</h3>
-        <p>Relevant Coursework: Fundamental Electronics, Microprocessor Systems, Signal Processing, OOP, etc.</p>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS Section -->
-    <section id="publications">
-      <h2>Research Publications</h2>
-      <div class="content-block">
-        <h3>Current Work</h3>
-        <ul>
-          <li><strong>Traffic aware multi-agent pathfinding</strong>, under proofreading, 2024.</li>
-          <li><strong>HM-DRL:</strong> Enhancing MAPF with a heatmap-based heuristic for distributed DRL, 
-              under peer review at Springer’s Applied Intelligence, 2024.</li>
-        </ul>
-      </div>
-      <div class="content-block">
-        <h3>Journal Articles</h3>
-        <ul>
-          <li><strong>FDA*:</strong> A Focused Single-Query Grid Based Path Planning Algorithm. 
-              <em>Journal of Automation, Mobile Robotics and Intelligent Systems</em>, 2022. 
-              <a href="https://doi.org/10.14313/JAMRIS/3-2021/17" target="_blank">DOI Link</a>
-          </li>
-        </ul>
-      </div>
-      <div class="content-block">
-        <h3>Conference Proceedings</h3>
-        <ul>
-          <li><strong>Gen4jectory algorithm – 4-d trajectory planning</strong> for multiple rotary-wing UAVs. 
-              In 15th IMAV, Bristol, United Kingdom, 2024. 
-              <a href="http://www.imavs.org/papers/2024/29.pdf" target="_blank">Paper link</a>
-          </li>
-          <li>Unicycle mobile robot control using neural model predictive controller. 
-              In <em>Fourth International Conference on Technological Advances in Electrical Engineering</em>, 2023.
-          </li>
-          <li>Design, simulation and control of a self-balancing robot in a gazebo environment and ROS 2 framework. 
-              In <em>ICTAEE</em>, Skikda, Algeria, 2023.
-          </li>
-          <li>Design, construction, and control of a self-balancing robot including a new frame assembly approach 
-              and a custom PCB. In <em>ICTAEE</em>, Skikda, Algeria, 2023.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- SKILLS Section -->
+    <!-- Skills Section -->
     <section id="skills">
       <h2>Skills</h2>
       <div class="content-block">
+        <p>Below is a brief overview of my key skills:</p>
         <ul>
-          <li><strong>Languages:</strong> English, Arabic, French</li>
-          <li><strong>Coding:</strong> Python, PyTorch, TensorFlow, ROS & Gazebo, Matlab, GIT, LaTeX</li>
-          <li><strong>Misc.:</strong> Academic research, data analysis, publication writing, peer review</li>
+          <!-- Taken from the CV: "Coding: Python, PyTorch, TensorFlow, ROS & Gazebo, Matlab, GIT, LATEX" -->
+          <li>Python, PyTorch, TensorFlow</li>
+          <li>ROS &amp; Gazebo, Matlab</li>
+          <li>Git, LaTeX</li>
+          <li>Academic research &amp; publication writing</li>
         </ul>
-      </div>
-      <!-- Example skill logos row (if you want to show them) -->
-      <div class="skills-logos">
-        <img src="images/python_logo.png" alt="Python logo">
-        <img src="images/docker_logo.png" alt="Docker logo">
-        <img src="images/ros2_logo.webp" alt="ROS2 logo">
-        <img src="images/gazebo_logo.png" alt="Gazebo logo">
-        <img src="images/git_logo.png" alt="Git logo">
       </div>
     </section>
 
-    <!-- PROJECTS Section -->
+    <!-- Projects Section -->
     <section id="projects">
       <h2>Projects</h2>
 
       <!-- Example Project Card #1 -->
       <div class="project-card">
-        <h3>HM-DRL Experiment</h3>
+        <h3>HM-DRL: Distributed Deep Reinforcement Learning for Multi-Robot Pathfinding</h3>
         <p>
-          A heatmap-based heuristic to guide multi-agent pathfinding with distributed Deep Reinforcement Learning. 
-          Improves success rate and traffic flows in crowded grid-based environments.
+          A deep reinforcement learning approach for multi-agent pathfinding (MAPF), enhanced 
+          by a heatmap-based heuristic. Developed during my postdoctoral research.
         </p>
-        <img src="images/hm-drl_experiment.gif" alt="HM-DRL Demo">
+        <!-- If you have a matching GIF or image, reference it here. Example below: -->
+        <img src="images/hm-drl_experiment.gif" alt="HM-DRL experiment" style="max-width: 600px;">
+        <p>Submitted to Springer’s Applied Intelligence (under peer review).</p>
+        <a class="button" href="https://github.com/your-profile/HM-DRL" target="_blank">
+          View on GitHub
+        </a>
       </div>
 
       <!-- Example Project Card #2 -->
       <div class="project-card">
-        <h3>Traffic Aware MAPF</h3>
+        <h3>Traffic-Aware Multi-Agent Pathfinding</h3>
         <p>
-          A DRL-based multi-robot planning approach that adapts paths in real-time based on congestion levels 
-          and local "traffic jams," aiming to reduce overall travel time for the fleet.
+          An approach for multi-agent pathfinding that reduces congestion by relocating 
+          or routing robots away from bottlenecked areas. Currently under proofreading.
         </p>
-        <img src="images/traffic_aware.gif" alt="Traffic Aware MAPF Demo">
+        <!-- If you have a matching GIF or image, reference it here. Example below: -->
+        <img src="images/traffic_aware.gif" alt="Traffic Aware MAPF" style="max-width: 600px;">
+        <a class="button" href="https://github.com/your-profile/traffic-aware-mapf" target="_blank">
+          View on GitHub
+        </a>
       </div>
 
-      <!-- Example Project Card #3 -->
+      <!-- Example Project Card #3 (optional) -->
       <div class="project-card">
-        <h3>Scalability Experiment on den520d Map</h3>
+        <h3>4D Trajectory Planning for UAVs</h3>
         <p>
-          A large-scale MAPF experiment run on the den520d map (often used in pathfinding research). 
-          Tested how system scales with increasing number of agents, measuring success rate and average 
-          path length.
+          A method for minimizing flight time for multiple rotary-wing UAVs using 
+          dimension planning in 4D. Presented at IMAV 2024.
         </p>
-        <img src="images/den520d_scallability_experiment.gif" alt="den520d Scalability Experiment">
-      </div>
-
-      <!-- Example Project Card #4 -->
-      <div class="project-card">
-        <h3>4D Trajectory Planning</h3>
-        <p>
-          Contributed to the Gen4jectory algorithm for multi-UAV flight with minimized flight times. 
-          Involves a 4D approach (x, y, z + time) ensuring collision-free flight paths.
-        </p>
-        <img src="images/4d_trajectory_planning.gif" alt="4D Trajectory Planning Demo">
+        <img src="images/4d_trajectory_planning.gif" alt="4D Trajectory Planning" style="max-width: 600px;">
+        <a class="button" href="https://github.com/your-profile/4d-trajectory-planning" target="_blank">
+          View on GitHub
+        </a>
       </div>
     </section>
 
-    <!-- CONTACT Section -->
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>If you would like more information or to discuss potential collaborations, feel free to reach out:</p>
+      <p>Feel free to reach out via email:</p>
       <a class="button" href="mailto:mouadboumediene@yahoo.fr">Email Me</a>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2025 Mouad Boumediene &ndash; Built with HTML, CSS, and a pinch of magic
+    &copy; 2025 Mouad Boumediene | Built with HTML, CSS, and a pinch of magic
   </footer>
+
 </body>
 </html>
