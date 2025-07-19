@@ -27,9 +27,7 @@
 
     /* Layout */
     .layout { display:flex; min-height:100vh; }
-    .sidebar {
-      width:220px; background:var(--sidebar-bg); padding:2rem 1rem; display:flex; flex-direction:column;
-    }
+    .sidebar { width:220px; background:var(--sidebar-bg); padding:2rem 1rem; display:flex; flex-direction:column; }
     .sidebar h1 { font-size:1.5rem; margin-bottom:2rem; }
     .sidebar nav a { display:block; padding:.75rem 0; font-weight:600; border-radius:4px; }
     .sidebar nav a:hover { background:rgba(0,0,0,0.05); }
@@ -56,15 +54,17 @@
 
     /* Publication List */
     .publication-list { display:grid; gap:1rem; margin-top:1rem; }
-    .publication-item { border:1px solid var(--border); border-radius:6px; padding:1rem; }
+    .publication-item { border:1px solid var(--border); border-radius:6px; padding:2rem; }
     .publication-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:.75rem; }
-    .publication-header .title { font-weight:600; }
+    .publication-header .title { display:flex; align-items:center; font-weight:600; }
     .publication-header .pub-icons a { margin-left:.5rem; font-size:1.2rem; color:var(--accent); }
     .publication-content { display:flex; gap:1rem; }
-    .pub-thumb { width:200px; height:120px; object-fit:cover; border-radius:4px; flex-shrink:0; }
+    .pub-thumb { width:200px; height:auto; object-fit:contain; border-radius:4px; flex-shrink:0; }
     .publication-detail .authors { color:var(--muted); font-size:.95rem; margin-bottom:.5rem; }
     .publication-detail .venue { font-size:.95rem; margin-bottom:.5rem; }
     .publication-detail .notes { font-size:.9rem; color:green; }
+    /* Label for publication type */
+    .pub-label { background: rgba(255,255,255,0.8); border: 1px solid #000; color: #000; border-radius: 3px; padding: 2px 6px; font-size: 0.75rem; margin: 0 0.5rem; opacity: 0.9; }
   </style>
 </head>
 <body>
@@ -91,51 +91,39 @@
         <div>
           <h2>Mouad Boumediene <span style="font-weight:400;">| Postdoctoral Researcher</span></h2>
           <div class="social-icons">
-            <a href="https://orcid.org/0000-0002-xxxx-xxxx" target="_blank"><i class="fab fa-orcid"></i></a>
+            <a href="https://orcid.org/0000-0003-4714-5656" target="_blank"><i class="fab fa-orcid"></i></a>
             <a href="https://github.com/mouad-boumediene" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://scholar.google.com/citations?user=XXXXXXXXXXX" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://scholar.google.com/citations?user=pNYEE6UAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i></a>
           </div>
           <p class="subtext">I focus on developing multi-robot coordination approaches using Deep RL, with an interest in advanced pathfinding and Industry 4.0 applications.</p>
           <a href="/CV_mouad.pdf" class="btn-cv" target="_blank">Curriculum Vitae [PDF]</a>
         </div>
       </div>
 
+      <!-- News -->
+
       <section id="news">
         <h3 class="section-title">News</h3>
-        <p>No current news at the moment. Check back soon!</p>
+        <ul class="news-list">
+          <li>July 15, 2025: HM‑DRL paper published in <em>Springer’s Applied Intelligence</em> — <a href="https://doi.org/10.1007/s10489-025-06747-0" title="Read paper"><i class="fas fa-link"></i></a></li>
+          <li>June 21, 2025: HM‑DRL paper accepted in <em>Springer’s Applied Intelligence</em> (preprint available) — <a href="https://rdcu.be/ewnWZ" title="pre-print"><i class="fas fa-link"></i></a></li>
+        </ul>
       </section>
 
-      <!-- Other sections unchanged -->
 
-      <section id="publication">
+      <!-- Publications -->
+
+      <section id="publications">
         <h3 class="section-title">Publication</h3>
         <p class="subtext">Journal Papers / Conference Proceedings / Preprint</p>
         <div class="publication-list">
-          <!-- Existing D4orm -->
-          <div class="publication-item">
-            <div class="publication-header">
-              <div class="title"><strong>25.</strong> D4orm: Multi-Robot Trajectories with Dynamics-aware Diffusion Denoised Deformations</div>
-              <div class="pub-icons">
-                <a href="#" title="Paper Page"><i class="fas fa-file-alt"></i></a>
-                <a href="#" title="Code"><i class="fab fa-github"></i></a>
-                <a href="#" title="Video"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
-              </div>
-            </div>
-            <div class="publication-content">
-              <img src="images/path25.png" alt="D4orm Thumbnail" class="pub-thumb">
-              <div class="publication-detail">
-                <p class="authors">Yuhao Zhang, Keisuke Okumura, Heedo Woo, Ajay Shankar & Amanda Prorok</p>
-                <p class="venue"><em>Proceedings of IEEE/RSJ IROS</em>. Oct. 2025. pp. 1–7.</p>
-                <p class="notes">To appear at IROS-25, acceptance rate: 1991/4306=46%</p>
-              </div>
-            </div>
-          </div>
 
+          
           <!-- HM-DRL -->
+           
           <div class="publication-item">
             <div class="publication-header">
-              <div class="title"><strong>1.</strong> Hm‑DRL: Enhancing multi‑agent pathfinding with a heatmap‑based heuristic for distributed deep reinforcement learning</div>
+              <div class="title"><strong>1.</strong><span class="pub-label">Journal</span>Hm‑DRL: Enhancing multi‑agent pathfinding with a heatmap‑based heuristic for distributed deep reinforcement learning</div>
               <div class="pub-icons">
                 <a href="https://doi.org/10.1007/s10489-025-06747-0" title="DOI"><i class="fas fa-link"></i></a>
                 <a href="#" title="Code"><i class="fab fa-github"></i></a>
@@ -143,8 +131,9 @@
                 <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
               </div>
             </div>
+            
             <div class="publication-content">
-              <img src="images/hmdrl.png" alt="HM-DRL Thumbnail" class="pub-thumb">
+              <a href="HM_DRL/" class="publication-link"><img src="images/hmdrl_git_to_website.gif" alt="HM-DRL Thumbnail" class="pub-thumb"></a>
               <div class="publication-detail">
                 <p class="authors">M. Boumediene, A. Maoudj & A. L. Christensen</p>
                 <p class="venue"><em>Applied Intelligence</em>, vol. 55, p. 873, 2025.</p>
@@ -156,7 +145,7 @@
           <!-- FDA* -->
           <div class="publication-item">
             <div class="publication-header">
-              <div class="title"><strong>2.</strong> FDA*: A Focused Single‑Query Grid Based Path Planning Algorithm</div>
+              <div class="title"><strong>2.</strong><span class="pub-label">Journal</span>FDA*: A Focused Single‑Query Grid Based Path Planning Algorithm</div>
               <div class="pub-icons">
                 <a href="https://doi.org/10.14313/JAMRIS/3-2021/17" title="DOI"><i class="fas fa-link"></i></a>
                 <a href="#" title="Code"><i class="fab fa-github"></i></a>
@@ -165,7 +154,7 @@
               </div>
             </div>
             <div class="publication-content">
-              <img src="images/fda.png" alt="FDA* Thumbnail" class="pub-thumb">
+              <img src="images/fdastar.png" alt="FDA* Thumbnail" class="pub-thumb">
               <div class="publication-detail">
                 <p class="authors">M. Boumediene, L. Mehennaoui & A. Lachouri</p>
                 <p class="venue"><em>JAMRIS</em>, pp. 37–43, May 2022.</p>
@@ -173,11 +162,10 @@
               </div>
             </div>
           </div>
-
           <!-- Gen4jectory -->
           <div class="publication-item">
             <div class="publication-header">
-              <div class="title"><strong>1.</strong> Gen4jectory algorithm – 4‑d trajectory planning with minimised flight time for multiple rotary‑wing UAVs</div>
+              <div class="title"><strong>3.</strong><span class="pub-label">Conference</span>Gen4jectory algorithm – 4‑d trajectory planning with minimised flight time for multiple rotary‑wing UAVs</div>
               <div class="pub-icons">
                 <a href="https://www.imavs.org/imav2024-proceedings/" title="URL"><i class="fas fa-link"></i></a>
                 <a href="#" title="Code"><i class="fab fa-github"></i></a>
@@ -186,7 +174,7 @@
               </div>
             </div>
             <div class="publication-content">
-              <img src="images/gen4jectory.png" alt="Gen4jectory Thumbnail" class="pub-thumb">
+              <img src="images/gen4jectory.gif" alt="Gen4jectory Thumbnail" class="pub-thumb">
               <div class="publication-detail">
                 <p class="authors">I. Panov, M. Boumediene, H. Midtiby & K. Jensen</p>
                 <p class="venue"><em>IMAV2024‑25</em>; Sep 2024, pp. 242–252.</p>
@@ -194,11 +182,10 @@
               </div>
             </div>
           </div>
-
           <!-- Unicycle MPC -->
           <div class="publication-item">
             <div class="publication-header">
-              <div class="title"><strong>2.</strong> Unicycle mobile robot control using neural model predictive controller</div>
+              <div class="title"><strong>4.</strong><span class="pub-label">Conference</span>Unicycle mobile robot control using neural model predictive controller</div>
               <div class="pub-icons">
                 <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
                 <a href="#" title="Code"><i class="fab fa-github"></i></a>
@@ -207,7 +194,6 @@
               </div>
             </div>
             <div class="publication-content">
-              <img src="images/unicycle.png" alt="Unicycle Thumbnail" class="pub-thumb">
               <div class="publication-detail">
                 <p class="authors">C. Bellel, L. Mehennaoui, F. Bouchareb & M. Boumediene</p>
                 <p class="venue"><em>ICTAEE'23</em>, Skikda, Algeria, May 2023, pp. 110–117.</p>
@@ -215,11 +201,10 @@
               </div>
             </div>
           </div>
-
           <!-- Gazebo Self-Balancing -->
           <div class="publication-item">
             <div class="publication-header">
-              <div class="title"><strong>3.</strong> Design, simulation and control of a self-balancing robot in a gazebo environment and ROS 2 framework</div>
+              <div class="title"><strong>5.</strong><span class="pub-label">Conference</span>Design, simulation and control of a self-balancing robot in a gazebo environment and ROS 2 framework</div>
               <div class="pub-icons">
                 <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
                 <a href="#" title="Code"><i class="fab fa-github"></i></a>
@@ -228,7 +213,6 @@
               </div>
             </div>
             <div class="publication-content">
-              <img src="images/selfbalancing1.png" alt="Gazebo Self-Balancing Thumbnail" class="pub-thumb">
               <div class="publication-detail">
                 <p class="authors">M. Boumediene, S. Laouar, D. L. Mehennaoui & P. S. Ouchtati</p>
                 <p class="venue"><em>ICTAEE</em>, Skikda, Algeria, May 2023, pp. 98–103.</p>
@@ -236,11 +220,10 @@
               </div>
             </div>
           </div>
-
           <!-- PCB Self-Balancing -->
           <div class="publication-item">
             <div class="publication-header">
-              <div class="title"><strong>4.</strong> Design, construction, and control of a self-balancing robot including a new frame assembly approach and a custom PCB</div>
+              <div class="title"><strong>6.</strong><span class="pub-label">Conference</span>Design, construction, and control of a self-balancing robot including a new frame assembly approach and a custom PCB</div>
               <div class="pub-icons">
                 <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
                 <a href="#" title="Code"><i class="fab fa-github"></i></a>
@@ -249,7 +232,6 @@
               </div>
             </div>
             <div class="publication-content">
-              <img src="images/selfbalancing2.png" alt="PCB Self-Balancing Thumbnail" class="pub-thumb">
               <div class="publication-detail">
                 <p class="authors">M. Boumediene, N. Zeghida, B. Manaa & D. L. Mehennaoui</p>
                 <p class="venue"><em>ICTAEE</em>, Skikda, Algeria, May 2023, pp. 200–206.</p>
@@ -257,14 +239,12 @@
               </div>
             </div>
           </div>
-
         </div>
       </section>
-
       <!-- Other sections unchanged -->
-
     </main>
   </div>
   <footer>&copy; 2025 Mouad Boumediene | Built with ❤️ and HTML/CSS</footer>
 </body>
 </html>
+
