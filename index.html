@@ -12,18 +12,18 @@
        Variables & Reset
     =============== */
     :root {
-      --bg: #f9f9fb;
-      --sidebar-bg: #2d3142;
+      --page-bg: #ffffff;
+      --sidebar-bg: #f2f2f2;
       --accent: #5c6bc0;
       --text: #2e2f36;
       --subtext: #555;
       --muted: #777;
-      --white: #fff;
+      --white: #ffffff;
     }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
+      background: var(--page-bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -38,9 +38,8 @@
     .sidebar {
       width: 220px;
       background: var(--sidebar-bg);
-      color: var(--white);
+      color: var(--text);
       padding: 2rem 1rem;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
     }
@@ -52,16 +51,13 @@
       border-radius: 4px;
       transition: background 0.2s;
     }
-    .sidebar nav a:hover { background: rgba(255,255,255,0.1); }
+    .sidebar nav a:hover { background: rgba(0,0,0,0.05); }
 
     .main-content {
       flex: 1;
       padding: 2rem;
       max-width: 1000px;
       margin: 0 auto;
-      background: var(--white);
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
 
     .lang-switch { text-align: right; margin-bottom: 1rem; }
@@ -75,7 +71,6 @@
       width: 160px; height: 160px;
       border-radius: 50%; object-fit: cover;
       margin-right: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
     .profile-header h2 {
       font-size: 1.8rem; font-weight: 700;
@@ -126,14 +121,11 @@
       margin-top: 1rem;
     }
     .research-images figure {
-      background: var(--white);
-      border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
       transition: transform 0.2s;
     }
     .research-images figure:hover { transform: translateY(-5px); }
-    .research-images img { width: 100%; display: block; }
+    .research-images img { width: 100%; display: block; border-radius: 4px; }
     .research-images figcaption {
       padding: 0.5rem;
       text-align: center;
@@ -152,10 +144,7 @@
       display: grid;
       grid-template-columns: 100px 1fr;
       gap: 1rem;
-      background: var(--white);
-      border-radius: 6px;
       padding: 1rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
       transition: transform 0.2s;
     }
     .publication-item:hover { transform: translateY(-3px); }
@@ -175,10 +164,10 @@
     }
     @media (max-width: 600px) {
       .layout { flex-direction: column; }
-      .sidebar { width: 100%; box-shadow: none; flex-direction: row; overflow-x: auto; }
+      .sidebar { width: 100%; flex-direction: row; overflow-x: auto; }
       .sidebar nav { display: flex; }
       .sidebar nav a { margin-right: 1rem; white-space: nowrap; }
-      .main-content { margin: 0.5rem; box-shadow: none; }
+      .main-content { margin: 0.5rem; }
       .profile-header { flex-direction: column; align-items: center; text-align: center; }
       .profile-header img { margin-bottom: 1rem; }
     }
@@ -208,7 +197,8 @@
         <div>
           <h2>Mouad Boumediene <span style="font-weight:400;">| Postdoctoral Researcher</span></h2>
           <p class="subtext">I focus on developing multi-robot coordination approaches using Deep RL, with an interest in advanced pathfinding and Industry 4.0 applications.</p>
-          <a href="CV_mouad.pdf" target="_blank" class="btn-cv">Curriculum Vitae [PDF]</a>
+          <!-- Place your CV PDF at the site root as 'CV_mouad.pdf' -->
+          <a href="/CV_mouad.pdf" target="_blank" class="btn-cv">Curriculum Vitae [PDF]</a>
         </div>
       </div>
 
@@ -257,20 +247,18 @@
               <p>Status: Under proofreading, 2024.</p>
             </div>
           </div>
-          <!-- more publication-items here -->
         </div>
       </section>
 
       <section id="creation"><h3 class="section-title">Creation</h3><p>(No side projects listed.)</p></section>
-      <section id="award"><h3 class="section-title">Award</h3><p>No awards to list.</p></section>
-      <section id="others"><h3 class="section-title">Others</h3><p>(References, contacts, etc.)</p></section>
-      <section id="contact"><h3 class="section-title">Contact</h3>
+      <section id="#award"><h3 class="section-title">Award</h3><p>No awards to list.</p></section>
+      <section id="#others"><h3 class="section-title">Others</h3><p>(References, contacts, etc.)</p></section>
+      <section id="#contact"><h3 class="section-title">Contact</h3>
         <p><strong>Email:</strong> <a href="mailto:mouadboumediene@yahoo.fr">mouadboumediene@yahoo.fr</a><br>
         <strong>Phone:</strong> +213 7 93 74 18 90<br>
         <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mouad-boumediene" target="_blank">/in/mouad-boumediene</a>
         </p>
       </section>
-
     </main>
   </div>
   <footer>&copy; 2025 Mouad Boumediene | Built with ❤️ and HTML/CSS</footer>
