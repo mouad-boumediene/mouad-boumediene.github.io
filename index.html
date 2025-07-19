@@ -2,98 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mouad Boumediene | Postdoctoral Researcher</title>
+  <title>Mouad Boumediene | Publications</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome (free CDN without integrity to ensure loading) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Variables & Reset */
     :root {
-      --page-bg: #ffffff;
+      --bg: #fff;
       --sidebar-bg: #f2f2f2;
       --accent: #5c6bc0;
       --text: #2e2f36;
-      --subtext: #555;
-      --muted: #777;
-      --white: #ffffff;
+      --muted: #666;
+      --border: #ddd;
     }
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter',sans-serif; background:var(--page-bg); color:var(--text); line-height:1.6; }
-    a { color:var(--accent); text-decoration:none; transition:color .2s; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.5; }
+    a { color:var(--accent); text-decoration:none; }
     a:hover { color:#3f51b5; }
-    ul { list-style:none; }
-
-    /* Layout */
-    .layout { display:flex; min-height:100vh; }
+    .layout { display:flex; }
     .sidebar {
-      width:220px; background:var(--sidebar-bg); color:var(--text);
-      padding:2rem 1rem; display:flex; flex-direction:column;
+      width:220px; background:var(--sidebar-bg); padding:2rem 1rem; height:100vh; position:fixed;
     }
-    .sidebar h1 { font-size:1.5rem; margin-bottom:2rem; }
-    .sidebar nav a {
-      display:block; padding:.75rem 0; font-weight:600; border-radius:4px;
-      transition:background .2s;
+    .sidebar h1 { font-size:1.5rem; margin-bottom:1.5rem; }
+    .sidebar nav a { display:block; padding:.5rem 0; font-weight:600; }
+    .main { margin-left:220px; padding:2rem; }
+    /* Publication Section */
+    .pub-section h2 { font-size:1.6rem; margin-bottom:.5rem; }
+    .pub-list { display:flex; flex-direction:column; gap:1rem; }
+    .pub-item {
+      border:1px solid var(--border);
+      border-radius:6px;
+      padding:1rem;
     }
-    .sidebar nav a:hover { background:rgba(0,0,0,0.05); }
-
-    .main-content { flex:1; padding:2rem; margin:0; }
-
-    .lang-switch { text-align:right; margin-bottom:1rem; }
-    .lang-switch a { font-size:.9rem; color:var(--muted); margin-left:1rem; }
-
-    /* Profile Header */
-    .profile-header { display:flex; align-items:center; margin-bottom:2rem; }
-    .profile-header img {
-      width:160px; height:160px; border-radius:50%; object-fit:cover;
-      margin-right:1.5rem;
-    }
-    .profile-header h2 { font-size:1.8rem; font-weight:700; margin-bottom:.25rem; }
-    .social-icons { margin:.5rem 0; }
-    .social-icons a { margin-right:.75rem; font-size:1.4rem; color:var(--accent); }
-    .social-icons a:hover { color:#3f51b5; }
-    .subtext { color:var(--subtext); font-size:.95rem; margin-bottom:.75rem; }
-    .btn-cv {
-      display:inline-block; background:var(--accent); color:var(--white);
-      padding:.6rem 1.2rem; border-radius:4px; font-weight:600;
-      transition:background .2s;
-    }
-    .btn-cv:hover { background:#3f51b5; }
-
-    /* Sections */
-    section { margin-bottom:2.5rem; }
-    .section-title { position:relative; font-size:1.4rem; font-weight:700; margin-bottom:1rem; text-align:left; }
-    .section-title::after {
-      content:''; position:absolute; bottom:-4px; left:0;
-      width:50px; height:4px; background:var(--accent); border-radius:2px;
-    }
-
-    /* Research Images */
-    .research-images { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; margin-top:1rem; }
-    .research-images img { width:100%; border-radius:4px; }
-
-    /* Publications */
-    .publication-list { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:1rem; }
-    .publication-item { display:grid; grid-template-columns:100px 1fr; gap:1rem; padding:1rem; }
-    .publication-item img { width:100%; border-radius:4px; }
-    .publication-detail h4 { color:var(--accent); margin-bottom:.3rem; }
-    .publication-detail .authors { color:var(--muted); font-size:.9rem; margin-bottom:.5rem; }
-    .pub-links a { margin-right:1rem; font-size:1.2rem; color:var(--accent); }
-    .pub-links a:hover { color:#3f51b5; }
-
-    /* Footer */
-    footer { text-align:center; margin:3rem 0 1rem; color:var(--muted); font-size:.9rem; }
-
-    /* Responsive */
-    @media(max-width:900px){ .research-images{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));} }
-    @media(max-width:600px){
-      .layout{flex-direction:column;} .sidebar{width:100%;flex-direction:row;overflow-x:auto;}
-      .sidebar nav a{margin-right:1rem;} .main-content{margin:.5rem;}
-      .profile-header{flex-direction:column;align-items:center;text-align:center;}
-      .profile-header img{margin-bottom:1rem;}
-    }
+    .pub-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:.75rem; }
+    .pub-header .icons a { margin-left:.5rem; font-size:1.2rem; }
+    .pub-content { display:flex; gap:1rem; }
+    .pub-thumb { flex-shrink:0; width:200px; height:120px; object-fit:cover; border-radius:4px; }
+    .pub-details { flex:1; }
+    .pub-details h3 { font-size:1.2rem; margin-bottom:.25rem; }
+    .pub-details .authors { color:var(--muted); font-size:.95rem; margin-bottom:.5rem; }
+    .pub-details .venue { font-size:.95rem; margin-bottom:.5rem; }
+    .pub-details .notes { font-size:.9rem; color:green; }
   </style>
 </head>
 <body>
@@ -101,73 +53,40 @@
     <aside class="sidebar">
       <h1>Mouad B</h1>
       <nav>
-        <a href="#news">News</a>
         <a href="#research">Research</a>
-        <a href="#career">Career</a>
-        <a href="#education">Education</a>
-        <a href="#publication">Publication</a>
-        <a href="#creation">Creation</a>
-        <a href="#award">Award</a>
-        <a href="#others">Others</a>
-        <a href="#contact">Contact</a>
-        <a href="#note">Note</a>
+        <a href="#publications">Publications</a>
       </nav>
     </aside>
-    <main class="main-content">
-      <div class="lang-switch"><a href="#">En</a> / <a href="#">Fr</a></div>
-      <div class="profile-header">
-        <img src="images/personal image.jpg" alt="Profile image">
-        <div>
-          <h2>Mouad Boumediene <span style="font-weight:400;">| Postdoctoral Researcher</span></h2>
-          <div class="social-icons">
-            <a href="https://orcid.org/0000-0002-xxxx-xxxx" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
-            <a href="https://github.com/mouad-boumediene" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://scholar.google.com/citations?user=XXXXXXXXXXX" target="_blank" title="Scholar"><i class="fas fa-graduation-cap"></i></a>
-          </div>
-          <p class="subtext">I focus on developing multi-robot coordination approaches using Deep RL, with an interest in advanced pathfinding and Industry 4.0 applications.</p>
-          <!-- CV placement: put CV_mouad.pdf at the repo root -->
-          <a href="/CV_mouad.pdf" class="btn-cv" target="_blank">Curriculum Vitae [PDF]</a>
-        </div>
-      </div>
-
-      <section id="news">
-        <h3 class="section-title">News</h3>
-        <p>No current news at the moment. Check back soon!</p>
-      </section>
-
-      <section id="research">
-        <h3 class="section-title">Research</h3>
-        <p>My recent work includes developing HM-DRL—a Deep RL approach for distributed multi-robot pathfinding—and exploring relocation strategies for large robot fleets. I’ve also worked on 4D trajectory planning for multiple UAVs.</p>
-        <div class="research-images">
-          <figure><img src="images/den520d_scallability_experiment.gif" alt="Traffic-aware MAPF"><figcaption>Traffic-aware MAPF</figcaption></figure>
-          <figure><img src="images/hm-drl experiment.gif" alt="HM-DRL approach"><figcaption>HM-DRL approach</figcaption></figure>
-          <figure><img src="images/4d trajectory planning.gif" alt="4D trajectory planning"><figcaption>4D trajectory planning</figcaption></figure>
-        </div>
-      </section>
-
-      <section id="publication">
-        <h3 class="section-title">Publication</h3>
-        <div class="publication-list">
-          <div class="publication-item">
-            <img src="images/pathfinding.png" alt="Traffic-aware MAPF">
-            <div class="publication-detail">
-              <h4>Traffic-aware Multi-Agent Pathfinding</h4>
-              <p class="authors">M. Boumediene, A. L. Christensen</p>
-              <p>Status: Under proofreading, 2024.</p>
-              <div class="pub-links">
-                <a href="paper-page.html" title="Paper page"><i class="fas fa-file-alt"></i></a>
-                <a href="https://github.com/your-user/your-repo" title="Code"><i class="fab fa-github"></i></a>
-                <a href="https://youtube.com/your-video" title="Video"><i class="fab fa-youtube"></i></a>
+    <main class="main">
+      <section id="publications" class="pub-section">
+        <h2>Publications <i class="fas fa-book-open"></i></h2>
+        <p class="muted">Journal Papers / Conference Proceedings / Preprint</p>
+        <div class="pub-list">
+          <!-- Template: Copy this .pub-item block for each publication -->
+          <div class="pub-item">
+            <div class="pub-header">
+              <div><strong>25.</strong> D4orm: Multi-Robot Trajectories with Dynamics-aware Diffusion Denoised Deformations</div>
+              <div class="icons">
+                <a href="#" title="DOI"><i class="fas fa-link"></i></a>
+                <a href="#" title="Code"><i class="fab fa-github"></i></a>
+                <a href="#" title="Video"><i class="fab fa-youtube"></i></a>
                 <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
               </div>
             </div>
+            <div class="pub-content">
+              <img src="images/path25.png" alt="D4orm Thumbnail" class="pub-thumb">
+              <div class="pub-details">
+                <div class="authors">Yuhao Zhang, Keisuke Okumura, Heedo Woo, Ajay Shankar & Amanda Prorok</div>
+                <div class="venue">Proceedings of IEEE/RSJ IROS. Oct. 2025. pp. 1–7.</div>
+                <div class="notes">To appear at IROS-25, acceptance rate: 1991/4306=46%</div>
+              </div>
+            </div>
           </div>
+          <!-- /Template -->
+          <!-- Add more .pub-item blocks below as needed -->
         </div>
       </section>
-
-      <!-- Other sections omitted for brevity -->
     </main>
   </div>
-  <footer>&copy; 2025 Mouad Boumediene | Built with ❤️ and HTML/CSS</footer>
 </body>
 </html>
