@@ -7,6 +7,8 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pH6fZkkkCzX5sX7JoF6nW9PZ9QXCO7p07U1q2aDaU+zMRN9csPoxv7CiFksCPcYGgr0vQ+oDp2T6RyvFfUl+AA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     /* ===============
        Variables & Reset
@@ -56,8 +58,7 @@
     .main-content {
       flex: 1;
       padding: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
+      margin: 0;
     }
 
     .lang-switch { text-align: right; margin-bottom: 1rem; }
@@ -76,6 +77,10 @@
       font-size: 1.8rem; font-weight: 700;
       margin-bottom: 0.25rem;
     }
+    .social-icons { margin: 0.5rem 0; }
+    .social-icons a { margin-right: 0.75rem; color: var(--accent); transition: color 0.2s; }
+    .social-icons a:hover { color: #3f51b5; }
+    .social-icons i { font-size: 1.3rem; vertical-align: middle; }
     .profile-header .subtext {
       color: var(--subtext);
       font-size: 0.95rem;
@@ -101,6 +106,7 @@
       font-size: 1.4rem;
       font-weight: 700;
       margin-bottom: 1rem;
+      text-align: left;
     }
     .section-title::after {
       content: '';
@@ -120,10 +126,7 @@
       gap: 1.5rem;
       margin-top: 1rem;
     }
-    .research-images figure {
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
+    .research-images figure { overflow: hidden; transition: transform 0.2s; }
     .research-images figure:hover { transform: translateY(-5px); }
     .research-images img { width: 100%; display: block; border-radius: 4px; }
     .research-images figcaption {
@@ -139,6 +142,7 @@
       grid-template-columns: 1fr;
       gap: 1rem;
       margin-top: 1rem;
+      justify-items: start;
     }
     .publication-item {
       display: grid;
@@ -149,8 +153,12 @@
     }
     .publication-item:hover { transform: translateY(-3px); }
     .publication-item img { width: 100%; border-radius: 4px; }
-    .publication-detail h4 { color: var(--accent); margin-bottom: 0.3rem; }
+    .publication-detail h4 { color: var(--accent); margin-bottom: 0.3rem; text-align: left; }
     .publication-detail .authors { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .pub-links { margin-top: 0.5rem; }
+    .pub-links a { margin-right: 1rem; color: var(--accent); transition: color 0.2s; }
+    .pub-links a:hover { color: #3f51b5; }
+    .pub-links i { font-size: 1rem; vertical-align: middle; }
 
     /* Footer */
     footer { text-align: center; margin: 3rem 0 1rem; color: var(--muted); font-size: 0.9rem; }
@@ -161,6 +169,7 @@
     @media (max-width: 900px) {
       .research-images { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
       .publication-item { grid-template-columns: 80px 1fr; }
+      .social-icons a { margin-right: 0.5rem; }
     }
     @media (max-width: 600px) {
       .layout { flex-direction: column; }
@@ -195,7 +204,14 @@
       <div class="profile-header">
         <img src="images/personal image.jpg" alt="Profile image">
         <div>
-          <h2>Mouad Boumediene <span style="font-weight:400;">| Postdoctoral Researcher</span></h2>
+          <h2>
+            Mouad Boumediene <span style="font-weight:400;">| Postdoctoral Researcher</span>
+          </h2>
+          <div class="social-icons">
+            <a href="https://orcid.org/0000-0002-xxxx-xxxx" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+            <a href="https://github.com/mouad-boumediene" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?user=XXXXXXXXXXX" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          </div>
           <p class="subtext">I focus on developing multi-robot coordination approaches using Deep RL, with an interest in advanced pathfinding and Industry 4.0 applications.</p>
           <!-- Place your CV PDF at the site root as 'CV_mouad.pdf' -->
           <a href="/CV_mouad.pdf" target="_blank" class="btn-cv">Curriculum Vitae [PDF]</a>
@@ -245,6 +261,12 @@
               <h4>Traffic Aware Multi-Agent Pathfinding</h4>
               <p class="authors">M. Boumediene, A. L. Christensen</p>
               <p>Status: Under proofreading, 2024.</p>
+              <div class="pub-links">
+                <a href="paper-page.html" title="Paper page"><i class="fas fa-file-alt"></i></a>
+                <a href="https://github.com/your-user/your-repo" title="Code"><i class="fab fa-github"></i></a>
+                <a href="https://youtube.com/your-video" title="Video"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
+              </div>
             </div>
           </div>
         </div>
