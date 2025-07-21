@@ -73,21 +73,143 @@
         </p>
       </section>
 
-      <section>
-        <h2 class="section-title">Method</h2>
-        <ol>
-          <li>Compute a global traffic heatmap reflecting agent density and congestion.</li>
-          <li>Embed heatmap features into each agent’s state representation.</li>
-          <li>Train a centralized critic with decentralized HM‑DRL actors.</li>
-          <li>During execution, agents consult local heatmap gradients to adapt paths.</li>
-        </ol>
-      </section>
+<section class="section experiments-results">
+  <h2 class="section-title">Experiments &amp; Results</h2>
 
-      <section>
-        <h2 class="section-title">Experiments &amp; Results</h2>
-        <p>In benchmarks with 100+ agents, HM‑DRL reduced total makespan by <strong>20%</strong> and
-        collisions by <strong>35%</strong> compared to baseline MAPF algorithms.</p>
-      </section>
+  <!-- Experimental Setup -->
+  <div style="margin-top:1em;">
+    <h3 style="font-size:1.25em; margin-bottom:0.5em;">Experimental Setup</h3>
+    <p>
+      We evaluated our approach on an 80 × 80 grid map with randomly placed obstacles covering 30 % of the map’s area. A total of 200 scenarios were generated, with agents and their targets positioned randomly in each scenario. Each run had a time limit of 386 steps; runs that failed to resolve conflicts or exceeded this limit were deemed unsuccessful. We measured three key metrics—<em>success rate</em>, <em>makespan</em>, and <em>throughput</em>—across agent counts from 4 to 128.
+    </p>
+  </div>
+
+  <!-- Obtained Results -->
+  <div style="margin-top:2em;">
+    <h3 style="font-size:1.25em; margin-bottom:0.5em;">Obtained Results</h3>
+
+    <!-- Success Rate Figure -->
+    <figure style="margin:1em 0;">
+      <img src="images/success_rate_comparison_80.png"
+           alt="Comparison of Success Rates for Different Solvers"
+           style="width:100%; height:auto; border:1px solid #ccc;">
+      <figcaption style="text-align:center; font-size:0.9em; margin-top:0.5em;">
+        Comparison of Success Rates for Different Solvers
+      </figcaption>
+    </figure>
+    <p>
+      Incorporating MAPF‑Relocate significantly boosts success rates for all planners, with the gap widening as agent count increases. For instance, DHC’s success rate jumps from 45 % to 89 % at 128 agents. Two‐proportion Z‐tests (α = 0.05) confirm these gains are statistically significant (p &lt; 0.05).
+    </p>
+
+    <!-- Makespan Comparison Table -->
+    <table style="width:100%; border-collapse:collapse; margin:1.5em 0;">
+      <caption style="caption-side:top; text-align:left; font-weight:bold; margin-bottom:0.5em;">
+        Makespan Comparison (Baseline vs. Relocation)
+      </caption>
+      <thead>
+        <tr>
+          <th style="border:1px solid #ddd; padding:8px;">Agents</th>
+          <th style="border:1px solid #ddd; padding:8px;" colspan="2">HM‑DRL</th>
+          <th style="border:1px solid #ddd; padding:8px;" colspan="2">DCC</th>
+          <th style="border:1px solid #ddd; padding:8px;" colspan="2">DHC</th>
+          <th style="border:1px solid #ddd; padding:8px;" colspan="2">PIBT</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th style="border:1px solid #ddd; padding:8px;">Baseline</th>
+          <th style="border:1px solid #ddd; padding:8px;">Reloc</th>
+          <th style="border:1px solid #ddd; padding:8px;">Baseline</th>
+          <th style="border:1px solid #ddd; padding:8px;">Reloc</th>
+          <th style="border:1px solid #ddd; padding:8px;">Baseline</th>
+          <th style="border:1px solid #ddd; padding:8px;">Reloc</th>
+          <th style="border:1px solid #ddd; padding:8px;">Baseline</th>
+          <th style="border:1px solid #ddd; padding:8px;">Reloc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #ddd; padding:8px;">4</td>
+          <td style="border:1px solid #ddd; padding:8px;">100.2</td>
+          <td style="border:1px solid #ddd; padding:8px;">100.1</td>
+          <td style="border:1px solid #ddd; padding:8px;">94.9</td>
+          <td style="border:1px solid #ddd; padding:8px;">94.8</td>
+          <td style="border:1px solid #ddd; padding:8px;">98.9</td>
+          <td style="border:1px solid #ddd; padding:8px;">98.9</td>
+          <td style="border:1px solid #ddd; padding:8px;">93.8</td>
+          <td style="border:1px solid #ddd; padding:8px;">93.8</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:8px;">8</td>
+          <td style="border:1px solid #ddd; padding:8px;">108.3</td>
+          <td style="border:1px solid #ddd; padding:8px;">108.4</td>
+          <td style="border:1px solid #ddd; padding:8px;">105.6</td>
+          <td style="border:1px solid #ddd; padding:8px;">104.3</td>
+          <td style="border:1px solid #ddd; padding:8px;">109.6</td>
+          <td style="border:1px solid #ddd; padding:8px;">109.4</td>
+          <td style="border:1px solid #ddd; padding:8px;">101.8</td>
+          <td style="border:1px solid #ddd; padding:8px;">101.8</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:8px;">16</td>
+          <td style="border:1px solid #ddd; padding:8px;">123.2</td>
+          <td style="border:1px solid #ddd; padding:8px;">122.7</td>
+          <td style="border:1px solid #ddd; padding:8px;">115.2</td>
+          <td style="border:1px solid #ddd; padding:8px;">114.7</td>
+          <td style="border:1px solid #ddd; padding:8px;">122.7</td>
+          <td style="border:1px solid #ddd; padding:8px;">121.7</td>
+          <td style="border:1px solid #ddd; padding:8px;">112.2</td>
+          <td style="border:1px solid #ddd; padding:8px;">112.0</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:8px;">32</td>
+          <td style="border:1px solid #ddd; padding:8px;">142.4</td>
+          <td style="border:1px solid #ddd; padding:8px;">137.8</td>
+          <td style="border:1px solid #ddd; padding:8px;">130.4</td>
+          <td style="border:1px solid #ddd; padding:8px;">127.3</td>
+          <td style="border:1px solid #ddd; padding:8px;">138.2</td>
+          <td style="border:1px solid #ddd; padding:8px;"><strong>136.7</strong></td>
+          <td style="border:1px solid #ddd; padding:8px;">121.4</td>
+          <td style="border:1px solid #ddd; padding:8px;">121.6</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:8px;">64</td>
+          <td style="border:1px solid #ddd; padding:8px;">168.5</td>
+          <td style="border:1px solid #ddd; padding:8px;">163.9</td>
+          <td style="border:1px solid #ddd; padding:8px;">145.4</td>
+          <td style="border:1px solid #ddd; padding:8px;"><strong>139.3</strong></td>
+          <td style="border:1px solid #ddd; padding:8px;">161.3</td>
+          <td style="border:1px solid #ddd; padding:8px;"><strong>155.4</strong></td>
+          <td style="border:1px solid #ddd; padding:8px;">127.1</td>
+          <td style="border:1px solid #ddd; padding:8px;">127.0</td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #ddd; padding:8px;">128</td>
+          <td style="border:1px solid #ddd; padding:8px;">232.6</td>
+          <td style="border:1px solid #ddd; padding:8px;"><strong>227.3</strong></td>
+          <td style="border:1px solid #ddd; padding:8px;">182.0</td>
+          <td style="border:1px solid #ddd; padding:8px;"><strong>171.6</strong></td>
+          <td style="border:1px solid #ddd; padding:8px;">208.7</td>
+          <td style="border:1px solid #ddd; padding:8px;"><strong>191.1</strong></td>
+          <td style="border:1px solid #ddd; padding:8px;">132.4</td>
+          <td style="border:1px solid #ddd; padding:8px;">132.6</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Throughput Figure -->
+    <figure style="margin:1em 0;">
+      <img src="images/throughput_80.png"
+           alt="Throughput Comparison Among Different Solvers"
+           style="width:100%; height:auto; border:1px solid #ccc;">
+      <figcaption style="text-align:center; font-size:0.9em; margin-top:0.5em;">
+        Throughput Comparison Among Different Solvers
+      </figcaption>
+    </figure>
+    <p>
+      Throughput (agents per time step) averaged over 200 runs shows consistent gains across all planners, especially at higher agent counts. DCC with relocation achieves the largest improvement, while HM‑DRL, DHC, and PIBT also demonstrate notable increases in flow efficiency.
+    </p>
+  </div>
+</section>
 
       <section>
         <h2 class="section-title">Resources</h2>
@@ -98,12 +220,33 @@
         </ul>
       </section>
 
-      <section>
-        <h2 class="section-title">Video</h2>
-        <div class="video-container">
-          <iframe width="1280" height="720" src="https://youtu.be/JewlWUvDAwg" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </section>
+<section>
+  <h2 class="section-title">Video</h2>
+  <div
+    style="
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 9/16 = 0.5625 */
+      height: 0;
+      overflow: hidden;
+    "
+  >
+    <iframe
+      src="https://www.youtube.com/embed/JewlWUvDAwg?si=lfTMB22eyu0yUncU"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      "
+      allow="accelerometer; autoplay; clipboard‑write; encrypted‑media; gyroscope; picture‑in‑picture; web‑share"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
 
       <section id="citation">
         <h2 class="section-title">Citation</h2>
