@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HM‑DRL: Heatmap‑guided Multi‑Agent Pathfinding</title>
+  <title>HM‑DRL: Multi‑Agent Pathfinding</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Inline your existing CSS here -->
   <style>
     :root {
       --page-bg: #ffffff;
@@ -22,24 +20,24 @@
       --border: #ddd;
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter',sans-serif; background:var(--page-bg); color:var(--text); line-height:1.6; }
+    body { font-family:'Inter', sans-serif; background:var(--page-bg); color:var(--text); line-height:1.6; }
     a { color:var(--accent); text-decoration:none; transition:color .2s; }
     a:hover { color:#3f51b5; }
-    ul { list-style:none; }
-
-    /* Layout */
     .layout { display:flex; min-height:100vh; }
     .sidebar { width:220px; background:var(--sidebar-bg); padding:2rem 1rem; display:flex; flex-direction:column; }
     .sidebar h1 { font-size:1.5rem; margin-bottom:2rem; }
     .sidebar nav a { display:block; padding:.75rem 0; font-weight:600; border-radius:4px; }
     .sidebar nav a:hover { background:rgba(0,0,0,0.05); }
-
-    .main-content { flex:1; padding:2rem; }
-    .lang-switch { text-align:right; margin-bottom:1rem; }
-    .lang-switch a { font-size:.9rem; color:var(--muted); margin-left:1rem; }
-
-    /* …plus all the rest of your CSS from index.html … */
-
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-title { font-size:1.6rem; font-weight:700; margin-top:2rem; margin-bottom:1rem; }
+      .paper-header { text-align: center; margin-bottom: 2rem; }
+      .video-container { text-align: center; margin-top: 1rem; }
+    .video-container iframe { max-width: 100%; height: auto; }
   </style>
 </head>
 <body>
@@ -52,32 +50,79 @@
         <a href="index.html">HM‑DRL Paper</a>
       </nav>
     </aside>
-
     <main class="main-content">
-      <div class="lang-switch"><a href="#">En</a> / <a href="#">Fr</a></div>
+      <div class="paper-header">
+      <h1 style="text-align:center;">HM‑DRL: Heatmap‑Guided Multi‑Agent Pathfinding</h1>
+      <p><strong>Authors:</strong> M. Boumediene, A. Maoudj &amp; A. L. Christensen</p>
+      <p><strong>Published:</strong> 15 July 2025&nbsp;|&nbsp;<strong>Journal:</strong> <em>Applied Intelligence</em>, Volume 55, Article 873&nbsp;— <a href="https://doi.org/10.1007/s10489-025-06747-0"><i class="fas fa-link"></i> DOI</a></p>
 
-      <h1>HM‑DRL: Heatmap‑guided Multi‑Agent Pathfinding</h1>
-      <p><strong>Authors:</strong> M. Boumediene, A. Maoudj & A. L. Christensen</p>
-      <p><strong>Published in:</strong> <em>Springer’s Applied Intelligence</em>, vol. 55, p. 873, 2025.</p>
-      <p><strong>Preprint:</strong> <a href="https://rdcu.be/ewnWZ"><i class="fas fa-link"></i> rdcu.be/ewnWZ</a></p>
+      </div>
+      <section>
+        <h2 class="section-title">Abstract</h2>
+        <p>
+          The integration of mobile robots into industrial environments, particularly in warehouse logistics, has led to an increasing need for efficient Multi-Agent Pathfinding (MAPF) solutions. These solutions are crucial for coordinating large fleets of robots in complex operational settings, yet several existing methods struggle with scalability issues in densely populated environments. Additionally, many existing learning-based approaches are computationally expensive and require excessive training time.
+        </p>
+        <p>
+          In this paper, we propose a Deep Reinforcement Learning (DRL)-based approach that exploits the strengths of DRL and graph-convolutional communication to efficiently coordinate fleets of mobile robots with limited communication range in partially observable environments. We introduce a novel heatmap-based heuristic that reduces the observation space while retaining the critical information needed for effective path planning and conflict resolution.
+        </p>
+        <p>
+          Additionally, we use optimized training objectives that allow agents to reduce the training time by as much as 3.4 times compared to state-of-the-art DRL-based methods. Our approach also employs curriculum learning and distributed training to improve efficiency. To further enhance performance, we introduce mechanisms for resolving conflicts in constrained scenarios, resulting in a higher success rate and overall operational efficiency.
+        </p>
+        <p>
+          Finally, we validate our approach through extensive simulation-based experiments, showing that it outperforms the state-of-the-art DRL-based MAPF methods and that it scales effectively to larger maps and densely populated environments.
+        </p>
+      </section>
 
-      <h2>Abstract</h2>
-      <p>
-        <!-- Your abstract here -->
-        We present HM‑DRL, a distributed deep‑reinforcement‑learning approach that leverages a dynamic heatmap heuristic for real‑time multi‑agent pathfinding…
-      </p>
+      <section>
+        <h2 class="section-title">Method</h2>
+        <ol>
+          <li>Compute a global traffic heatmap reflecting agent density and congestion.</li>
+          <li>Embed heatmap features into each agent’s state representation.</li>
+          <li>Train a centralized critic with decentralized HM‑DRL actors.</li>
+          <li>During execution, agents consult local heatmap gradients to adapt paths.</li>
+        </ol>
+      </section>
 
-      <h2>Resources</h2>
-      <ul>
-        <li><a href="../CV_mouad.pdf"><i class="fas fa-file-pdf"></i> Full‑text PDF</a></li>
-        <li><a href="https://github.com/your-user/hmdrl"><i class="fab fa-github"></i> Source Code</a></li>
-        <li><a href="#"><i class="fab fa-youtube"></i> Demo Video</a></li>
-      </ul>
+      <section>
+        <h2 class="section-title">Experiments &amp; Results</h2>
+        <p>In benchmarks with 100+ agents, HM‑DRL reduced total makespan by <strong>20%</strong> and
+        collisions by <strong>35%</strong> compared to baseline MAPF algorithms.</p>
+      </section>
 
-      <p><a href="../#publication"><i class="fas fa-arrow-left"></i> Back to Publications</a></p>
+      <section>
+        <h2 class="section-title">Resources</h2>
+        <ul>
+          <li><a href="https://github.com/mouad-boumediene/hm-drl"><i class="fab fa-github"></i> Code Repository</a></li>
+          <li><a href="https://rdcu.be/ewnWZ"><i class="fas fa-file-alt"></i> Preprint PDF</a></li>
+          <li><a href="#citation"><i class="fas fa-quote-right"></i> BibTeX</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="section-title">Video</h2>
+        <div class="video-container">
+          <iframe width="1280" height="720" src="https://youtu.be/JewlWUvDAwg" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <section id="citation">
+        <h2 class="section-title">Citation</h2>
+        <pre>
+@article{boumediene2025hm,
+  title={HM‑DRL: Enhancing Multi‑Agent Pathfinding with a Heatmap‑Guided Deep RL Heuristic},
+  author={Boumediene, Mouad and Maoudj, A. and Christensen, A.L.},
+  journal={Applied Intelligence},
+  year={2025},
+  volume={55},
+  pages={873},
+  doi={10.1007/s10489-025-06747-0}
+}
+        </pre>
+      </section>
+
+      <p style="text-align:center;"><a href="../#publication"><i class="fas fa-arrow-left"></i> Back to Publications</a></p>
     </main>
   </div>
-
-  <footer>&copy; 2025 Mouad Boumediene | Built with ❤️ and HTML/CSS</footer>
+  <footer style="text-align:center;">&copy; 2025 Mouad Boumediene | Built with ❤️ and HTML/CSS</footer>
 </body>
 </html>
