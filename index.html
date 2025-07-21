@@ -63,8 +63,28 @@
     .publication-detail .authors { color:var(--muted); font-size:.95rem; margin-bottom:.5rem; }
     .publication-detail .venue { font-size:.95rem; margin-bottom:.5rem; }
     .publication-detail .notes { font-size:.9rem; color:green; }
-    /* Label for publication type */
     .pub-label { background: rgba(255,255,255,0.8); border: 1px solid #000; color: #000; border-radius: 3px; padding: 2px 6px; font-size: 0.75rem; margin: 0 0.5rem; opacity: 0.9; }
+
+    /* Toast notification */
+    #toast {
+      visibility: hidden;
+      min-width: 180px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 0.5rem;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+    }
+    #toast.show {
+      visibility: visible;
+      animation: fadein .4s, fadeout .4s 2s;
+    }
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
   </style>
 </head>
 <body>
@@ -101,7 +121,6 @@
       </div>
 
       <!-- News -->
-
       <section id="news">
         <h3 class="section-title">News</h3>
         <ul class="news-list">
@@ -110,47 +129,196 @@
         </ul>
       </section>
 
-
       <!-- Publications -->
-
       <section id="publications">
         <h3 class="section-title">Publication</h3>
         <p class="subtext">Journal Papers / Conference Proceedings / Preprint</p>
         <div class="publication-list">
 
-          
           <!-- HM-DRL -->
-           
           <div class="publication-item">
             <div class="publication-header">
-              <div class="title"><strong>1.</strong><span class="pub-label">Journal</span>Hm‑DRL: Enhancing multi‑agent pathfinding with a heatmap‑based heuristic for distributed deep reinforcement learning</div>
+              <div class="title">
+                <strong>1.</strong>
+                <span class="pub-label">Journal</span>
+                HM‑DRL: Enhancing multi‑agent pathfinding with a heatmap‑based heuristic for distributed deep reinforcement learning
+              </div>
               <div class="pub-icons">
                 <a href="https://doi.org/10.1007/s10489-025-06747-0" title="DOI"><i class="fas fa-link"></i></a>
-                <a href="#" title="Code"><i class="fab fa-github"></i></a>
-                <a href="#" title="Video"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
+                <a href="https://youtu.be/JewlWUvDAwg" title="Video"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="copy-citation" data-citation="@article{boumediene2025hmdrl,
+  author    = {Boumediene, Mouad and Maoudj, Abderraouf and Christensen, Anders Lyhne},
+  title     = {HM-DRL: Enhancing Multi‑Agent Pathfinding with a Heatmap‑Based Heuristic for Distributed Deep Reinforcement Learning},
+  journal   = {Applied Intelligence},
+  volume    = {55},
+  pages     = {873},
+  day       = {15},
+  month     = {Jul},
+  year      = {2025},
+  doi       = {10.1007/s10489-025-06747-0},
+  url       = {https://doi.org/10.1007/s10489-025-06747-0},
+  publisher = {Springer}
+}" title="BibTeX"><i class="fas fa-quote-right"></i></a>
               </div>
             </div>
-            
             <div class="publication-content">
               <a href="HM_DRL/" class="publication-link"><img src="images/hmdrl_git_to_website.gif" alt="HM-DRL Thumbnail" class="pub-thumb"></a>
               <div class="publication-detail">
                 <p class="authors">M. Boumediene, A. Maoudj & A. L. Christensen</p>
-                <p class="venue"><em>Applied Intelligence</em>, vol. 55, p. 873, 2025.</p>
+                <p class="venue"><em>Applied Intelligence</em>, vol. 55, p. 873, 2025.</p>
                 <p class="notes">DOI: <a href="https://doi.org/10.1007/s10489-025-06747-0">10.1007/s10489-025-06747-0</a></p>
               </div>
             </div>
           </div>
 
-          <!-- FDA* -->
+          
+
+          <!-- Gen4jectory -->
           <div class="publication-item">
             <div class="publication-header">
-              <div class="title"><strong>2.</strong><span class="pub-label">Journal</span>FDA*: A Focused Single‑Query Grid Based Path Planning Algorithm</div>
+              <div class="title">
+                <strong>3.</strong>
+                <span class="pub-label">Conference</span>
+                Gen4jectory algorithm – 4‑d trajectory planning with minimised flight time for multiple rotary‑wing UAVs
+              </div>
+              <div class="pub-icons">
+                <a href="https://pure.au.dk/portal/en/publications/gen4jectory-algorithm-4-d-trajectory-planning-with-minimised-flig" title="URL"><i class="fas fa-link"></i></a>
+                <a href="https://gitlab.com/uaswork/gen4jectory.git" title="Code"><i class="fab fa-github"></i></a>
+                <a href="https://youtu.be/ySXKh59fgTM" title="Video"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="copy-citation" data-citation="@inproceedings{panov2024,
+title = "Gen4jectory algorithm – 4-D trajectory planning with minimised flight time for multiple rotary-wing UAVs",
+keywords = "4-D trajectory, U-space, Aircraft performance, UAV, Drones, UAS",
+author = "Ivan Panov and Mouad Boumediene and Henrik Midtiby and Kjeld Jensen",
+year = "2024",
+month = sep,
+language = "English",
+pages = "242--252",
+note = "15th ANNUAL INTERNATIONAL MICRO AIR VEHICLE CONFERENCE AND COMPETITION, IMAV2024-25 ; Conference date: 16-09-2024 Through 20-09-2024",
+url = "https://www.imavs.org/imav2024-proceedings/",
+}" title="BibTeX"><i class="fas fa-quote-right"></i></a>
+              </div>
+            </div>
+            <div class="publication-content">
+              <img src="images/gen4jectory.gif" alt="Gen4jectory Thumbnail" class="pub-thumb">
+              <div class="publication-detail">
+                <p class="authors">I. Panov, M. Boumediene, H. Midtiby & K. Jensen</p>
+                <p class="venue"><em>IMAV2024‑25</em>; Sep 2024, pp. 242–252.</p>
+                <p class="notes">URL: <a href="https://pure.au.dk/portal/en/publications/gen4jectory-algorithm-4-d-trajectory-planning-with-minimised-flig">pure.au.dk/portal/en/publications</a></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unicycle MPC -->
+          <div class="publication-item">
+            <div class="publication-header">
+              <div class="title">
+                <strong>4.</strong>
+                <span class="pub-label">Conference</span>
+                Unicycle mobile robot control using neural model predictive controller
+              </div>
+              <div class="pub-icons">
+                <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
+                <a href="#" class="copy-citation" data-citation="@inproceedings{bellel2023unicycle,
+  title={Unicycle Mobile Robot Control using Neural Model Predictive Controller},
+  author={Chahinez Bellel and Lamine Mehennaoui and Faouzi Bouchareb and Mouad Boumediene},
+  booktitle={Fourth International Conference on Technological Advances in Electrical Engineering (ICTAEE'23)},
+  year={2023},
+  month={May},
+  address={Skikda, Algeria},
+  organization={Laboratory of Automatic of Skikda, 20 Aout 1955 University},
+  email={bellel.chahinez1@gmail.com, l.mehennaoui@univ-skikda.dz, me_lamine@yahoo.fr, bouchareb.faouzi@gmail.com, mouadboumediene@yahoo.fr},
+url = {https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing},
+pages = {110--117}
+}" title="BibTeX"><i class="fas fa-quote-right"></i></a>
+              </div>
+            </div>
+            <div class="publication-content">
+              <div class="publication-detail">
+                <p class="authors">C. Bellel, L. Mehennaoui, F. Bouchareb & M. Boumediene</p>
+                <p class="venue"><em>ICTAEE'23</em>, Skikda, Algeria, May 2023, pp. 110–117.</p>
+                <p class="notes">URL: <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing">drive.google.com/...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gazebo Self-Balancing -->
+          <div class="publication-item">
+            <div class="publication-header">
+              <div class="title">
+                <strong>5.</strong>
+                <span class="pub-label">Conference</span>
+                Design, simulation and control of a self-balancing robot in a gazebo environment and ROS 2 framework
+              </div>
+              <div class="pub-icons">
+                <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
+                <a href="#" class="copy-citation" data-citation="@inproceedings{Boumediene2023SelfBalancingRobot,
+  author = {Boumediene, M. and Laouar, S. and Mehennaoui, D. L. and Ouchtati, P. S.},
+  title = {Design, simulation and control of a Self-Balancing Robot in a Gazebo environment and ROS 2 framework},
+  booktitle = {Proceedings of the International Conference on Technological Advances in Electrical Engineering (ICTAEE)},
+  year = {2023},
+  month = may,
+  day = {24},
+  pages = {98--103},
+  address = {Skikda, Algeria},
+  url = {https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing}
+}" title="BibTeX"><i class="fas fa-quote-right"></i></a>
+              </div>
+            </div>
+            <div class="publication-content">
+              <div class="publication-detail">
+                <p class="authors">M. Boumediene, S. Laouar, D. L. Mehennaoui & P. S. Ouchtati</p>
+                <p class="venue"><em>ICTAEE</em>, Skikda, Algeria, May 2023, pp. 98–103.</p>
+                <p class="notes">URL: <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing">drive.google.com/...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PCB Self-Balancing -->
+          <div class="publication-item">
+            <div class="publication-header">
+              <div class="title">
+                <strong>6.</strong>
+                <span class="pub-label">Conference</span>
+                Design, construction, and control of a self-balancing robot including a new frame assembly approach and a custom PCB
+              </div>
+              <div class="pub-icons">
+                <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
+                <a href="#" class="copy-citation" data-citation="@inproceedings{Boumediene2023SelfBalancingRobotNewFrame,
+  author = {Boumediene, M. and Zeghida, N. and Manaa, B. and Mehennaoui, D. L.},
+  title = {Design, Construction, and Control of a Self-Balancing Robot including A New Frame Assembly Approach and A Custom PCB},
+  booktitle = {Proceedings of the International Conference on Technological Advances in Electrical Engineering (ICTAEE)},
+  year = {2023},
+  month = may,
+  day = {24},
+  address = {Skikda, Algeria},
+  pages = {200--206},
+  url = {https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing}
+}" title="BibTeX"><i class="fas fa-quote-right"></i></a>
+              </div>
+            </div>
+            <div class="publication-content">
+              <div class="publication-detail">
+                <p class="authors">M. Boumediene, N. Zeghida, B. Manaa & D. L. Mehennaoui</p>
+                <p class="venue"><em>ICTAEE</em>, Skikda, Algeria, May 2023, pp. 200–206.</p>
+                <p class="notes">URL: <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing">drive.google.com/...</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- FDA* -->
+          <div class="publication-item">
+            <div class="publication-header">
+              <div class="title">
+                <strong>2.</strong>
+                <span class="pub-label">Journal</span>
+                FDA*: A Focused Single‑Query Grid Based Path Planning Algorithm
+              </div>
               <div class="pub-icons">
                 <a href="https://doi.org/10.14313/JAMRIS/3-2021/17" title="DOI"><i class="fas fa-link"></i></a>
-                <a href="#" title="Code"><i class="fab fa-github"></i></a>
-                <a href="#" title="Video"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
+                <a href="#" class="copy-citation" data-citation="PLACEHOLDER" title="BibTeX"><i class="fas fa-quote-right"></i></a>
               </div>
             </div>
             <div class="publication-content">
@@ -162,89 +330,29 @@
               </div>
             </div>
           </div>
-          <!-- Gen4jectory -->
-          <div class="publication-item">
-            <div class="publication-header">
-              <div class="title"><strong>3.</strong><span class="pub-label">Conference</span>Gen4jectory algorithm – 4‑d trajectory planning with minimised flight time for multiple rotary‑wing UAVs</div>
-              <div class="pub-icons">
-                <a href="https://www.imavs.org/imav2024-proceedings/" title="URL"><i class="fas fa-link"></i></a>
-                <a href="#" title="Code"><i class="fab fa-github"></i></a>
-                <a href="#" title="Video"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
-              </div>
-            </div>
-            <div class="publication-content">
-              <img src="images/gen4jectory.gif" alt="Gen4jectory Thumbnail" class="pub-thumb">
-              <div class="publication-detail">
-                <p class="authors">I. Panov, M. Boumediene, H. Midtiby & K. Jensen</p>
-                <p class="venue"><em>IMAV2024‑25</em>; Sep 2024, pp. 242–252.</p>
-                <p class="notes">URL: <a href="https://www.imavs.org/imav2024-proceedings/">imavs.org/imav2024-proceedings</a></p>
-              </div>
-            </div>
-          </div>
-          <!-- Unicycle MPC -->
-          <div class="publication-item">
-            <div class="publication-header">
-              <div class="title"><strong>4.</strong><span class="pub-label">Conference</span>Unicycle mobile robot control using neural model predictive controller</div>
-              <div class="pub-icons">
-                <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
-                <a href="#" title="Code"><i class="fab fa-github"></i></a>
-                <a href="#" title="Video"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
-              </div>
-            </div>
-            <div class="publication-content">
-              <div class="publication-detail">
-                <p class="authors">C. Bellel, L. Mehennaoui, F. Bouchareb & M. Boumediene</p>
-                <p class="venue"><em>ICTAEE'23</em>, Skikda, Algeria, May 2023, pp. 110–117.</p>
-                <p class="notes">URL: <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing">drive.google.com/...</a></p>
-              </div>
-            </div>
-          </div>
-          <!-- Gazebo Self-Balancing -->
-          <div class="publication-item">
-            <div class="publication-header">
-              <div class="title"><strong>5.</strong><span class="pub-label">Conference</span>Design, simulation and control of a self-balancing robot in a gazebo environment and ROS 2 framework</div>
-              <div class="pub-icons">
-                <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
-                <a href="#" title="Code"><i class="fab fa-github"></i></a>
-                <a href="#" title="Video"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
-              </div>
-            </div>
-            <div class="publication-content">
-              <div class="publication-detail">
-                <p class="authors">M. Boumediene, S. Laouar, D. L. Mehennaoui & P. S. Ouchtati</p>
-                <p class="venue"><em>ICTAEE</em>, Skikda, Algeria, May 2023, pp. 98–103.</p>
-                <p class="notes">URL: <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing">drive.google.com/...</a></p>
-              </div>
-            </div>
-          </div>
-          <!-- PCB Self-Balancing -->
-          <div class="publication-item">
-            <div class="publication-header">
-              <div class="title"><strong>6.</strong><span class="pub-label">Conference</span>Design, construction, and control of a self-balancing robot including a new frame assembly approach and a custom PCB</div>
-              <div class="pub-icons">
-                <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" title="URL"><i class="fas fa-link"></i></a>
-                <a href="#" title="Code"><i class="fab fa-github"></i></a>
-                <a href="#" title="Video"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="BibTeX"><i class="fas fa-quote-right"></i></a>
-              </div>
-            </div>
-            <div class="publication-content">
-              <div class="publication-detail">
-                <p class="authors">M. Boumediene, N. Zeghida, B. Manaa & D. L. Mehennaoui</p>
-                <p class="venue"><em>ICTAEE</em>, Skikda, Algeria, May 2023, pp. 200–206.</p>
-                <p class="notes">URL: <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing">drive.google.com/...</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
+
       <!-- Other sections unchanged -->
+
     </main>
   </div>
+
   <footer>&copy; 2025 Mouad Boumediene | Built with ❤️ and HTML/CSS</footer>
+
+  <div id="toast">Citation copied!</div>
+
+  <script>
+    document.querySelectorAll('.copy-citation').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        const citation = el.getAttribute('data-citation') || '';
+        navigator.clipboard.writeText(citation).then(() => {
+          const toast = document.getElementById('toast');
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
-
