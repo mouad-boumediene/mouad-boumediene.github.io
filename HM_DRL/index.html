@@ -35,15 +35,48 @@
       margin: 0 auto;
     }
     .section-title { font-size:1.6rem; font-weight:700; margin-top:2rem; margin-bottom:1rem; }
-      .paper-header { text-align: center; margin-bottom: 2rem; }
-      .video-container { text-align: center; margin-top: 1rem; }
+
+    /* Inline icon styling */
+    .inline-icons a {
+      margin-left: 0.75rem;
+      font-size: 1.1rem;
+      vertical-align: middle;
+      color: var(--text);
+    }
+    .inline-icons a:hover {
+      color: var(--accent);
+    }
+
+    .video-container { text-align: center; margin-top: 1rem; }
     .video-container iframe { max-width: 100%; height: auto; }
+
+    /* Toast notification */
+    #toast {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 0.5rem;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+    }
+    #toast.show {
+      visibility: visible;
+      animation: fadein .5s, fadeout .5s 2.5s;
+    }
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
   </style>
 </head>
 <body>
   <div class="layout">
     <aside class="sidebar">
-      <h1>Mouad B</h1>
+      <h1>Mouad 
+        Boumediene</h1>
       <nav>
         <a href="../index.html">Home</a>
         <a href="../#publication">Publication</a>
@@ -52,11 +85,24 @@
     </aside>
     <main class="main-content">
       <div class="paper-header">
-      <h1 style="text-align:center;">HM‑DRL: Heatmap‑Guided Multi‑Agent Pathfinding</h1>
-      <p><strong>Authors:</strong> M. Boumediene, A. Maoudj &amp; A. L. Christensen</p>
-      <p><strong>Published:</strong> 15 July 2025&nbsp;|&nbsp;<strong>Journal:</strong> <em>Applied Intelligence</em>, Volume 55, Article 873&nbsp;— <a href="https://doi.org/10.1007/s10489-025-06747-0"><i class="fas fa-link"></i> DOI</a></p>
-
+        <h1>HM‑DRL: Enhancing Multi‑Agent Pathfinding with a Heatmap‑Based Heuristic for Distributed Deep Reinforcement Learning</h1>
+        <p><strong>Authors:</strong> M. Boumediene, A. Maoudj &amp; A. L. Christensen</p>
+        <p>
+          <strong>Published:</strong> 15 July 2025&nbsp;|&nbsp;
+          <strong>Journal:</strong> <em>Applied Intelligence</em>, Vol. 55, Art. 873
+          <span class="inline-icons">
+            <!-- Preprint PDF icon -->
+            <a href="https://rdcu.be/ewnWZ" title="View preprint PDF" target="_blank" rel="noopener">
+              <i class="fas fa-file-alt"></i>
+            </a>
+            <!-- Copy citation icon -->
+            <a href="#" id="copy-citation" title="Copy BibTeX">
+              <i class="fas fa-quote-right"></i>
+            </a>
+          </span>
+        </p>
       </div>
+
       <section>
         <h2 class="section-title">Abstract</h2>
         <p>
@@ -73,199 +119,116 @@
         </p>
       </section>
 
-<section class="section experiments-results">
-  <h2 class="section-title">Experiments &amp; Results</h2>
-
-  <!-- Experimental Setup -->
-  <div style="margin-top:1em;">
-    <h3 style="font-size:1.25em; margin-bottom:0.5em;">Experimental Setup</h3>
-    <p>
-      We evaluated our approach on an 80 × 80 grid map with randomly placed obstacles covering 30 % of the map’s area. A total of 200 scenarios were generated, with agents and their targets positioned randomly in each scenario. Each run had a time limit of 386 steps; runs that failed to resolve conflicts or exceeded this limit were deemed unsuccessful. We measured three key metrics—<em>success rate</em>, <em>makespan</em>, and <em>throughput</em>—across agent counts from 4 to 128.
-    </p>
-  </div>
-
-  <!-- Obtained Results -->
-  <div style="margin-top:2em;">
-    <h3 style="font-size:1.25em; margin-bottom:0.5em;">Obtained Results</h3>
-
-    <!-- Success Rate Figure -->
-    <figure style="margin:1em 0;">
-      <img src="images/success_rate_comparison_80.png"
-           alt="Comparison of Success Rates for Different Solvers"
-           style="width:100%; height:auto; border:1px solid #ccc;">
-      <figcaption style="text-align:center; font-size:0.9em; margin-top:0.5em;">
-        Comparison of Success Rates for Different Solvers
-      </figcaption>
-    </figure>
-    <p>
-      Incorporating MAPF‑Relocate significantly boosts success rates for all planners, with the gap widening as agent count increases. For instance, DHC’s success rate jumps from 45 % to 89 % at 128 agents. Two‐proportion Z‐tests (α = 0.05) confirm these gains are statistically significant (p &lt; 0.05).
-    </p>
-
-    <!-- Makespan Comparison Table -->
-    <table style="width:100%; border-collapse:collapse; margin:1.5em 0;">
-      <caption style="caption-side:top; text-align:left; font-weight:bold; margin-bottom:0.5em;">
-        Makespan Comparison (Baseline vs. Relocation)
-      </caption>
-      <thead>
-        <tr>
-          <th style="border:1px solid #ddd; padding:8px;">Agents</th>
-          <th style="border:1px solid #ddd; padding:8px;" colspan="2">HM‑DRL</th>
-          <th style="border:1px solid #ddd; padding:8px;" colspan="2">DCC</th>
-          <th style="border:1px solid #ddd; padding:8px;" colspan="2">DHC</th>
-          <th style="border:1px solid #ddd; padding:8px;" colspan="2">PIBT</th>
-        </tr>
-        <tr>
-          <th></th>
-          <th style="border:1px solid #ddd; padding:8px;">Baseline</th>
-          <th style="border:1px solid #ddd; padding:8px;">Reloc</th>
-          <th style="border:1px solid #ddd; padding:8px;">Baseline</th>
-          <th style="border:1px solid #ddd; padding:8px;">Reloc</th>
-          <th style="border:1px solid #ddd; padding:8px;">Baseline</th>
-          <th style="border:1px solid #ddd; padding:8px;">Reloc</th>
-          <th style="border:1px solid #ddd; padding:8px;">Baseline</th>
-          <th style="border:1px solid #ddd; padding:8px;">Reloc</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="border:1px solid #ddd; padding:8px;">4</td>
-          <td style="border:1px solid #ddd; padding:8px;">100.2</td>
-          <td style="border:1px solid #ddd; padding:8px;">100.1</td>
-          <td style="border:1px solid #ddd; padding:8px;">94.9</td>
-          <td style="border:1px solid #ddd; padding:8px;">94.8</td>
-          <td style="border:1px solid #ddd; padding:8px;">98.9</td>
-          <td style="border:1px solid #ddd; padding:8px;">98.9</td>
-          <td style="border:1px solid #ddd; padding:8px;">93.8</td>
-          <td style="border:1px solid #ddd; padding:8px;">93.8</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:8px;">8</td>
-          <td style="border:1px solid #ddd; padding:8px;">108.3</td>
-          <td style="border:1px solid #ddd; padding:8px;">108.4</td>
-          <td style="border:1px solid #ddd; padding:8px;">105.6</td>
-          <td style="border:1px solid #ddd; padding:8px;">104.3</td>
-          <td style="border:1px solid #ddd; padding:8px;">109.6</td>
-          <td style="border:1px solid #ddd; padding:8px;">109.4</td>
-          <td style="border:1px solid #ddd; padding:8px;">101.8</td>
-          <td style="border:1px solid #ddd; padding:8px;">101.8</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:8px;">16</td>
-          <td style="border:1px solid #ddd; padding:8px;">123.2</td>
-          <td style="border:1px solid #ddd; padding:8px;">122.7</td>
-          <td style="border:1px solid #ddd; padding:8px;">115.2</td>
-          <td style="border:1px solid #ddd; padding:8px;">114.7</td>
-          <td style="border:1px solid #ddd; padding:8px;">122.7</td>
-          <td style="border:1px solid #ddd; padding:8px;">121.7</td>
-          <td style="border:1px solid #ddd; padding:8px;">112.2</td>
-          <td style="border:1px solid #ddd; padding:8px;">112.0</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:8px;">32</td>
-          <td style="border:1px solid #ddd; padding:8px;">142.4</td>
-          <td style="border:1px solid #ddd; padding:8px;">137.8</td>
-          <td style="border:1px solid #ddd; padding:8px;">130.4</td>
-          <td style="border:1px solid #ddd; padding:8px;">127.3</td>
-          <td style="border:1px solid #ddd; padding:8px;">138.2</td>
-          <td style="border:1px solid #ddd; padding:8px;"><strong>136.7</strong></td>
-          <td style="border:1px solid #ddd; padding:8px;">121.4</td>
-          <td style="border:1px solid #ddd; padding:8px;">121.6</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:8px;">64</td>
-          <td style="border:1px solid #ddd; padding:8px;">168.5</td>
-          <td style="border:1px solid #ddd; padding:8px;">163.9</td>
-          <td style="border:1px solid #ddd; padding:8px;">145.4</td>
-          <td style="border:1px solid #ddd; padding:8px;"><strong>139.3</strong></td>
-          <td style="border:1px solid #ddd; padding:8px;">161.3</td>
-          <td style="border:1px solid #ddd; padding:8px;"><strong>155.4</strong></td>
-          <td style="border:1px solid #ddd; padding:8px;">127.1</td>
-          <td style="border:1px solid #ddd; padding:8px;">127.0</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #ddd; padding:8px;">128</td>
-          <td style="border:1px solid #ddd; padding:8px;">232.6</td>
-          <td style="border:1px solid #ddd; padding:8px;"><strong>227.3</strong></td>
-          <td style="border:1px solid #ddd; padding:8px;">182.0</td>
-          <td style="border:1px solid #ddd; padding:8px;"><strong>171.6</strong></td>
-          <td style="border:1px solid #ddd; padding:8px;">208.7</td>
-          <td style="border:1px solid #ddd; padding:8px;"><strong>191.1</strong></td>
-          <td style="border:1px solid #ddd; padding:8px;">132.4</td>
-          <td style="border:1px solid #ddd; padding:8px;">132.6</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Throughput Figure -->
-    <figure style="margin:1em 0;">
-      <img src="images/throughput_80.png"
-           alt="Throughput Comparison Among Different Solvers"
-           style="width:100%; height:auto; border:1px solid #ccc;">
-      <figcaption style="text-align:center; font-size:0.9em; margin-top:0.5em;">
-        Throughput Comparison Among Different Solvers
-      </figcaption>
-    </figure>
-    <p>
-      Throughput (agents per time step) averaged over 200 runs shows consistent gains across all planners, especially at higher agent counts. DCC with relocation achieves the largest improvement, while HM‑DRL, DHC, and PIBT also demonstrate notable increases in flow efficiency.
-    </p>
-  </div>
-</section>
-
-      <section>
-        <h2 class="section-title">Resources</h2>
-        <ul>
-          <li><a href="https://github.com/mouad-boumediene/hm-drl"><i class="fab fa-github"></i> Code Repository</a></li>
-          <li><a href="https://rdcu.be/ewnWZ"><i class="fas fa-file-alt"></i> Preprint PDF</a></li>
-          <li><a href="#citation"><i class="fas fa-quote-right"></i> BibTeX</a></li>
-        </ul>
+      <section style="padding:1em; margin:2em 0; border-top:2px solid #ccc;">
+        <h2 style="font-size:1.5em; margin-bottom:0.5em;">Experimental Results</h2>
+        <div style="margin-top:1em;">
+          <figure style="margin:1em 0; text-align:center;">
+            <img
+              src="../images/hmdrl_git_to_website.gif"
+              alt="Demo of HM-DRL running with 64 agents at 10% obstacle density"
+              style="width:40%; height:auto; border:1px solid #ddd;"
+            />
+            <figcaption style="font-size:0.9em; color:#555; margin-top:0.5em;">
+              Animation of HM‑DRL coordinating 64 agents in an environment with 10 % obstacle density.
+            </figcaption>
+          </figure>
+          <h3 style="font-size:1.25em; margin-bottom:0.5em;">Success Rate Comparison</h3>
+          <p style="line-height:1.5;">
+            We compared HM‑DRL against DHC and PRIMAL by measuring the <em>success rate</em> on the <strong>custom 40×40</strong> map (256‑step limit) and <strong>custom 80×80</strong> map (386‑step limit) across 400 randomized scenarios per agent count.
+          </p>
+          <figure style="margin:1em 0; text-align:center;">
+            <img
+              src="../images/sr_comparison.jpg"
+              alt="Success Rate Comparison: HM-DRL vs DHC vs PRIMAL"
+              style="width:100%; height:auto; border:1px solid #ddd;"
+            />
+            <figcaption style="font-size:0.9em; color:#555; margin-top:0.5em;">
+              HM‑DRL consistently outperforms DHC and PRIMAL, maintaining &gt;84 % success on the 40×40 map and &gt;98 % on the 80×80 map even at 64 agents.
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
-<section>
-  <h2 class="section-title">Video</h2>
-  <div
-    style="
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 9/16 = 0.5625 */
-      height: 0;
-      overflow: hidden;
-    "
-  >
-    <iframe
-      src="https://www.youtube.com/embed/JewlWUvDAwg?si=lfTMB22eyu0yUncU"
-      style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-      "
-      allow="accelerometer; autoplay; clipboard‑write; encrypted‑media; gyroscope; picture‑in‑picture; web‑share"
-      allowfullscreen
-    ></iframe>
-  </div>
-</section>
+      <section>
+        <h2 class="section-title">Video</h2>
+        <div
+          style="
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+          "
+        >
+          <iframe
+            src="https://www.youtube.com/embed/JewlWUvDAwg?si=lfTMB22eyu0yUncU"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              border: 0;
+            "
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
 
-
+      <!-- Citation at end -->
       <section id="citation">
         <h2 class="section-title">Citation</h2>
         <pre>
-@article{boumediene2025hm,
-  title={HM‑DRL: Enhancing Multi‑Agent Pathfinding with a Heatmap‑Guided Deep RL Heuristic},
-  author={Boumediene, Mouad and Maoudj, A. and Christensen, A.L.},
-  journal={Applied Intelligence},
-  year={2025},
-  volume={55},
-  pages={873},
-  doi={10.1007/s10489-025-06747-0}
+@article{boumediene2025hmdrl,
+  author    = {Boumediene, Mouad and Maoudj, Abderraouf and Christensen, Anders Lyhne},
+  title     = {HM-DRL: Enhancing Multi‑Agent Pathfinding with a Heatmap‑Based Heuristic for Distributed Deep Reinforcement Learning},
+  journal   = {Applied Intelligence},
+  volume    = {55},
+  pages     = {873},
+  day       = {15},
+  month     = {Jul},
+  year      = {2025},
+  doi       = {10.1007/s10489-025-06747-0},
+  url       = {https://doi.org/10.1007/s10489-025-06747-0},
+  publisher = {Springer}
 }
         </pre>
       </section>
 
-      <p style="text-align:center;"><a href="../#publication"><i class="fas fa-arrow-left"></i> Back to Publications</a></p>
+      <p style="text-align:center;">
+        <a href="../#publication"><i class="fas fa-arrow-left"></i> Back to Publications</a>
+      </p>
     </main>
   </div>
+
   <footer style="text-align:center;">&copy; 2025 Mouad Boumediene | Built with ❤️ and HTML/CSS</footer>
+
+  <!-- Toast notification -->
+  <div id="toast">Citation copied to clipboard</div>
+
+  <script>
+    const bibtex = `@article{boumediene2025hmdrl,
+  author    = {Boumediene, Mouad and Maoudj, Abderraouf and Christensen, Anders Lyhne},
+  title     = {HM-DRL: Enhancing Multi‑Agent Pathfinding with a Heatmap‑Based Heuristic for Distributed Deep Reinforcement Learning},
+  journal   = {Applied Intelligence},
+  volume    = {55},
+  pages     = {873},
+  day       = {15},
+  month     = {Jul},
+  year      = {2025},
+  doi       = {10.1007/s10489-025-06747-0},
+  url       = {https://doi.org/10.1007/s10489-025-06747-0},
+  publisher = {Springer}
+}`;
+    document.getElementById('copy-citation').addEventListener('click', e => {
+      e.preventDefault();
+      navigator.clipboard.writeText(bibtex).then(() => {
+        const toast = document.getElementById('toast');
+        toast.className = 'show';
+        setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+      });
+    });
+  </script>
 </body>
 </html>
