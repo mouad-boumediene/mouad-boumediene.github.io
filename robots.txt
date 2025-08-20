@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mouad-boumediene.github.io/sitemap.xml

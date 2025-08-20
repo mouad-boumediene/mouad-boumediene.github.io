@@ -1,0 +1,688 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =============================================
+       META & DOCUMENT-LEVEL SETTINGS
+       - Keep <title> + <meta> dynamic via person.*
+       - 'site_host' optional canonical for SEO
+       ============================================= -->
+  <meta charset="UTF-8">
+  <title>Mouad Boumediene | Postdoctoral Researcher</title>
+  <meta name="description" content="Personal site of Mouad Boumediene . Research, papers, code, and videos on his latest research projects.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- =============================================
+       FONTS & ICONS
+       - Inter for typography
+       - Font Awesome for icons
+       ============================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- =============================================
+       PAGE-LEVEL STYLES
+       - Keep CSS scoped to this page
+       - Consider splitting into components later
+       ============================================= -->
+  <link rel="stylesheet" href="CSS/homepage_style.css">
+</head>
+
+<body>
+  <!-- =============================================
+       LAYOUT WRAPPER
+       - Sidebar + Main content two-column layout
+       ============================================= -->
+  <div class="layout">
+
+    <!-- =============================================
+         SIDEBAR / NAVIGATION
+         - Toggle items by checking data availability
+         - Add new sections: link here + section in <main>
+         ============================================= -->
+    <aside class="sidebar">
+      <h1>Mouad B</h1>
+
+      <nav>
+<a href="#news">News</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+
+<a href="#skills">Skills</a>        <a href="#contacts">Contacts</a>
+      </nav>
+    </aside>
+
+    <!-- =============================================
+         MAIN CONTENT
+         ============================================= -->
+    <main class="main-content">
+
+      <!-- =============================================
+           PROFILE HEADER
+           - Avatar + Name/Title + Social + Headline + CV
+           - To add a new social link: push to 'social'
+           ============================================= -->
+      <div class="profile-header">
+        <img src="profile_image.jpg" alt="Profile image">
+
+        <div>
+          <h2>
+            Mouad Boumediene
+            <span style="font-weight:400;">| Postdoctoral Researcher</span>
+          </h2>
+
+          <!-- Social icons (iterate over list of {url, icon}) -->
+          <div class="social-icons">
+              <a href="https://orcid.org/0000-0003-4714-5656" target="_blank"><i class="fab fa-orcid"></i></a>
+              <a href="https://github.com/mouad-boumediene" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/mouad-boumediene/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://mouad-boumediene.github.io/" target="_blank"><i class="fas fa-globe"></i></a>
+              <a href="https://www.youtube.com/@MBmoumediene-R" target="_blank"><i class="fab fa-youtube"></i></a>
+              <!--<a href="https://www.youtube.com/channel/UCR27JFRfdHEiMdSoCUeZAGg" target="_blank"><i class="fab fa-youtube"></i></a>-->
+          </div>
+
+          <!-- Short tagline/summary -->
+          <p class="subtext">Postdoctoral researcher specializing in multi-agent pathfinding, deep reinforcement learning, and UAV trajectory planning; former postdoc at SDU MMMI.</p>
+
+          <!-- Download / View CV -->
+          <a href="CV_mouad.pdf" class="btn-cv" target="_blank">Curriculum Vitae [PDF]</a>
+        </div>
+      </div>
+
+      <!-- =============================================
+           NEWS SECTION (optional)
+           - Data model per item:
+             { date, text, em, extra?, link, title }
+           - Add items by appending to 'news'
+           ============================================= -->
+      <section id="news">
+        <h3 class="section-title">News</h3>
+
+        <ul class="news-list">
+            <li>
+              July 15, 2025: HM-DRL paper published in <em>Springer’s Applied Intelligence</em>
+              — <a href="https://doi.org/10.1007/s10489-025-06747-0" target="_blank" title="Read paper"><i class="fas fa-link"></i></a>
+            </li>
+            <li>
+              June 21, 2025: HM-DRL paper accepted in <em>Springer’s Applied Intelligence</em> (preprint available)
+              — <a href="https://rdcu.be/ewnWZ" target="_blank" title="pre-print"><i class="fas fa-link"></i></a>
+            </li>
+        </ul>
+      </section>
+
+      <!-- =============================================
+           EDUCATION
+           - Data model per item:
+             { degree, institution, period, bullets?[] }
+           ============================================= -->
+      <section id="Education">
+        <h3 class="section-title">Education</h3>
+
+          <details>
+            <summary>
+              <strong>PhD in Automation</strong>, University of Skikda, Algeria
+              <span class="subtext"><em>2019 – 2023</em></span>
+            </summary>
+
+            <ul>
+                  <li>Thesis: Contributions to the command of mobile robots; focused on mobile robot pathfinding.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>
+              <strong>Master’s in Instrumentation</strong>, University of Skikda, Algeria
+              <span class="subtext"><em>2017 – 2019</em></span>
+            </summary>
+
+            <ul>
+            </ul>
+          </details>
+          <details>
+            <summary>
+              <strong>Bachelor’s in Electronics Engineering</strong>, University of Skikda, Algeria
+              <span class="subtext"><em>2014 – 2017</em></span>
+            </summary>
+
+            <ul>
+            </ul>
+          </details>
+      </section>
+
+      <!-- =============================================
+           EXPERIENCE
+           - Data model per item:
+             { role, org, period, bullets?[] }
+           ============================================= -->
+      <section id="experience">
+        <h3 class="section-title">Experience</h3>
+
+          <details>
+            <summary>
+              <strong>Postdoctoral Researcher</strong>, MMMI – University of Southern Denmark (Odense, Denmark)
+              <span class="subtext"><em>2023 – 2024</em></span>
+            </summary>
+
+            <ul>
+                  <li>Developed multi-robot coordination approaches using deep reinforcement learning.</li>
+                  <li>Contributed to the &#39;Swarm Robotics for Industry 4.0&#39; project (Independent Research Fund Denmark, grant 0136-00251B).</li>
+                  <li>Proposed HM-DRL for distributed MAPF and published it in Applied Intelligence.</li>
+                  <li>Built Relocation-MAPF to reduce bottlenecks in dense MAPF environments.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>
+              <strong>Robotics Researcher (PhD Internship)</strong>, Syddansk Universitet – University of Southern Denmark
+              <span class="subtext"><em>Feb 2023</em></span>
+            </summary>
+
+            <ul>
+                  <li>Studied deep RL for AMR swarms in Industry 4.0 settings; contributed under grant 0136-00251B.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>
+              <strong>Robotics Engineer (Freelance)</strong>, AiGro Netherlands (remote)
+              <span class="subtext"><em>2021 – 2022</em></span>
+            </summary>
+
+            <ul>
+                  <li>Built a 2D simulator for pathfinding and localization algorithm development for agricultural mobile robots.</li>
+                  <li>Implemented Kalman filter–based sensor fusion using IMU and GPS; validated with real-world data.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>
+              <strong>Temporary Lecturer</strong>, University of 20 Août 1955 – Skikda, Algeria
+              <span class="subtext"><em>2019 – 2022</em></span>
+            </summary>
+
+            <ul>
+                  <li>Taught advanced signal processing and digital regulation (labs and tutorials).</li>
+                  <li>Supervised Master’s students’ final-year projects.</li>
+            </ul>
+          </details>
+      </section>
+
+      <!-- =============================================
+           PUBLICATIONS
+           - Top-level intro text is static
+           - Render ALL items; JS shows in batches (init/step)
+           - Publication item data model:
+             {
+               id, type, title,
+               paper_link?,          # internal details page
+               url,                  # external DOI/publisher
+               code?,                # GitHub or code repo
+               video?,               # YouTube (embed or page)
+               bibtex,               # citation copied via button
+               thumbnail?,           # optional preview image
+               authors, venue,
+               notes? (HTML allowed via |safe)
+             }
+           - To add a new publication: append to 'publications'
+           ============================================= -->
+      <section id="publications">
+        <h3 class="section-title">Publications</h3>
+        <p class="subtext">Journal Papers / Conference Proceedings / Preprint</p>
+
+        <!-- Publication list container
+             - data-init: initial visible count
+             - data-step: items added per click -->
+        <div class="publication-list" id="publicationList" data-init="12" data-step="12">
+
+            <!-- Single publication item -->
+            <div class="publication-item">
+
+              <!-- Header: title + quick links -->
+              <div class="publication-header">
+                <div class="title">
+                  <strong>6.</strong>
+                  <span class="pub-label">Journal</span>
+
+                  <!-- If internal page exists, link title to it -->
+                    <a href="Papers/6/index.html" class="publication-title">HM-DRL: Enhancing multi-agent pathfinding with a heatmap-based heuristic for distributed deep reinforcement learning.</a>
+                </div>
+
+                <!-- Icon links: DOI, Code, Video, BibTeX copy -->
+                <div class="pub-icons">
+                  <a href="https://link.springer.com/article/10.1007/s10489-025-06747-0" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+
+
+                    <a href="https://www.youtube.com/embed/JewlWUvDAwg" target="_blank" title="Video"><i class="fab fa-youtube"></i></a>
+
+                  <!-- BibTeX copied via data attribute -->
+                  <a href="#" class="copy-citation" data-citation="@article{Boumediene2025HMDRL,
+  title = {HM-DRL: Enhancing multi-agent pathfinding with a heatmap-based heuristic for distributed deep reinforcement learning.},
+  author = {Mouad Boumediene and Abderraouf Maoudj and Anders Lyhne Christensen},
+  journal = {Applied Intelligence},
+  publisher = {Springer US},
+  volume = {55},
+  number = {12},
+  pages = {873},
+  year = {2025}
+}" title="BibTeX">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Body: thumbnail (optional) + details -->
+              <div class="publication-content">
+                  <img
+                    src="Papers/6/images/thumbnail.gif"
+                    alt="Thumbnail"
+                    class="pub-thumb"
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="180"
+                    onerror="this.closest('.publication-content')?.classList.remove('has-thumb'); this.remove();">
+
+                <div class="publication-detail">
+                  <p class="authors">M. Boumediene, A. Maoudj &amp; A. L. Christensen</p>
+                  <p class="venue">Applied Intelligence, vol. 55, no. 12, pp. 873, 2025.</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- Single publication item -->
+            <div class="publication-item">
+
+              <!-- Header: title + quick links -->
+              <div class="publication-header">
+                <div class="title">
+                  <strong>5.</strong>
+                  <span class="pub-label">Conference</span>
+
+                  <!-- If internal page exists, link title to it -->
+                    <a href="Papers/5/index.html" class="publication-title">Gen4jectory algorithm–4-D trajectory planning with minimised flight time for multiple rotary-wing UAVs</a>
+                </div>
+
+                <!-- Icon links: DOI, Code, Video, BibTeX copy -->
+                <div class="pub-icons">
+                  <a href="https://pure.au.dk/portal/en/publications/gen4jectory-algorithm-4-d-trajectory-planning-with-minimised-flig" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+
+                    <a href="https://github.com/mouad-boumediene/Gen4jectory" target="_blank" title="Code"><i class="fab fa-github"></i></a>
+
+                    <a href="https://www.youtube.com/embed/ySXKh59fgTM" target="_blank" title="Video"><i class="fab fa-youtube"></i></a>
+
+                  <!-- BibTeX copied via data attribute -->
+                  <a href="#" class="copy-citation" data-citation="@inproceedings{Panov2024Gen4jectory,
+  title = {Gen4jectory algorithm–4-D trajectory planning with minimised flight time for multiple rotary-wing UAVs},
+  author = {Ivan Panov and Mouad Boumediene and Henrik Midtiby and Kjeld Jensen},
+  year = {2024}
+}" title="BibTeX">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Body: thumbnail (optional) + details -->
+              <div class="publication-content">
+                  <img
+                    src="Papers/5/images/thumbnail.gif"
+                    alt="Thumbnail"
+                    class="pub-thumb"
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="180"
+                    onerror="this.closest('.publication-content')?.classList.remove('has-thumb'); this.remove();">
+
+                <div class="publication-detail">
+                  <p class="authors">I. Panov, M. Boumediene, H. Midtiby &amp; K. Jensen</p>
+                  <p class="venue">15th ANNUAL INTERNATIONAL MICRO AIR VEHICLE CONFERENCE AND COMPETITION, 2024.</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- Single publication item -->
+            <div class="publication-item">
+
+              <!-- Header: title + quick links -->
+              <div class="publication-header">
+                <div class="title">
+                  <strong>4.</strong>
+                  <span class="pub-label">Conference</span>
+
+                  <!-- If internal page exists, link title to it -->
+                    <a href="Papers/4/index.html" class="publication-title">Unicycle mobile robot control using neural model predictive controller</a>
+                </div>
+
+                <!-- Icon links: DOI, Code, Video, BibTeX copy -->
+                <div class="pub-icons">
+                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+
+
+
+                  <!-- BibTeX copied via data attribute -->
+                  <a href="#" class="copy-citation" data-citation="@inproceedings{Bellel2023UnicycleNMPC,
+  title     = {Unicycle mobile robot control using neural model predictive controller},
+  author    = {C. Bellel and L. Mehennaoui and F. Bouchareb and M. Boumediene},
+  booktitle = {Fourth International Conference on Technological Advances in Electrical Engineering (ICTAEE&#39;23)},
+  pages     = {110--117},
+  year      = {2023},
+  address   = {Skikda, Algeria}
+}" title="BibTeX">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Body: thumbnail (optional) + details -->
+              <div class="publication-content">
+                  <img
+                    src="Papers/4/images/thumbnail.png"
+                    alt="Thumbnail"
+                    class="pub-thumb"
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="180"
+                    onerror="this.closest('.publication-content')?.classList.remove('has-thumb'); this.remove();">
+
+                <div class="publication-detail">
+                  <p class="authors">C. Bellel, L. Mehennaoui, F. Bouchareb &amp; M. Boumediene</p>
+                  <p class="venue">ICTAEE&#39;23, Laboratory of Automatic of Skikda, 20 Aout 1955 University, Skikda, Algeria, May 2023, pp. 110–117.</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- Single publication item -->
+            <div class="publication-item">
+
+              <!-- Header: title + quick links -->
+              <div class="publication-header">
+                <div class="title">
+                  <strong>3.</strong>
+                  <span class="pub-label">Conference</span>
+
+                  <!-- If internal page exists, link title to it -->
+                    <a href="Papers/3/index.html" class="publication-title">Design, simulation and control of a self-balancing robot in a Gazebo environment and ROS 2 framework</a>
+                </div>
+
+                <!-- Icon links: DOI, Code, Video, BibTeX copy -->
+                <div class="pub-icons">
+                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+
+
+
+                  <!-- BibTeX copied via data attribute -->
+                  <a href="#" class="copy-citation" data-citation="@inproceedings{Boumediene2023GazeboROS2,
+  title     = {Design, simulation and control of a self-balancing robot in a Gazebo environment and ROS 2 framework},
+  author    = {Mouad Boumediene and S. Laouar and D. L. Mehennaoui and P. S. Ouchtati},
+  booktitle = {Proceedings of the International Conference on Technological Advances in Electrical Engineering (ICTAEE)},
+  pages     = {98--103},
+  year      = {2023},
+  address   = {Skikda, Algeria}
+}" title="BibTeX">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Body: thumbnail (optional) + details -->
+              <div class="publication-content">
+                  <img
+                    src="Papers/3/images/thumbnail.png"
+                    alt="Thumbnail"
+                    class="pub-thumb"
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="180"
+                    onerror="this.closest('.publication-content')?.classList.remove('has-thumb'); this.remove();">
+
+                <div class="publication-detail">
+                  <p class="authors">M. Boumediene, S. Laouar, D. L. Mehennaoui &amp; P. S. Ouchtati</p>
+                  <p class="venue">ICTAEE, Skikda, Algeria, May 2023, pp. 98–103.</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- Single publication item -->
+            <div class="publication-item">
+
+              <!-- Header: title + quick links -->
+              <div class="publication-header">
+                <div class="title">
+                  <strong>2.</strong>
+                  <span class="pub-label">Conference</span>
+
+                  <!-- If internal page exists, link title to it -->
+                    <a href="Papers/2/index.html" class="publication-title">Design, construction, and control of a self-balancing robot including a new frame assembly approach and a custom PCB</a>
+                </div>
+
+                <!-- Icon links: DOI, Code, Video, BibTeX copy -->
+                <div class="pub-icons">
+                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+
+
+
+                  <!-- BibTeX copied via data attribute -->
+                  <a href="#" class="copy-citation" data-citation="@inproceedings{Boumediene2023SelfBalancingFrame,
+  title     = {Design, construction, and control of a self-balancing robot including a new frame assembly approach and a custom PCB},
+  author    = {Mouad Boumediene and N. Zeghida and B. Manaa and D. L. Mehennaoui},
+  booktitle = {Proceedings of the International Conference on Technological Advances in Electrical Engineering (ICTAEE)},
+  pages     = {200--206},
+  year      = {2023},
+  address   = {Skikda, Algeria}
+}" title="BibTeX">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Body: thumbnail (optional) + details -->
+              <div class="publication-content">
+                  <img
+                    src="Papers/2/images/thumbnail.png"
+                    alt="Thumbnail"
+                    class="pub-thumb"
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="180"
+                    onerror="this.closest('.publication-content')?.classList.remove('has-thumb'); this.remove();">
+
+                <div class="publication-detail">
+                  <p class="authors">M. Boumediene, N. Zeghida, B. Manaa &amp; D. L. Mehennaoui</p>
+                  <p class="venue">ICTAEE, Skikda, Algeria, May 2023, pp. 200–206.</p>
+
+                </div>
+              </div>
+            </div>
+            <!-- Single publication item -->
+            <div class="publication-item">
+
+              <!-- Header: title + quick links -->
+              <div class="publication-header">
+                <div class="title">
+                  <strong>1.</strong>
+                  <span class="pub-label">Journal</span>
+
+                  <!-- If internal page exists, link title to it -->
+                    <a href="Papers/1/index.html" class="publication-title">FDA*: a focused single-query grid based path planning algorithm</a>
+                </div>
+
+                <!-- Icon links: DOI, Code, Video, BibTeX copy -->
+                <div class="pub-icons">
+                  <a href="https://www.jamris.org/index.php/JAMRIS/article/view/727" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+
+
+
+                  <!-- BibTeX copied via data attribute -->
+                  <a href="#" class="copy-citation" data-citation="@article{Boumediene2021FDA,
+  title = {FDA*: a focused single-query grid based path planning algorithm},
+  author = {Mouad Boumediene and Lamine Mehennaoui and Abderezzak Lachouri},
+  journal = {Journal of Automation, Mobile Robotics and Intelligent Systems},
+  pages = {37-43},
+  year = {2021}
+}" title="BibTeX">
+                    <i class="fas fa-quote-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Body: thumbnail (optional) + details -->
+              <div class="publication-content">
+                  <img
+                    src="Papers/1/images/thumbnail.png"
+                    alt="Thumbnail"
+                    class="pub-thumb"
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="180"
+                    onerror="this.closest('.publication-content')?.classList.remove('has-thumb'); this.remove();">
+
+                <div class="publication-detail">
+                  <p class="authors">M. Boumediene, L. Mehennaoui &amp; A. Lachouri</p>
+                  <p class="venue">Journal of Automation, Mobile Robotics and Intelligent Systems, pp. 37-43, 2021.</p>
+
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Controls for progressive reveal
+             - Keep IDs consistent with script below -->
+        <div class="pub-controls" aria-live="polite">
+          <button id="pub-load-more" class="btn-outline" type="button">Load more</button>
+          <button id="pub-show-less" class="btn-outline" type="button" style="display:none;">Show less</button>
+          <span id="pub-count"></span>
+        </div>
+      </section>
+
+      <!-- =============================================
+           SKILLS (optional)
+           - Data model per item:
+             { name, level?, category?, keywords?[] }
+           ============================================= -->
+      <section id="skills">
+        <h3 class="section-title">Skills</h3>
+
+        <ul class="skills-list">
+            <li>
+              <strong>Python</strong>
+<span class="subtext"> — Expert</span><span class="subtext"> · Programming</span>                <div class="subtext">NumPy, PyTorch, TensorFlow, Pandas, Matlab</div>
+            </li>
+            <li>
+              <strong>C++</strong>
+<span class="subtext"> — Advanced</span><span class="subtext"> · Programming</span>                <div class="subtext">ROS, Gazebo, Git, LaTeX</div>
+            </li>
+        </ul>
+      </section>
+
+
+      <!-- =============================================
+           CONTACTS
+           - Data model per item:
+             { icon, value (HTML-safe) }
+           ============================================= -->
+      <section id="contacts">
+        <h3 class="section-title">Contacts</h3>
+
+        <div class="contact-list">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:mouadboumediene@yahoo.fr">mouadboumediene@yahoo.fr</a></p>
+            <p><i class="fas fa-phone"></i> +213 7 93 74 18 90</p>
+            <p><i class="fas fa-map-marker-alt"></i> Zerdezas, 21047 Skikda, Algeria</p>
+            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mouad-boumediene/" target="_blank">linkedin.com/in/mouad-boumediene</a></p>
+            <p><i class="fab fa-github"></i> <a href="https://github.com/mouad-boumediene" target="_blank">github.com/mouad-boumediene</a></p>
+            <p><i class="fab fa-orcid"></i> <a href="https://orcid.org/0000-0003-4714-5656" target="_blank">orcid.org/0000-0003-4714-5656</a></p>
+            <p><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/channel/UCR27JFRfdHEiMdSoCUeZAGg" target="_blank">YouTube: Mouad Boumediene – Hobby Coding</a></p>
+            <p><i class="fas fa-globe"></i> <a href="https://mouad-boumediene.github.io/" target="_blank">mouad-boumediene.github.io</a></p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- =============================================
+       FOOTER & TOAST (non-blocking notifications)
+       ============================================= -->
+  <footer>&copy; 2025 Mouad Boumediene | Built with ❤️ and HTML/CSS</footer>
+  <div id="toast">Citation copied!</div>
+
+  <!-- =============================================
+       SCRIPTS
+       - Keep vanilla JS minimal; no dependencies required
+       - Behavior:
+         1) Copy BibTeX to clipboard w/ toast feedback
+         2) Progressive reveal for publications
+       ============================================= -->
+  <script>
+    // -------------------------------------------------
+    // 1) Copy BibTeX to clipboard
+    //    - Uses data-citation attribute on .copy-citation
+    //    - Shows #toast for 2 seconds upon success
+    // -------------------------------------------------
+    document.querySelectorAll('.copy-citation').forEach(el => {
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        const citation = el.getAttribute('data-citation') || '';
+        navigator.clipboard.writeText(citation).then(() => {
+          const toast = document.getElementById('toast');
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+        });
+      });
+    });
+
+    // -------------------------------------------------
+    // 2) Publications: Load more / Show less
+    //    - Reads init/step from #publicationList data-*
+    //    - Updates label (#pub-count) for accessibility
+    // -------------------------------------------------
+    (function () {
+      const list = document.getElementById('publicationList');
+      if (!list) return;
+
+      const items = Array.from(list.querySelectorAll('.publication-item'));
+      const total = items.length;
+
+      // Initial visible items and step per click
+      const init = Math.max(1, parseInt(list.dataset.init || '12', 10));
+      const step = Math.max(1, parseInt(list.dataset.step || '12', 10));
+
+      // Controls
+      const btnMore = document.getElementById('pub-load-more');
+      const btnLess = document.getElementById('pub-show-less');
+      const label   = document.getElementById('pub-count');
+
+      // Track how many are currently shown
+      let shown = Math.min(init, total);
+
+      // Render visibility + controls
+      function render() {
+        items.forEach((el, i) => {
+          el.style.display = i < shown ? '' : 'none';
+        });
+
+        btnMore.style.display = shown < total ? '' : 'none';
+        btnLess.style.display = shown > init ? '' : 'none';
+
+        if (label) label.textContent = total ? `Showing ${shown} of ${total}` : '';
+      }
+
+      // Expand list
+      btnMore?.addEventListener('click', () => {
+        shown = Math.min(total, shown + step);
+        render();
+      });
+
+      // Collapse to initial state
+      btnLess?.addEventListener('click', () => {
+        shown = Math.min(init, total);
+        document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        render();
+      });
+
+      // Initial paint
+      render();
+    })();
+  </script>
+</body>
+</html>
