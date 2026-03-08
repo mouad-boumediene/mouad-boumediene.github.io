@@ -10,6 +10,8 @@
   
   <!-- Canonical (update if you add a custom domain) -->
   <link rel="canonical" href="https://mouad-boumediene.github.io/">
+  <link rel="icon" type="image/jpeg" href="profile_image.jpg">
+  <link rel="apple-touch-icon" href="profile_image.jpg">
 
   <!-- Open Graph / Twitter (social previews) -->
   <meta property="og:type" content="website">
@@ -32,6 +34,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://mouad-boumediene.github.io/#person",
     "name": "Mouad Boumediene",
     "jobTitle": "Postdoctoral Researcher",
     "url": "https://mouad-boumediene.github.io/",
@@ -41,6 +44,31 @@
       "https://github.com/mouad-boumediene",
       "https://www.linkedin.com/in/mouad-boumediene/",
       "https://www.youtube.com/channel/UCR27JFRfdHEiMdSoCUeZAGg"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://mouad-boumediene.github.io/#website",
+        "url": "https://mouad-boumediene.github.io/",
+        "name": "Mouad Boumediene"
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://mouad-boumediene.github.io/#profile-page",
+        "url": "https://mouad-boumediene.github.io/",
+        "name": "Mouad Boumediene — Postdoctoral Researcher",
+        "isPartOf": {
+          "@id": "https://mouad-boumediene.github.io/#website"
+        },
+        "mainEntity": {
+          "@id": "https://mouad-boumediene.github.io/#person"
+        }
+      }
     ]
   }
   </script>
@@ -149,7 +177,7 @@
           <p class="subtext">Postdoctoral researcher specializing in multi-agent pathfinding, deep reinforcement learning, and UAV trajectory planning; former postdoc at SDU MMMI.</p>
 
           <!-- Download / View CV -->
-          <a href="CV_mouad.pdf" class="btn-cv" target="_blank">Curriculum Vitae [PDF]</a>
+          <a href="CV_mouad.pdf" class="btn-cv" target="_blank" rel="noopener noreferrer">Curriculum Vitae [PDF]</a>
         </div>
       </div>
 
@@ -164,20 +192,20 @@
 
         <ul class="news-list">
             <li>
-              Nov, 2025: Published an online course titled: <em>Drone Simulation Using ROS 2 and Gazebo<em> at <em>Udemy</em>
-              — <a href="https://www.udemy.com/course/ros2-drone-simulation-with-gazebo/" target="_blank" title="Link"><i class="fas fa-link"></i></a>
+              Nov, 2025: Published an online course titled: <em>Drone Simulation Using ROS 2 and Gazebo</em> at <em>Udemy</em>
+              — <a href="https://www.udemy.com/course/ros2-drone-simulation-with-gazebo/" target="_blank" title="Link" rel="noopener noreferrer" aria-label="Link"><i class="fas fa-link"></i></a>
             </li>
             <li>
               Oct 28, 2025: Started a new research advisor position at <em>KongeDrones ApS</em>
-              — <a href="https://kongedrones.dk/" target="_blank" title="Official website"><i class="fas fa-link"></i></a>
+              — <a href="https://kongedrones.dk/" target="_blank" title="Official website" rel="noopener noreferrer" aria-label="Official website"><i class="fas fa-link"></i></a>
             </li>
             <li>
               July 15, 2025: HM-DRL paper published in <em>Springer’s Applied Intelligence</em>
-              — <a href="https://doi.org/10.1007/s10489-025-06747-0" target="_blank" title="Read paper"><i class="fas fa-link"></i></a>
+              — <a href="https://doi.org/10.1007/s10489-025-06747-0" target="_blank" title="Read paper" rel="noopener noreferrer" aria-label="Read paper"><i class="fas fa-link"></i></a>
             </li>
             <li>
               June 21, 2025: HM-DRL paper accepted in <em>Springer’s Applied Intelligence</em> (preprint available)
-              — <a href="https://rdcu.be/ewnWZ" target="_blank" title="pre-print"><i class="fas fa-link"></i></a>
+              — <a href="https://rdcu.be/ewnWZ" target="_blank" title="pre-print" rel="noopener noreferrer" aria-label="pre-print"><i class="fas fa-link"></i></a>
             </li>
         </ul>
       </section>
@@ -324,10 +352,10 @@
 
                 <!-- Icon links: DOI, Code, Video, BibTeX copy -->
                 <div class="pub-icons">
-                  <a href="https://link.springer.com/article/10.1007/s10489-025-06747-0" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+                  <a href="https://link.springer.com/article/10.1007/s10489-025-06747-0" target="_blank" title="DOI" rel="noopener noreferrer" aria-label="DOI"><i class="fas fa-link"></i></a>
 
 
-                    <a href="https://www.youtube.com/embed/JewlWUvDAwg" target="_blank" title="Video"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.youtube.com/watch?v=JewlWUvDAwg" target="_blank" title="Video" rel="noopener noreferrer" aria-label="Video"><i class="fab fa-youtube"></i></a>
 
                   <!-- BibTeX copied via data attribute -->
                   <a href="#" class="copy-citation" data-citation="@article{Boumediene2025HMDRL,
@@ -339,7 +367,7 @@
   number = {12},
   pages = {873},
   year = {2025}
-}" title="BibTeX">
+}" title="BibTeX" aria-label="BibTeX">
                     <i class="fas fa-quote-right"></i>
                   </a>
                 </div>
@@ -379,18 +407,18 @@
 
                 <!-- Icon links: DOI, Code, Video, BibTeX copy -->
                 <div class="pub-icons">
-                  <a href="https://pure.au.dk/portal/en/publications/gen4jectory-algorithm-4-d-trajectory-planning-with-minimised-flig" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+                  <a href="https://pure.au.dk/portal/en/publications/gen4jectory-algorithm-4-d-trajectory-planning-with-minimised-flig" target="_blank" title="DOI" rel="noopener noreferrer" aria-label="DOI"><i class="fas fa-link"></i></a>
 
-                    <a href="https://github.com/mouad-boumediene/Gen4jectory" target="_blank" title="Code"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/mouad-boumediene/Gen4jectory" target="_blank" title="Code" rel="noopener noreferrer" aria-label="Code"><i class="fab fa-github"></i></a>
 
-                    <a href="https://www.youtube.com/embed/ySXKh59fgTM" target="_blank" title="Video"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.youtube.com/watch?v=ySXKh59fgTM" target="_blank" title="Video" rel="noopener noreferrer" aria-label="Video"><i class="fab fa-youtube"></i></a>
 
                   <!-- BibTeX copied via data attribute -->
                   <a href="#" class="copy-citation" data-citation="@inproceedings{Panov2024Gen4jectory,
   title = {Gen4jectory algorithm–4-D trajectory planning with minimised flight time for multiple rotary-wing UAVs},
   author = {Ivan Panov and Mouad Boumediene and Henrik Midtiby and Kjeld Jensen},
   year = {2024}
-}" title="BibTeX">
+}" title="BibTeX" aria-label="BibTeX">
                     <i class="fas fa-quote-right"></i>
                   </a>
                 </div>
@@ -430,7 +458,7 @@
 
                 <!-- Icon links: DOI, Code, Video, BibTeX copy -->
                 <div class="pub-icons">
-                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI" rel="noopener noreferrer" aria-label="DOI"><i class="fas fa-link"></i></a>
 
 
 
@@ -442,7 +470,7 @@
   pages     = {110--117},
   year      = {2023},
   address   = {Skikda, Algeria}
-}" title="BibTeX">
+}" title="BibTeX" aria-label="BibTeX">
                     <i class="fas fa-quote-right"></i>
                   </a>
                 </div>
@@ -482,7 +510,7 @@
 
                 <!-- Icon links: DOI, Code, Video, BibTeX copy -->
                 <div class="pub-icons">
-                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI" rel="noopener noreferrer" aria-label="DOI"><i class="fas fa-link"></i></a>
 
 
 
@@ -494,7 +522,7 @@
   pages     = {98--103},
   year      = {2023},
   address   = {Skikda, Algeria}
-}" title="BibTeX">
+}" title="BibTeX" aria-label="BibTeX">
                     <i class="fas fa-quote-right"></i>
                   </a>
                 </div>
@@ -534,7 +562,7 @@
 
                 <!-- Icon links: DOI, Code, Video, BibTeX copy -->
                 <div class="pub-icons">
-                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+                  <a href="https://drive.google.com/file/d/1C6RUU5zixy_UfJga0yu86lvQMPaJo1EE/view?usp=sharing" target="_blank" title="DOI" rel="noopener noreferrer" aria-label="DOI"><i class="fas fa-link"></i></a>
 
 
 
@@ -546,7 +574,7 @@
   pages     = {200--206},
   year      = {2023},
   address   = {Skikda, Algeria}
-}" title="BibTeX">
+}" title="BibTeX" aria-label="BibTeX">
                     <i class="fas fa-quote-right"></i>
                   </a>
                 </div>
@@ -586,7 +614,7 @@
 
                 <!-- Icon links: DOI, Code, Video, BibTeX copy -->
                 <div class="pub-icons">
-                  <a href="https://www.jamris.org/index.php/JAMRIS/article/view/727" target="_blank" title="DOI"><i class="fas fa-link"></i></a>
+                  <a href="https://www.jamris.org/index.php/JAMRIS/article/view/727" target="_blank" title="DOI" rel="noopener noreferrer" aria-label="DOI"><i class="fas fa-link"></i></a>
 
 
 
@@ -597,7 +625,7 @@
   journal = {Journal of Automation, Mobile Robotics and Intelligent Systems},
   pages = {37-43},
   year = {2021}
-}" title="BibTeX">
+}" title="BibTeX" aria-label="BibTeX">
                     <i class="fas fa-quote-right"></i>
                   </a>
                 </div>
@@ -666,11 +694,11 @@
             <p><i class="fas fa-envelope"></i> <a href="mailto:mouadboumediene@yahoo.fr">mouadboumediene@yahoo.fr</a></p>
             <p><i class="fas fa-phone"></i> +213 7 93 74 18 90</p>
             <p><i class="fas fa-map-marker-alt"></i> Zerdezas, 21047 Skikda, Algeria</p>
-            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mouad-boumediene/" target="_blank">linkedin.com/in/mouad-boumediene</a></p>
-            <p><i class="fab fa-github"></i> <a href="https://github.com/mouad-boumediene" target="_blank">github.com/mouad-boumediene</a></p>
-            <p><i class="fab fa-orcid"></i> <a href="https://orcid.org/0000-0003-4714-5656" target="_blank">orcid.org/0000-0003-4714-5656</a></p>
-            <p><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/channel/UCR27JFRfdHEiMdSoCUeZAGg" target="_blank">YouTube: Mouad Boumediene – Hobby Coding</a></p>
-            <p><i class="fas fa-globe"></i> <a href="https://mouad-boumediene.github.io/" target="_blank">mouad-boumediene.github.io</a></p>
+            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mouad-boumediene/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mouad-boumediene</a></p>
+            <p><i class="fab fa-github"></i> <a href="https://github.com/mouad-boumediene" target="_blank" rel="noopener noreferrer">github.com/mouad-boumediene</a></p>
+            <p><i class="fab fa-orcid"></i> <a href="https://orcid.org/0000-0003-4714-5656" target="_blank" rel="noopener noreferrer">orcid.org/0000-0003-4714-5656</a></p>
+            <p><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/channel/UCR27JFRfdHEiMdSoCUeZAGg" target="_blank" rel="noopener noreferrer">YouTube: Mouad Boumediene – Hobby Coding</a></p>
+            <p><i class="fas fa-globe"></i> <a href="https://mouad-boumediene.github.io/" target="_blank" rel="noopener noreferrer">mouad-boumediene.github.io</a></p>
         </div>
       </section>
 
